@@ -100,8 +100,8 @@ export default {
     },
   },
 };
-
 </script>
+
 <style lang="less" scoped>
 .item-title {
   display: flex;

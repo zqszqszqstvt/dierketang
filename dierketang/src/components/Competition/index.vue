@@ -29,12 +29,11 @@
         报名请查看
       </div>
       <div class="details">
-        <a :href="competition.link" class="common-after-icon v-4-6 event-detail-manage-btn" target="_blank">竞赛详情</a>
+        <a :href="competition.link" target="_blank">竞赛详情</a>
       </div>
       <div class="item-status">
         距离报名截止还有 {{ competition.remainingDays }} 天
       </div>
-      
     </div>
   </div>
 </template>
@@ -43,22 +42,20 @@
 export default {
   data() {
     return {
-      competition: {
-        title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-        link: 'https://www.saikr.com/vse/cwctic/2023',
-        organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
-        level: '全国性',
-        registrationTime: '2023.10.21 ～ 2023.12.29',
-        competitionTime: '2023.12.30 ～ 2023.12.31',
-        remainingDays: 23
-      }
+      
     };
+  },
+  props: {
+    competition: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>
 <style lang="less" scoped>
   .box {
-    margin: 5px;
+    margin-top: 5px;
     width: 50%;
     padding: 20px;
     background-color: #f9f9f9;
@@ -121,7 +118,6 @@ export default {
     color: #fff;
     border-radius: 5px;
     margin-left: 20px;
-    
   }
   p {
     text-align: left;
