@@ -130,11 +130,11 @@ export default {
 }
 .box {
   border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
-  width: 700px; /* 设置宽度为 500px */
+  width: 50%; /* 设置宽度为 50% */
   padding: 15px;
   border-radius: 10px; /* 设置边框为圆角，半径为 10px */
-  margin-left: 250px; /* 整个组件向右移动 50px */
   margin-top: 0;
 }
+
 
 </style>
