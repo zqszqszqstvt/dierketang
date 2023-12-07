@@ -1,10 +1,14 @@
 <template>
   <div class="box">
-    <CompetitionChoose/>
+    <div class="choose">
+      <CompetitionChoose/>
+    </div>
     <div class="hot-competition">
       <CompetitionRank v-for="(item, index) in HotCompetitions" :key="index" :HotCompetition="item"/>
     </div>
-    <Competition v-for="(item, index) in competitions" :key="index" :competition="item"/>
+    <div class="competition-item">
+      <Competition v-for="(item, index) in competitions" :key="index" :competition="item"/>
+    </div>
   </div>
 </template>
 
@@ -73,7 +77,20 @@ export default {
       {
         title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
         link: 'https://www.saikr.com/vse/cwctic/2023'
+      },
+      {
+        title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
+        link: 'https://www.saikr.com/vse/cwctic/2023'
+      },
+      {
+        title: '【多省市译协盖章】2023年第九届中西dassadasdasdsadasdfdfsdfsdfsfds部外语翻译大赛',
+        link: 'https://www.saikr.com/vse/cwctic/2023'
+      },
+      {
+        title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
+        link: 'https://www.saikr.com/vse/cwctic/2023'
       }]; // 假设你的API返回的数据就是你需要的数据
+      console.log(this.$store.state.competitionType)
     }
   }
 }
@@ -81,16 +98,21 @@ export default {
 
 <style lang="less" scoped>
 .box {
-  margin-left: 10%;
+
 }
 .hot-competition {
-  width: 28%;
+  width: 25%;
   float: right;
-  margin: 5px;
-  border: 1px solid #808080;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 16%;
+  margin-top: 10px;
   border-radius: 10px; /* 这将给边框添加圆角 */
   overflow: hidden; /* 隐藏超出盒子的内容 */
   position: relative; /* 为伪元素设置定位的参照 */
+  text-align: left;
+  background-color: #f9f9f9;
+  border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
 }
 .hot-competition::after { /* 创建一个伪元素来实现渐隐效果 */
     content: "";
@@ -99,6 +121,14 @@ export default {
     width: 10%; /* 伪元素的宽度决定了渐隐效果的范围 */
     height: 100%;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* 创建一个从透明到白色的渐变背景 */
-  }
+}
+.choose{
+  margin-right: 16%;
+  margin-left: 16%;
+}
+.competition-item {
+  margin-left: 16%;
+  margin-top: 10px;
+}
 </style>>
 

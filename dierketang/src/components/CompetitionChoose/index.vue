@@ -28,9 +28,6 @@
         <div class="fl item-con clearfix" style="position: relative; top: 5px;">
           <div v-for="(sorting, sIndex) in sortingOptions" :key="sIndex" class="fl item-link" :class="{ active: sorting.active }" @click="handleSortingClick(sorting.label)">{{ sorting.label }}</div>
         </div>
-        <form action="" class="fr sk-event-screen-form" id="eventScreenForm">
-          <!-- 你的表单内容 -->
-        </form>
       </div>
     </div>
   </div>
@@ -76,6 +73,7 @@ export default {
         });
       }
       });
+      this.$store.dispatch('updateCondition1', title)
     },
     handleSubjectClick(subjectTitle) {
       this.categories.forEach((category) => {
@@ -86,18 +84,21 @@ export default {
           });
         }
       });
+      this.$store.dispatch('updateCondition1', subjectTitle)
     },
     handleLevelClick(title) {
       this.competitionLevels.forEach((level) => {
         level.active = level.name === title;
       });
+      this.$store.dispatch('updateCondition2', title)
     },
 
     handleSortingClick(title) {
       this.sortingOptions.forEach((sorting) => {
         sorting.active = sorting.label === title;
       });
-    },
+      this.$store.dispatch('updateCondition3', title)
+    }
   },
 };
 </script>
@@ -130,10 +131,9 @@ export default {
 }
 .box {
   border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
-  width: 50%; /* 设置宽度为 50% */
+  // width: 50%; /* 设置宽度为 50% */
   padding: 15px;
   border-radius: 10px; /* 设置边框为圆角，半径为 10px */
-  margin-top: 0;
 }
 
 

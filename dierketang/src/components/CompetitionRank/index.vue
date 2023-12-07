@@ -31,6 +31,5 @@ export default {
     white-space: nowrap; /* 防止文本换行 */
     overflow: hidden; /* 隐藏超出链接的内容 */
     text-overflow: ellipsis; /* 当文本超出链接时显示省略号 */
-    
   }
 </style>
