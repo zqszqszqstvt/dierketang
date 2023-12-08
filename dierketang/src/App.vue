@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <CompetitionPage/>
+    <!-- <CompetitionPage/> -->
+    <MyCompetitionPage/>
   </div>
 </template>
 
 <script>
 import CompetitionPage from './components/CompetitionPage'
-
+import MyCompetitionPage from './components/MyCompetitionPage'
 
 
 export default {
   name: 'App',
   components: {
-    CompetitionPage
+    CompetitionPage,
+    MyCompetitionPage
   }
 }
 </script>
