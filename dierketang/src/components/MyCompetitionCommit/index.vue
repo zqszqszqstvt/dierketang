@@ -53,10 +53,9 @@ export default {
     submitForm() {
       // 在这里处理表单提交
       if (!this.competitionLevel || !this.awardLevel || !this.competitionName || !this.competitionScore) {
-      alert('所有字段都必须填写！');
+      alert('所有信息都必须填写！');
       return;
     }
-
     const formData = {
       competitionLevel: this.competitionLevel,
       awardLevel: this.awardLevel,
@@ -82,16 +81,17 @@ export default {
 
 <style lang="less" scoped>
 .card {
-  width: 600px;
+  width: 1000px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  margin: 0 auto;
+  margin-top: 6px;
+  // margin: 0 auto;
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -108,17 +108,19 @@ form {
 }
 
 .form-group {
-  flex: 1 0 200px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .form-group label {
   margin-bottom: 5px;
+  margin-right: 3px;
 }
 
 .form-group input,
 .form-group select {
+  width: 150px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -127,6 +129,7 @@ form {
 .button-group {
   flex: 1 0 100%;
   text-align: right;
+  margin-top: 10px;
 }
 
 .button-group button {

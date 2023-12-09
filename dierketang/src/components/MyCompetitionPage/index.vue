@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="box">
     <MyCompetitionUser/>
     <MyCompetitionCommit/>
-    <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
+    <div class="awardsItem">
+      <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
+    </div>
   </div>
 </template>
 
@@ -47,11 +49,54 @@ export default {
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
+        },{
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          score: '20'
         }]
     }
   }
 };
 </script>
 <style lang="less" scoped>
-
+.box {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.awardsItem {
+  display: flex;
+  width: 1000px;
+  flex-wrap: wrap;
+}
 </style>

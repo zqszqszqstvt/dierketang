@@ -1,9 +1,8 @@
 <template>
   <div class="card">
     <h2>{{ award.competitionName }}</h2>
-    <p>竞赛级别：{{ award.competitionLevel }}</p>
-    <p>获奖等级：{{ award.awardLevel }}</p>
-    <p>量化分数：{{ award.score }}</p>
+    <p>{{ award.competitionLevel }}{{ award.awardLevel }}</p>
+    <p class="score">{{ award.score }}分</p>
   </div>
 </template>
 
@@ -26,16 +25,21 @@ export default {
 </script>
 <style lang="less" scoped>
 .card {
-  width: 300px;
+  width: 315px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  margin: 0 auto;
+  margin: 8px;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+.score {
+  font-size: 24px;
+  color: #3f51b5;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 </style>

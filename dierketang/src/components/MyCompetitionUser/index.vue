@@ -5,20 +5,23 @@
       <h2>{{ userInfo.nickname }}</h2>
       <p>{{ userInfo.profession }}</p>
     </div>
-    <svg class="progress-ring" :width="radius * 2" :height="radius * 2">
-    <circle
-      class="progress-ring__circle"
-      stroke="#800080"
-      :stroke-dasharray="circumference + ' ' + circumference"
-      :style="{ strokeDashoffset: progress + 'px' }"
-      stroke-width="4"
-      fill="transparent"
-      :r="normalizedRadius"
-      :cx="radius"
-      :cy="radius"
-    />
-    <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
-  </svg>
+    <div>
+      <svg class="progress-ring" :width="radius * 2" :height="radius * 2">
+        <circle
+        class="progress-ring__circle"
+        stroke="#800080"
+        :stroke-dasharray="circumference + ' ' + circumference"
+        :style="{ strokeDashoffset: progress + 'px' }"
+        stroke-width="4"
+        fill="transparent"
+        :r="normalizedRadius"
+        :cx="radius"
+        :cy="radius"
+        />
+        <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
+      </svg>
+      <h3>合计得分</h3>
+    </div>
   </div>
 </template>
 
@@ -61,6 +64,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .profile {
+  width: 1000px;
   text-align: center;
   border-bottom: 1px solid #ddd;
   padding: 20px;
@@ -76,7 +80,7 @@ export default {
 .user-info {
     margin-top: 20px;
     margin-left: 10px;
-    margin-right: 30%;
+    margin-right: 600px;
 }
 .profile h2, .profile p {
   margin: 0 0 10px 0;
