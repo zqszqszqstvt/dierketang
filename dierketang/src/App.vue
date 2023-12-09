@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <!-- <CompetitionPage/> -->
-    <MyCompetitionPage/>
+    <!-- <MyCompetitionPage/> -->
+    <KaoYanBaoYanPage/>
+
   </div>
 </template>
 
 <script>
 import CompetitionPage from './components/CompetitionPage'
 import MyCompetitionPage from './components/MyCompetitionPage'
-
+import KaoYanBaoYanPage from './components/KaoYanBaoYanPage'
 
 export default {
   name: 'App',
   components: {
     CompetitionPage,
-    MyCompetitionPage
+    MyCompetitionPage,
+    KaoYanBaoYanPage
   }
 }
 </script>
@@ -26,7 +29,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>>
 
