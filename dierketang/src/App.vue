@@ -2,7 +2,8 @@
   <div id="app">
     <!-- <CompetitionPage/> -->
     <!-- <MyCompetitionPage/> -->
-    <KaoYanBaoYanPage/>
+    <!-- <KaoYanBaoYanPage/> -->
+    <ClassScorePage/>
 
   </div>
 </template>
@@ -11,13 +12,15 @@
 import CompetitionPage from './components/CompetitionPage'
 import MyCompetitionPage from './components/MyCompetitionPage'
 import KaoYanBaoYanPage from './components/KaoYanBaoYanPage'
+import ClassScorePage from './components/ClassScorePage'
 
 export default {
   name: 'App',
   components: {
     CompetitionPage,
     MyCompetitionPage,
-    KaoYanBaoYanPage
+    KaoYanBaoYanPage,
+    ClassScorePage
   }
 }
 </script>
@@ -27,9 +30,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
-</style>>
+</style>
 
 

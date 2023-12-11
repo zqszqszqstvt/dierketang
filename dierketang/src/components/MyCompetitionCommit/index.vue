@@ -67,8 +67,8 @@ export default {
     // 在这里可以发送formData到服务器
     },
     resetForm() {
-      this.competitionLevel='世界级';
-      this.awardLevel='一等奖';
+      this.competitionLevel='0';
+      this.awardLevel='1';
       this.competitionName='';
       this.competitionScore='';
     }

@@ -8,16 +8,16 @@
     <div>
       <svg class="progress-ring" :width="radius * 2" :height="radius * 2">
         <circle
-        class="progress-ring__circle"
-        stroke="#800080"
-        :stroke-dasharray="circumference + ' ' + circumference"
-        :style="{ strokeDashoffset: progress + 'px' }"
-        stroke-width="4"
-        fill="transparent"
-        :r="normalizedRadius"
-        :cx="radius"
-        :cy="radius"
-        />
+            class="progress-ring__circle"
+            stroke="#800080"
+            :stroke-dasharray="circumference + ' ' + circumference"
+            :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
+            stroke-width="4"
+            fill="transparent"
+            :r="normalizedRadius"
+            :cx="radius"
+            :cy="radius"
+            />
         <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
       </svg>
       <h3>合计得分</h3>
@@ -48,7 +48,7 @@ export default {
         nickname:'阿发',
         profession:'智能科学与技术'
       }
-    this.progress=80
+    this.progress=50
   },
    props: {
   },
@@ -58,7 +58,10 @@ export default {
     },
     circumference() {
       return 2 * Math.PI * this.normalizedRadius;
-    }
+    },
+    strokeDashoffset() {
+        return ((100 - this.progress) / 100) * this.circumference;
+      }
   }
 };
 </script>
