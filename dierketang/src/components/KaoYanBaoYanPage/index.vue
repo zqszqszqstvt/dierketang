@@ -1,6 +1,7 @@
 <template>
   <div class="box">
-    <div class="left">
+    <div class="mini-box">
+      <div class="left">
         <div class="main-title">
           <h2>考研动态</h2>
         </div>
@@ -15,6 +16,7 @@
       <div class="Hot">
         <KaoYanBaoYanHot v-for="(item, index) in HotBaoYanInfos" :key="index" :HotBaoYanInfo="item"/>
       </div>
+    </div>
     </div>
     
   </div>
@@ -118,9 +120,12 @@ export default {
     margin-left: 20px;
 }
 .box {
-    width: 1500px;
     display: flex;
-    margin-left: 15%;
-    
+    justify-content: center;
+    align-items: center; 
+}
+.mini-box {
+  width: 1200px;
+  display: flex;
 }
 </style>

@@ -89,7 +89,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-top: 6px;
-    // margin: 0 auto;
   }
   
   h2 {
@@ -137,17 +136,25 @@
   .button-group button {
     padding: 5px 10px;
     border-radius: 5px;
-    border: none;
-    color: #fff;
     cursor: pointer;
+    background-color: transparent; /* 设置默认背景颜色为透明 */
+    color: black; /* 设置文字颜色为黑色 */
+    border: 2px solid #DDDDDD; /* 设置边框 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
   }
-  
-  .button-group button:first-child {
-    background-color: #007BFF;
+
+  .button-group button:first-child:hover {
+    background-color: #007BFF; /* 当鼠标移动到第一个按钮上时，改变背景颜色 */
+    color: white; /* 当鼠标移动到第一个按钮上时，改变文字颜色 */
+    border: none;
   }
-  
-  .button-group button:last-child {
-    background-color: #DC3545;
-    margin-left: 10px;
+
+  .button-group button:last-child:hover {
+    background-color: #DC3545; 
+    color: white; 
+    border: none;
+  }
+  select {
+    background-color: #FFFFFF;
   }
   </style>

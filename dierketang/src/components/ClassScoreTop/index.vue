@@ -8,7 +8,7 @@
             stroke="#800080"
             :stroke-dasharray="circumference + ' ' + circumference"
             :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
-            stroke-width="4"
+            stroke-width="5"
             fill="transparent"
             :r="normalizedRadius"
             :cx="radius"
@@ -35,7 +35,7 @@
     data() {
       return {
         information: null,
-        radius: 50,
+        radius: 80,
         progress: 0
       };
     },
@@ -77,8 +77,8 @@
   </script>
   <style lang="less" scoped>
   .box {
+    width: 1000px;
     display: flex;
-    border-bottom: 2px solid #F0F0F0;
   }
   .progress-ring__circle {
     transition: stroke-dashoffset 0.35s;

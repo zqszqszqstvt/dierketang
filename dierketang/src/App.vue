@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- <CompetitionPage/> -->
-    <!-- <MyCompetitionPage/> -->
+    <MyCompetitionPage/>
     <!-- <KaoYanBaoYanPage/> -->
-    <ClassScorePage/>
+    <!-- <ClassScorePage/> -->
 
   </div>
 </template>

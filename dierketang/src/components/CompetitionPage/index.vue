@@ -130,5 +130,5 @@ export default {
   margin-left: 16%;
   margin-top: 10px;
 }
-</style>>
+</style>
 

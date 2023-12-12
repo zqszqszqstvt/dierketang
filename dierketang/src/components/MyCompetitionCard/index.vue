@@ -42,4 +42,7 @@ h2 {
   color: #3f51b5;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
+p {
+  text-align: center;
+}
 </style>
