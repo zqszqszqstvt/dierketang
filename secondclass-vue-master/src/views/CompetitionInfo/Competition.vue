@@ -1,10 +1,13 @@
 <template>
   <div class="box">
+    <div class="left-img">
+      <div class="competition-status">
+          正在报名
+      </div>
+      <img :src="competition.image" alt="">
+    </div>
     <div class="left-info">
       <h3 class="tit">
-        <strong class="competition-status">
-          正在报名
-        </strong>
         <strong class="title">
           {{ competition.title }}
         </strong>
@@ -25,11 +28,11 @@
       </div>
     </div>
     <div class="right-info">
-      <div class="login-button">
-        报名请查看
-      </div>
       <div class="details">
-        <a :href="competition.link" target="_blank">竞赛详情</a>
+        竞赛详情>
+      </div>
+      <div class="login-button">
+        <a :href="competition.link" target="_blank">报名请登录</a>
       </div>
       <div class="item-status">
         距离报名截止还有 {{ competition.remainingDays }} 天
@@ -56,26 +59,48 @@ export default {
 </script>
 <style lang="less" scoped>
   .box {
-    margin-top: 5px;
+    margin-top: 15px;
     // width: 50%;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #FFFFFF;
     border-radius: 10px;
+    overflow: auto;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
      &:after {
       content: "";
       display: table;
       clear: both;
     }
   }
+  .left-img {
+    width: 20%;
+    float: left;
+    padding-right: 20px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .left-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
   .left-info {
     float: left; 
-    width: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .right-info{
-    padding-top: 50px;
     float: right; 
     width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .tit {
     font-size: 24px;
@@ -84,10 +109,16 @@ export default {
     
   }
   .competition-status {
-    font-weight: bold;
+    padding: 4px;
+    display: inline-block;
+    background-color: #FECC09;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 1px;
   }
   .title {
-    color: #007BFF;
+    color: #020202;
     text-align: left;
   }
   .competition-info {
@@ -96,31 +127,37 @@ export default {
   }
   .item-tit {
     font-weight: bold;
-    color: #333;
+    color: #666;
     display: inline-block;
     min-width: 80px;
     text-align: left;
   }
-  .login-button {
+  .details {
     padding: 5px;
-    margin-left: 25px;
+    float: right;
+    color: #7341C2;
+    align-self: flex-end;
   }
   .item-status {
     font-size: 14px;
-    color: #f00;
+    color: #B3B3B3;
     margin: 10px;
     margin-left: 20px;
+    margin-bottom: 30%;
   }
-  .details {
-    font-size: 16px;
-    width: 100px;
-    height: 30px;
+  .login-button {
+    font-size: 20px;
+    width: 160px;
+    height: 60px;
     line-height: 30px;
     text-align: center;
-    background-color: #007BFF;
+    background-color: #7341C2;
     color: #fff;
     border-radius: 5px;
-    margin-left: 20px;
+    margin-top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   p {
     text-align: left;

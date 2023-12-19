@@ -1,7 +1,15 @@
 <template>
   <div class="box">
     <div>
-      <MyCompetitionUser/>
+      <div class="main-title">
+        信息发布>考研保研
+      </div>
+      <div class="user">
+        <MyCompetitionUser/>
+      </div>
+      <div class="info-title">
+        <h3>第四课堂/竞赛管理</h3>
+      </div>
       <MyCompetitionCommit/>
       <div class="awardsItem">
         <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
@@ -96,6 +104,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.main-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.user {
+  
+}
+.info-title {
+  margin-top: 40px;
 }
 .awardsItem {
   display: flex;

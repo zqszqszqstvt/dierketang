@@ -3,20 +3,27 @@
     <div class="mini-box">
       <div class="left">
         <div class="main-title">
-          <h2>考研动态</h2>
+          信息发布>考研保研
         </div>
         <div class="newsItem">
           <KaoYanBaoYanItem v-for="(item, index) in News" :key="index" :news="item"/>
         </div>
-    </div>
-    <div class="right">
-        <div class="hot-title">
-            <h3>最近热点</h3>
-        </div>
-      <div class="Hot">
-        <KaoYanBaoYanHot v-for="(item, index) in HotBaoYanInfos" :key="index" :HotBaoYanInfo="item"/>
       </div>
-    </div>
+      <div class="right">
+          <div class="right-mini">
+            <div class="title-container">
+              <div class="hot-title">
+                <h2>近期热点</h2>
+              </div>
+              <div class="more-detail">
+                <h4>更多></h4>
+              </div>
+            </div>
+            <div class="Hot">
+              <KaoYanBaoYanHot v-for="(item, index) in HotBaoYanInfos" :key="index" :HotBaoYanInfo="item"/>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -100,13 +107,24 @@ export default {
 <style lang="less" scoped>
 .main-title {
   text-align: left;
-  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .left {
     width: 70%;
 }
+.newsItem {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
 .hot-title {
-    margin: 10px;
+    margin-left: 10px;
     text-align: left;
 }
 .Hot {
@@ -114,14 +132,28 @@ export default {
 }
 .right {
     width: 30%;
-    border: 1px solid #ccc;
+    margin-top: 3%;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 30px;
     margin-left: 20px;
     border-radius: 10px; /* 这将给边框添加圆角 */
+    align-self: flex-start;
+    background-color: #FFFFFF;
+}
+.right-mini {
+  margin: 3px;
+  background: linear-gradient(to bottom, #E6E6FA, rgba(255, 255, 255, 0.15));
+  border-radius: 10px;
+  padding-top: 5px;
+}
+
+.more-detail {
+  margin-right: 15px;
+  color: #7341C2;
 }
 .box {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

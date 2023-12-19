@@ -2,7 +2,7 @@
   <div class="box">
     <div class="category">
     <!-- 竞赛类别 -->
-    <h3 class="item-title">竞赛类别：</h3>
+    <h3>竞赛类别：</h3>
     <div v-for="(category, index) in categories" :key="index" class="fl item-box">
       <h4 class="item-title">
           <div class="item-link" :class="{ active: category.active }" @click="handleCategoryClick(category.title)">{{ category.title }}</div>
@@ -12,8 +12,8 @@
           
         </div>
     </div>
-  </div>
-
+    </div>
+    <hr style="border: none; border-top: 1px dashed #D3D3D3;">
     <!-- 竞赛级别和排序方式 -->
     <div class="levelandsort">
       <div class="item-box clearfix"  style="margin-top: 20px; padding-bottom: 0;">
@@ -22,7 +22,7 @@
           <div v-for="(level, lIndex) in competitionLevels" :key="lIndex" class="item item-link" :class="{ active: level.active }" @click="handleLevelClick(level.name)">{{ level.name }}</div>
         </div>
       </div>
-
+      <hr style="border: none; border-top: 1px dashed #D3D3D3;">
       <div class="item-box clearfix" style="margin-top: 20px; padding-bottom: 0;">
         <h3 class="fl item-title">排序方式：</h3>
         <div class="fl item-con clearfix" style="position: relative; top: 5px;">
@@ -118,9 +118,11 @@ export default {
   display: flex;
   align-items: center;
   margin: auto 0;
-  margin-right: 10px; // 右边距
-  margin-bottom: 10px; // 下边距
+  margin-right: 30px; // 右边距
+  margin-bottom: 20px; // 下边距
   cursor: pointer;
+  white-space: nowrap;
+  font-weight: bold;
 }
 .item-box {
   display: flex; 
@@ -128,14 +130,21 @@ export default {
   padding: auto;
 }
 .active {
-  color: blue;  // 你可以选择你喜欢的颜色
+  background-color: #7341C2;
+  color: #FFFFFF;  // 你可以选择你喜欢的颜色
+  padding: 2px;
+  border-radius: 10px;
 }
 .box {
   // border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
   // width: 50%; /* 设置宽度为 50% */
-  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   // border-radius: 10px; /* 设置边框为圆角，半径为 10px */
   background-color: #FFFFFF;
+  border-radius: 10px;
 }
 
 

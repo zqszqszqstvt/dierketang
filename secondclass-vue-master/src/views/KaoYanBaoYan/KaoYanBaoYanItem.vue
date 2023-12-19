@@ -25,18 +25,25 @@ export default {
 </script>
 <style lang="less" scoped>
 .item {
-  height: 60px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #F5F5F5;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 5px;
 }
-
+.item:hover {
+  background-color: #F5F5F5; /* 鼠标悬停时的深灰色背景 */
+  color: #7341C2;
+}
+.item:hover .title a{
+  color: #7341C2;
+}
 .title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -46,7 +53,7 @@ export default {
 }
 
 .time {
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
 }
 </style>

@@ -3,6 +3,10 @@
     <h2>上传竞赛成绩</h2>
     <form @submit.prevent="submitForm">
       <div class="form-group">
+        <label for="competitionName">竞赛名称</label>
+        <input id="competitionName" v-model="competitionName" type="text">
+      </div>
+      <div class="form-group">
         <label for="competitionLevel">竞赛等级</label>
         <select id="competitionLevel" v-model="competitionLevel">
           <!-- 这里添加你的选项 -->
@@ -22,12 +26,9 @@
           <option value="0">特等奖</option>
         </select>
       </div>
+      
       <div class="form-group">
-        <label for="competitionName">竞赛名称</label>
-        <input id="competitionName" v-model="competitionName" type="text">
-      </div>
-      <div class="form-group">
-        <label for="competitionScore">竞赛分数</label>
+        <label for="competitionScore">竞赛加分</label>
         <input id="competitionScore" v-model="competitionScore" type="number">
       </div>
       <div class="button-group">
@@ -84,8 +85,8 @@ export default {
   width: 1000px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+
+  background-color: #FFFFFF;
   margin-top: 6px;
   // margin: 0 auto;
 }
@@ -101,16 +102,11 @@ form {
   justify-content: space-between;
 }
 
-.form-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
 .form-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 45%;
 }
 
 .form-group label {
@@ -120,16 +116,17 @@ form {
 
 .form-group input,
 .form-group select {
-  width: 150px;
+  width: 60%;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  margin-right: 22%;
 }
 
 .button-group {
   flex: 1 0 100%;
-  text-align: right;
-  margin-top: 10px;
+  text-align: left;
+
 }
 
 .button-group button {
