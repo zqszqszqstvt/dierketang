@@ -1,8 +1,13 @@
 <template>
   <div class="card">
-    <h2>{{ award.competitionName }}</h2>
-    <p>{{ award.competitionLevel }}{{ award.awardLevel }}</p>
-    <p class="score">{{ award.score }}分</p>
+    <div class="left">
+      <img src="./images/acm.png" alt="">
+    </div>
+    <div class="right">
+      <h2>{{ award.competitionName }}</h2>
+      <p>{{ award.competitionLevel }}{{ award.awardLevel }}</p>
+      <p class="score">{{ award.score }}分</p>
+    </div>
   </div>
 </template>
 
@@ -25,23 +30,35 @@ export default {
 </script>
 <style lang="less" scoped>
 .card {
-  width: 290px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #FFFFFF;
-  margin: 8px;
+  width: 28.5%;
+  padding: 1.3%;
+  border-radius: 20px;
+  background-color: #F8FAFB;
+  margin: 1%;
+  display: flex;
+  font-weight: bold;
 }
-
+.left {
+  width: 25%;
+  margin-top: 2%;
+}
+.left img {
+  width: 100%;
+  object-fit: contain;
+}
+.right {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 2%;
+}
 h2 {
-  text-align: center;
+  margin: 0;
   margin-bottom: 15px;
+  
 }
 .score {
   font-size: 24px;
-  color: #3f51b5;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color: #581BB7;
 }
-p {
-  text-align: center;
-}
+
 </style>

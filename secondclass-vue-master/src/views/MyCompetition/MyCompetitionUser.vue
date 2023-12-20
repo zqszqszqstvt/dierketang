@@ -1,26 +1,37 @@
 <template>
   <div class="profile" v-if="userInfo">
-    <img :src="userInfo.avatarUrl" alt="头像" class="avatar">
-    <div class="user-info">
-      <h2>{{ userInfo.nickname }}</h2>
-      <p>{{ userInfo.profession }}</p>
+    <div class="user">
+      <img :src="userInfo.avatarUrl" alt="头像" class="avatar">
+      <div class="user-info">
+        <h2>{{ userInfo.nickname }}</h2>
+        <p>{{ userInfo.profession }}</p>
+      </div>
     </div>
-    <div>
-      <svg class="progress-ring" :width="radius * 2" :height="radius * 2">
+    <div class="score">
+      <svg class="progress-ring" :width="radius * 2 + 12" :height="radius * 2 + 12">
         <circle
             class="progress-ring__circle"
-            stroke="#800080"
-            :stroke-dasharray="circumference + ' ' + circumference"
-            :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
-            stroke-width="4"
+            stroke="#F4EDFF"
+            stroke-width="12"
             fill="transparent"
             :r="normalizedRadius"
-            :cx="radius"
-            :cy="radius"
+            :cx="radius + 6"
+            :cy="radius + 6"
+            />
+        <circle
+            class="progress-ring__circle"
+            stroke="#581BB7"
+            :stroke-dasharray="circumference + ' ' + circumference"
+            :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
+            stroke-width="12"
+            fill="transparent"
+            :r="normalizedRadius"
+            :cx="radius + 6"
+            :cy="radius + 6"
+            stroke-linecap="round"
             />
         <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
       </svg>
-      <h3>合计得分</h3>
     </div>
   </div>
 </template>
@@ -67,14 +78,23 @@ export default {
 </script>
 <style lang="less" scoped>
 .profile {
-  width: 1000px;
   text-align: center;
-  border-bottom: 1px solid #ddd;
   padding: 20px;
   background-color: #fff;
   display: flex;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
 }
-
+.user {
+  display: flex;
+  padding: 10px;
+  margin-left: 50px;
+}
+.score {
+  padding: 10px;
+  margin-right: 50px;
+}
 .avatar {
   width: 100px;
   height: 100px;
@@ -83,11 +103,15 @@ export default {
 .user-info {
     margin-top: 20px;
     margin-left: 10px;
-    margin-right: 600px;
+
+    p {
+
+    }
 }
 .profile h2, .profile p {
   margin: 0 0 10px 0;
 }
+
 .progress-ring__circle {
   transition: stroke-dashoffset 0.35s;
   transform: rotate(-90deg);

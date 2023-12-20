@@ -4,7 +4,8 @@
     <form @submit.prevent="submitForm">
       <div class="form-group">
         <label for="competitionName">竞赛名称</label>
-        <input id="competitionName" v-model="competitionName" type="text">
+        <input id="competitionName" v-model="competitionName" type="text" placeholder="请输入竞赛名称">
+
       </div>
       <div class="form-group">
         <label for="competitionLevel">竞赛等级</label>
@@ -26,7 +27,6 @@
           <option value="0">特等奖</option>
         </select>
       </div>
-      
       <div class="form-group">
         <label for="competitionScore">竞赛加分</label>
         <input id="competitionScore" v-model="competitionScore" type="number">
@@ -38,7 +38,6 @@
     </form>
   </div>
 </template>
-
 <script>
 export default {
   name: 'MyCompetitionCommit',
@@ -63,7 +62,6 @@ export default {
       competitionName: this.competitionName,
       competitionScore: this.competitionScore
     };
-
     console.log(formData);
     // 在这里可以发送formData到服务器
     },
@@ -75,81 +73,93 @@ export default {
     }
   },
   props: {
-
   }
 };
 </script>
-
 <style lang="less" scoped>
 .card {
-  width: 1000px;
   padding: 20px;
+  padding-left: 4%;
   border-radius: 10px;
-
   background-color: #FFFFFF;
   margin-top: 6px;
   // margin: 0 auto;
 }
-
 h2 {
   text-align: left;
   margin-bottom: 20px;
 }
-
 form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .form-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 45%;
+  width: 48%;
 }
-
 .form-group label {
   margin-bottom: 5px;
   margin-right: 3px;
 }
-
-.form-group input,
 .form-group select {
-  width: 60%;
+  width: 62%;
+  height: 50px;
+  font-size: 16px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
   margin-right: 22%;
 }
-
+.form-group input {
+  width: 60%;
+  height: 35px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-right: 22%;
+}
 .button-group {
   flex: 1 0 100%;
   text-align: left;
+  margin-left: 90px;
 
 }
-
 .button-group button {
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: transparent; /* 设置默认背景颜色为透明 */
-    color: black; /* 设置文字颜色为黑色 */
-    border: 2px solid #DDDDDD; /* 设置边框 */
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
-  }
+  padding: 12px 50px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 2%;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  border: 2px solid #F5F4F4;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* 添加过渡效果 */
+}
 
-  .button-group button:first-child:hover {
-    background-color: #007BFF; /* 当鼠标移动到第一个按钮上时，改变背景颜色 */
-    color: white; /* 当鼠标移动到第一个按钮上时，改变文字颜色 */
-    border: none;
-  }
+.button-group button:first-child {
+  background-color: #581BB7;
+  color: #FFFFFF;
+}
 
-  .button-group button:last-child:hover {
-    background-color: #DC3545; 
-    color: white; 
-    border: none;
-  }
+.button-group button:first-child:hover {
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-color: transparent; /* 将边框颜色设置为透明 */
+  border-radius: 10px;
+}
+
+.button-group button:last-child:hover {
+  background-color: #DC3545;
+  color: #FFFFFF;
+  border-color: transparent; /* 将边框颜色设置为透明 */
+  border-radius: 10px;
+}
+
   select {
     background-color: #FFFFFF;
   }

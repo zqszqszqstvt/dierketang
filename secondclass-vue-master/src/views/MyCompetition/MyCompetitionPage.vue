@@ -1,8 +1,8 @@
 <template>
   <div class="box">
-    <div>
+    <div class="mini-box">
       <div class="main-title">
-        信息发布>考研保研
+        能力自画像>我的竞赛
       </div>
       <div class="user">
         <MyCompetitionUser/>
@@ -11,8 +11,14 @@
         <h3>第四课堂/竞赛管理</h3>
       </div>
       <MyCompetitionCommit/>
-      <div class="awardsItem">
-        <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
+      <div class="awards-box">
+        <div class="awards-title">
+          <h2>我的竞赛</h2>
+          <div class="more">全部竞赛></div>
+        </div>
+        <div class="awardsItem">
+          <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
+        </div>
       </div>
     </div>
   </div>
@@ -104,20 +110,48 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+.mini-box {
+  width: 65%;
 }
 .main-title {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .user {
-  
+  font-weight: bold;
 }
 .info-title {
   margin-top: 40px;
 }
+.awards-box {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+.awards-title {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.awards-title .more {
+  font-size: 18px;
+  color: #581BB7;
+  margin: 0; /* 重置默认的margin */
+  padding: 4%; /* 添加你自己的边距 */
+  padding-bottom: 0;
+}
+.awards-title h2{
+  margin: 0; /* 重置默认的margin */
+  padding: 3%; /* 添加你自己的边距 */
+  padding-left: 4%;
+  padding-bottom: 0;
+}
+
 .awardsItem {
   display: flex;
-  width: 1045px;
   flex-wrap: wrap;
+  margin: 3%;
+  margin-top: 1%;
 }
 </style>
