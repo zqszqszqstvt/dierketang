@@ -41,6 +41,8 @@ import ClassScore from "@/views/ClassScore/ClassScorePage.vue"
 import CompetitionInfo from "@/views/CompetitionInfo/CompetitionPage.vue"
 import KaoYanBaoYan from "@/views/KaoYanBaoYan/KaoYanBaoYanPage.vue"
 import MyCompetition from "@/views/MyCompetition/MyCompetitionPage.vue"
+import CourseInfo from "@/views/CourseInfo/CourseInfoPage.vue"
+import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
 
 const routes = [
   {
@@ -59,6 +61,18 @@ const routes = [
     path: "/MyCompetition",
     components: {
       content: MyCompetition,
+    },
+  },
+  {
+    path: "/CourseInfo",
+    components: {
+      content: CourseInfo,
+    },
+  },
+  {
+    path: "/Recruitment",
+    components: {
+      content: Recruitment,
     },
   },
   {

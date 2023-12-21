@@ -83,7 +83,7 @@ export default {
               label: "招聘信息",
               code: "publish03",
               img: require("@/assets/layout/nav0303.png"),
-              route: "/CompetitionInfo"
+              route: "/Recruitment"
             },
           ],
         },
@@ -108,13 +108,13 @@ export default {
               label: "我的实践",
               code: "self03",
               img: require("@/assets/layout/nav0303.png"),
-              route: "/MyCompetition"
+              route: "/"
             },
             {
               label: "我的课程",
               code: "self04",
               img: require("@/assets/layout/nav0402.png"),
-              route: "/MyCompetition"
+              route: "/CourseInfo"
             },
           ],
         },
