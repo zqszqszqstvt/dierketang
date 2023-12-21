@@ -162,8 +162,7 @@
     flex: 1 0 100%;
     text-align: right;
     display: flex;  
-  justify-content: flex-start;  
-   
+    justify-content: flex-start;
   }
  
   #file{
