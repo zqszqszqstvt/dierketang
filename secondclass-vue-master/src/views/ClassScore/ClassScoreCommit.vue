@@ -1,7 +1,15 @@
 <template>
     <div class="card">
       <h2>上传学科成绩</h2>
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submitForm"> 
+         <div class="form-group">
+          <label for="subjectName" >课程名称</label>
+          <input id="subjectName" v-model="subjectName" type="text" placeholder="请输入课程名称">
+        </div> 
+        <div class="form-group">
+          <label for="Score" >学科分数</label>
+          <input id="Score" v-model="Score" type="text" placeholder="请输入">
+        </div>
         <div class="form-group">
           <label for="gradeLevel">学期选择</label>
           <select id="gradeLevel" v-model="gradeLevel">
@@ -12,21 +20,17 @@
             <option value="4">大四年级</option>
           </select>
         </div>
+      
+       
         <div class="form-group">
-          <label for="subjectName">学科名称</label>
-          <input id="subjectName" v-model="subjectName" type="text">
-        </div>
-        <div class="form-group">
-          <label for="Score">学科分数</label>
-          <input id="Score" v-model="Score" type="text">
-        </div>
-        <div class="form-group">
-          <label for="file">上传附件</label>
+          <label for="file">选择文件</label>
+          <button type="button" class="custom-file-button" @click="ClipboardItem" ><span class="enorme-plus">+</span >选择文件</button>
           <input id="file" type="file" @change="handleFileUpload">
+          <span  v-if="!file" id="noFileLabel" >未选择任何文件</span>
         </div>
 
         <div class="button-group">
-          <button type="submit">增加</button>
+          <button  type="submit">增加</button>
           <button type="button" @click="resetForm">重置</button>
         </div>
       </form>
@@ -76,25 +80,40 @@
       handleFileUpload(event) {
         this.file = event.target.files[0];
         // 在这里处理文件
+      },
+      ClipboardItem(event){
+        document.querySelector('input[id="file"]').click();  
       }
+      
+
     }
   };
   </script>
   
   <style lang="less" scoped>
   .card {
-    width: 1000px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-top: 6px;
+    display: flex;  
+    flex-wrap: wrap;  
+    justify-content: space-between;  
+    padding-left: 3%;
+
   }
-  
+  .enorme-plus {  
+  font-size: 20px;  /* 设置字体大小 */  
+  color: #800080;  /* 设置字体颜色 */  
+}
+  .form-group1{
+    width: 100%;
+  }
   h2 {
     text-align: left;
     margin-bottom: 20px;
   }
+  
   
   form {
     display: flex;
@@ -112,32 +131,50 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 50%;
+    display: flex;  
+  justify-content: flex-start;  
   }
   
   .form-group label {
     margin-bottom: 5px;
     margin-right: 3px;
+    width: 15%;
+    
   }
   
-  .form-group input,
-  .form-group select {
-    width: 150px;
+  .form-group input{
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    width: 70%;
+    margin: 5px;
+  }
+  .form-group select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 70%;
+    margin: 5px;
   }
   
   .button-group {
     flex: 1 0 100%;
     text-align: right;
-    margin-top: 10px;
+    display: flex;  
+  justify-content: flex-start;  
+   
   }
-  
+ 
+  #file{
+    display: none;
+  }
   .button-group button {
     padding: 5px 10px;
     border-radius: 5px;
+    width: 15%;
+    margin: 3%;
     cursor: pointer;
-    background-color: transparent; /* 设置默认背景颜色为透明 */
     color: black; /* 设置文字颜色为黑色 */
     border: 2px solid #DDDDDD; /* 设置边框 */
     transition: background-color 0.3s ease; /* 添加过渡效果 */
@@ -145,7 +182,12 @@
 
   .button-group button:first-child:hover {
     background-color: #007BFF; /* 当鼠标移动到第一个按钮上时，改变背景颜色 */
-    color: white; /* 当鼠标移动到第一个按钮上时，改变文字颜色 */
+    color: black; /* 当鼠标移动到第一个按钮上时，改变文字颜色 */
+    border: none;
+  }
+  .button-group button:first-child{
+    background-color:  #800080;
+    color: white;
     border: none;
   }
 
@@ -154,7 +196,19 @@
     color: white; 
     border: none;
   }
+ 
   select {
     background-color: #FFFFFF;
   }
+  .custom-file-button{
+    color: #800080;
+    background-color: transparent; /* 设置背景色为透明 */  
+    text-align: center; /* 居中文本 */  
+    border-radius: 5px; /* 添加圆角 */  
+    box-shadow: none; /* 移除默认阴影 */  
+   border-color: #800080;
+    margin: 5px;
+    width: 35%;
+  }
+ 
   </style>

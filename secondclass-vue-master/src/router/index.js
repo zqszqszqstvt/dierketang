@@ -37,7 +37,7 @@ import Choose from "@/views/Choose";
 import LoginS from "@/views/LoginS";
 import RegisterS from "@/views/RegisterS";
 import HomePage from "@/views/home/index.vue";
-import ClassScore from "@/views/ClassScore/ClassScorePage.vue"
+import ClassScore from "@/views//ClassScore/ClassScorePage.vue"
 import CompetitionInfo from "@/views/CompetitionInfo/CompetitionPage.vue"
 import KaoYanBaoYan from "@/views/KaoYanBaoYan/KaoYanBaoYanPage.vue"
 import MyCompetition from "@/views/MyCompetition/MyCompetitionPage.vue"
