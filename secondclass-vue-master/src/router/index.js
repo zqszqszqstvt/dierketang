@@ -114,7 +114,7 @@ const routes = [
   {
     path: "/",
     components: {
-      content: HomePage,
+      content: PostRecom,
     },
   },
   {

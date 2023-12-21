@@ -60,7 +60,7 @@ export default {
         {
           label: "首页",
           code: "home",
-          route: "/"
+          route: "/home"
         },
         {
           label: "信息发布",
