@@ -47,6 +47,7 @@ export default {
   watch: {
     $route(to, from) {
       this.isHomePage = to.path.includes("/home");
+      console.log(this.$route.matched);
     },
   },
   data() {
@@ -82,7 +83,7 @@ export default {
               label: "招聘信息",
               code: "publish03",
               img: require("@/assets/layout/nav0303.png"),
-              route: "/publish03"
+              route: "/CompetitionInfo"
             },
           ],
         },
@@ -107,20 +108,20 @@ export default {
               label: "我的实践",
               code: "self03",
               img: require("@/assets/layout/nav0303.png"),
-              route: "/self03"
+              route: "/MyCompetition"
             },
             {
               label: "我的课程",
               code: "self04",
               img: require("@/assets/layout/nav0402.png"),
-              route: "/self04"
+              route: "/MyCompetition"
             },
           ],
         },
         {
           label: "登录/注册",
           code: "login",
-          route: "/"
+          route: "/login"
         },
       ],
     };
@@ -129,9 +130,6 @@ export default {
 </script>
 
 <style scoped>
-.router-link-active {
-  font-weight: 600;
-}
 .header {
   min-width: 1480px;
   height: 68px;
@@ -193,6 +191,7 @@ export default {
       margin-left: 60px;
       transition: all ease-in-out 0.3s;
       z-index: 100;
+      text-decoration: none;
       &::after {
         content: none;
         position: absolute;
@@ -211,7 +210,7 @@ export default {
           display: block;
         }
       }
-      &.active {
+      &.router-link-active {
         font-weight: 600;
         &::after {
           content: "";
@@ -243,6 +242,7 @@ export default {
           color: #000000;
           line-height: 22px;
           word-break: keep-all;
+          text-decoration: none;
           img {
             height: 19px;
             margin-right: 9px;
