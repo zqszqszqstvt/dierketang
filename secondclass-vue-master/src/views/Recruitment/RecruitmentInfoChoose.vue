@@ -48,7 +48,7 @@ export default{
     display: flex;
     background-color: rgba(255, 255, 255, 1);
     flex-wrap: wrap;
-    width: 900px;
+    width: 950px;
     margin-bottom: 20px;
 
 }

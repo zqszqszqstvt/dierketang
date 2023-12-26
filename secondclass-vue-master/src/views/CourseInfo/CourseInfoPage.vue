@@ -5,6 +5,9 @@
             :visible.sync="visidialog"
         >
         </el-dialog>
+        <div class="main-title">
+                我的学业 > 我的课程
+        </div>
         <div class="navigate">
             <CourseInfoChoose @getCourseInfo="getCourseInfo" :categories="categories"/>
             <div class="box-serch" @keyup.enter="searchTo">
@@ -197,7 +200,10 @@ export default{
 <style scoped>
 
 .box{
-
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    align-content: center;
 }
 
 .navigate{
@@ -256,4 +262,14 @@ export default{
     background-color: #f5f5f5
 }
 
+::v-deep .search .el-input .el-input__wrapper{
+    border:none; 
+    box-shadow: 0 0 0 0;
+    background-color:#f5f5f5
+}
+
+.main-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 </style>

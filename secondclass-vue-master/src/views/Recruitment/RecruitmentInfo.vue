@@ -118,6 +118,10 @@ export default{
 }
 
 .info_from{
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
     background-color: #FFCC01;
     width: 64px;
     height: 26px;
@@ -172,6 +176,10 @@ export default{
 }
 
 .label{
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
     margin-top: 12px;
     background-color: #F4F4F4;
     width: 76px;

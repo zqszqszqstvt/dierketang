@@ -1,6 +1,9 @@
 <template>
     <div class="box">
         <div class="box2">
+            <div class="main-title">
+                信息发布 > 招聘信息
+            </div>
         <div class="navigate">
             <div class="categorie1">
                 <div class="filter">
@@ -13,7 +16,7 @@
                     class="img_detain"
                     referrerpolicy="no-referrer"
                     src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng39db7961a053e88905dac48e10e92a7fdf4d85f37cd22c9af7b67f56e17e13c6"
-                    :style="{transform:'rotate('+angle+'deg)' }"
+                    :style="{transform:'rotate('+angle+'deg)'}"
                     />
                 </div>
             </div>
@@ -231,7 +234,7 @@ export default{
     margin-top: 28px;
     font-size: 14px;
     cursor: pointer;
-    margin-left: 72px
+    margin-left: auto
 }
 
 .detain_title{
@@ -241,7 +244,8 @@ export default{
 .img_detain{
     width: 13px;
     height: 8px;
-    margin: 5px
+    margin: 5px;
+    transition: all ease-in-out 0.3s;
 }
 
 .navigate{
@@ -389,6 +393,10 @@ export default{
     cursor: default;
 }
 
+.main-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 
 /* ::v-deep .search .el-input__inner{
