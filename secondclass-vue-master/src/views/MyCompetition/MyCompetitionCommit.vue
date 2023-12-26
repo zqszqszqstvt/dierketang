@@ -126,7 +126,6 @@ form {
   flex: 1 0 100%;
   text-align: left;
   margin-left: 90px;
-
 }
 .button-group button {
   padding: 10px 40px;

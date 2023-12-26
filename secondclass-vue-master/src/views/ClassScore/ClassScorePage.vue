@@ -1,18 +1,21 @@
 <template>
     <div class="box">
       <div class="mini-box">
+        <div class="main-title">
+          能力自画像>我的竞赛
+        </div>
         <div class="top-box">
           <ClassScoreTop/>
         </div>
         <ClassScoreCommit/>
         <div class="gradescard">
-          <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
+            <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
           <div class="termselect" style="{
             width: 80%;
-            position: relative; 
-            right: 0; 
-            transform: translateX(100%); 
-          }">
+      position: relative; 
+      right: 0; 
+      transform: translateX(100%); 
+    }">
             <label>学期选择</label>
             <select @change="changegrade" >
               <!-- 这里添加你的选项 -->
@@ -120,16 +123,14 @@
       align-items: center;
     }
     .mini-box {
-      width: 65%;
+      width: auto;
     }
     .top-box {
-      margin-top: 30px;
+      width: 100%;
       margin-bottom: 30px;
       padding: 20px;
       border-radius: 10px;
       background-color: #fff;
-      padding-left: 3%;
-      padding-right: 5%;
     }
     .classItem {
         display: flex;
@@ -141,26 +142,25 @@
     h2 {
       text-align: left;
       margin: 20px;
-      margin-left: 0;
-
     }
     .termselect label{
       margin-right: 3px;
     }
     .termselect {
+      margin-left: 30px;
       margin-bottom: 10px;
       display: inline-block; 
     }
     .gradescard {
+     width: 100%;
       position: relative;
       border-radius: 10px;
       padding: 20px;
-      background-color: #FFFFFF;
+      background-color: #fff;
       margin-top: 30px;
-      padding-left: 3%;
     }
     .termselect select {
-      width: 100px;
+      width: 55%;
       background-color: #FFFFFF;
       border: 2px solid #DDDDDD;
       border-radius: 5px; /* 设置边框圆角为5像素 */
@@ -172,12 +172,16 @@
       align-items: center;
     }
     .buttom {
+     width: 100%;
       padding: 20px;
       border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       background-color: #fff;
       margin-top: 30px;
-      padding-left: 3%;
     }
   
-  
+    .main-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
   </style>

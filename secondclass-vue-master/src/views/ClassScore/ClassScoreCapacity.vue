@@ -4,7 +4,7 @@
         <div class="radar">
           <canvas id="radarChart" width="400" height="400"></canvas>
         </div>
-        <div>
+        <div class="radar2">
           <canvas id="lineChart" width="400" height="400"></canvas>
         </div>
       </div>
@@ -23,28 +23,47 @@
       abilities: [],
       abilityData: [],
       years: [],
-      scores: []
+      scores: [],
+      radarChart: null,
+      lineChart: null
     }
   },
+  watch: {
+    '$route': 'fetchDataAndCreateCharts'
+  },
   async mounted() {
-    // 在这里发送网络请求获取数据
-    // 假设getData是一个异步函数，它从服务器获取数据并返回一个Promise
-    const data = await this.getData();
-
-    // 更新组件的数据
-    this.abilities = data.abilities;
-    this.abilityData = data.abilityData;
-    this.years = data.years;
-    this.scores = data.scores;
-
-    // 数据请求完成后，创建图表
-    this.createCharts();
+    this.fetchDataAndCreateCharts();
+    
   },
   methods: {
+    async fetchDataAndCreateCharts() {
+      // 获取数据
+      const data = await this.getData();
+
+      // 更新组件的数据
+      this.abilities = data.abilities;
+      this.abilityData = data.abilityData;
+      this.years = data.years;
+      this.scores = data.scores;
+
+      // 创建图表
+      this.createCharts();
+    },
     createCharts() {
+      if (this.radarChart) {
+        this.radarChart.destroy();
+      }
+      if (this.lineChart) {
+        this.lineChart.destroy();
+      }
+      // 清空canvas元素
+      var ctxRadar = document.getElementById('radarChart');
+      ctxRadar.innerHTML = '';
+      var ctxLine = document.getElementById('lineChart');
+      ctxLine.innerHTML = '';
       // 创建雷达图
       var ctxRadar = document.getElementById('radarChart').getContext('2d');
-      new Chart(ctxRadar, {
+      this.radarChart = new Chart(ctxRadar, {
         type: 'radar',
         data: {
           labels: this.abilities,
@@ -58,7 +77,7 @@
 
       // 创建折线图
       var ctxLine = document.getElementById('lineChart').getContext('2d');
-      new Chart(ctxLine, {
+      this.lineChart = new Chart(ctxLine, {
         type: 'line',
         data: {
           labels: this.years,
@@ -105,5 +124,7 @@
   </script>
   
   <style scoped lang="less">
-
+  .radar{
+    margin-right: 15%;
+  }
   </style>
