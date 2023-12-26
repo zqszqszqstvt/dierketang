@@ -40,7 +40,7 @@ export default {
     netrequest() {
       this.competitions = [{
         title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-        image: 'https://img2.baidu.com/it/u=2237494783,638955864&fm=253&fmt=auto&app=138&f=JPEG?w=754&h=424',
+        image: 'https://pic.616pic.com/ys_img/00/80/92/cMWWiGDRZO.jpg',
         link: 'https://www.saikr.com/vse/cwctic/2023',
         organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
         level: '全国性',
@@ -50,7 +50,7 @@ export default {
       },
       {
         title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-        image: 'https://img2.baidu.com/it/u=2237494783,638955864&fm=253&fmt=auto&app=138&f=JPEG?w=754&h=424',
+        image: 'https://img1.baidu.com/it/u=2477635992,2988894215&fm=253&fmt=auto&app=138&f=JPEG?w=350&h=350',
         link: 'https://www.saikr.com/vse/cwctic/2023',
         organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
         level: '全国性',
@@ -60,7 +60,7 @@ export default {
       },
       {
         title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-        image: 'https://img2.baidu.com/it/u=2237494783,638955864&fm=253&fmt=auto&app=138&f=JPEG?w=754&h=424',
+        image: 'https://img2.baidu.com/it/u=541125345,2421264996&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=501',
         link: 'https://www.saikr.com/vse/cwctic/2023',
         organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
         level: '全国性',

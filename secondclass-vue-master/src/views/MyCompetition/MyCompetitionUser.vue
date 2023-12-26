@@ -30,7 +30,7 @@
             :cy="radius + 6"
             stroke-linecap="round"
             />
-        <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
+        <text x="50%" y="50%" text-anchor="middle" stroke="#000000" stroke-width="2px" dy=".3em" style="font-size: 40px;">{{ progress }}</text>
       </svg>
     </div>
   </div>
