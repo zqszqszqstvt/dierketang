@@ -31,6 +31,16 @@
   watch: {
     '$route': 'fetchDataAndCreateCharts'
   },
+  beforeDestroy() {
+    if (this.radarChart) {
+      this.radarChart.destroy();
+      this.radarChart = null;
+    }
+    if (this.lineChart) {
+      this.lineChart.destroy();
+      this.lineChart = null;
+    }
+  },
   async mounted() {
     this.fetchDataAndCreateCharts();
     
@@ -49,20 +59,16 @@
       // 创建图表
       this.createCharts();
     },
-    createCharts() {
-      if (this.radarChart) {
-        this.radarChart.destroy();
-      }
-      if (this.lineChart) {
-        this.lineChart.destroy();
-      }
-      // 清空canvas元素
-      var ctxRadar = document.getElementById('radarChart');
-      ctxRadar.innerHTML = '';
-      var ctxLine = document.getElementById('lineChart');
-      ctxLine.innerHTML = '';
+    async createCharts() {
+      await this.$nextTick();
+      // // 清空canvas元素
+      // var ctxRadar = document.getElementById('radarChart');
+      // ctxRadar.innerHTML = '';
+      // var ctxLine = document.getElementById('lineChart');
+      // ctxLine.innerHTML = '';
       // 创建雷达图
       var ctxRadar = document.getElementById('radarChart').getContext('2d');
+      var ctxLine = document.getElementById('lineChart').getContext('2d');
       this.radarChart = new Chart(ctxRadar, {
         type: 'radar',
         data: {
@@ -76,7 +82,7 @@
       });
 
       // 创建折线图
-      var ctxLine = document.getElementById('lineChart').getContext('2d');
+      
       this.lineChart = new Chart(ctxLine, {
         type: 'line',
         data: {
