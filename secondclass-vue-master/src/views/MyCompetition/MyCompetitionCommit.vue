@@ -129,7 +129,7 @@ form {
 
 }
 .button-group button {
-  padding: 12px 50px;
+  padding: 10px 40px;
   border-radius: 5px;
   font-size: 18px;
   margin-right: 2%;

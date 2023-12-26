@@ -49,22 +49,22 @@ export default {
     //模拟网络请求
     netrequest() {
       this.Awards=[{
-          competitionName: '蓝乔',
-          competitionLevel: '国家级',
+          competitionName: 'ACM大赛',
+          competitionLevel: '校级',
+          awardLevel: '二等奖',
+          score: '5'
+        },
+        {
+          competitionName: '蓝乔杯',
+          competitionLevel: '省级',
           awardLevel: '一等奖',
-          score: '20'
+          score: '10'
         },
         {
           competitionName: '蓝乔杯',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
-          score: '20'
-        },
-        {
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
+          score: '15'
         },{
           competitionName: '蓝乔杯',
           competitionLevel: '国家级',

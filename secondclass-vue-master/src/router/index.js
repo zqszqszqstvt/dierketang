@@ -43,8 +43,14 @@ import KaoYanBaoYan from "@/views/KaoYanBaoYan/KaoYanBaoYanPage.vue"
 import MyCompetition from "@/views/MyCompetition/MyCompetitionPage.vue"
 import CourseInfo from "@/views/CourseInfo/CourseInfoPage.vue"
 import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
-
+import PracticeInfo from "@/views/PracticeInfo/PracticeInfoPage.vue"
 const routes = [
+  {
+    path: "/PracticeInfo",
+    components: {
+      content: PracticeInfo,
+    },
+  },
   {
     path: "/CompetitionInfo",
     components: {
@@ -278,7 +284,7 @@ const routes = [
 const routerHistory = createWebHistory();
 const router = createRouter({
   history: routerHistory,
-  routes,
+  routes
 });
 
 // router.beforeEach((to,from,next)=>{
