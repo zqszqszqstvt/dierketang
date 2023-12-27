@@ -105,6 +105,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 .item-title {
   display: flex;
   align-items: center;
@@ -133,9 +134,10 @@ export default {
   background-color: #7341C2;
   color: #FFFFFF;  // 你可以选择你喜欢的颜色
   padding: 2px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .box {
+  
   // border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
   // width: 50%; /* 设置宽度为 50% */
   padding-left: 50px;

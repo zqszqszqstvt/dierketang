@@ -1,9 +1,6 @@
 <template>
     <div class="box">
       <div class="left-img">
-        <div class="competition-status">
-            正在报名
-        </div>
         <img :src="competition.image" alt="">
       </div>
       <div class="left-info">
@@ -14,28 +11,22 @@
         </h3>
         <div class="competition-info">
           <p class="event4-1-plan">
-          <span class="item-tit">主办方</span>{{ competition.organizer }}
+          <span class="item-tit">简介</span>{{ competition.introduction }}
           </p>
           <p class="event4-1-plan">
-            <span class="item-tit">竞赛级别</span>{{ competition.level }}
+            <span class="item-tit">时间</span>{{ competition.time }}
           </p>
           <p class="event4-1-plan">
-            <span class="item-tit">报名时间</span>{{ competition.registrationTime }}
-          </p>
-          <p class="event4-1-plan">
-            <span class="item-tit">比赛时间</span>{{ competition.competitionTime }}
+            <span class="item-tit">地点</span>{{ competition.adddress }}
           </p>
         </div>
       </div>
       <div class="right-info">
-        <div class="details">
-          竞赛详情>
-        </div>
-        <div class="login-button">
-          <a :href="competition.link" target="_blank">报名请登录</a>
+        <div class="login-button"  :class="getStatusClass(competition.status)">
+          <a :href="competition.link" target="_blank">{{ competition.status }}</a>
         </div>
         <div class="item-status">
-          距离报名截止还有 {{ competition.remainingDays }} 天
+          选课 {{ competition.remainingDays }} 
         </div>
       </div>
     </div>
@@ -54,7 +45,19 @@
         type: Object,
         required: true
       }
-    }
+    },
+    methods: {
+      getStatusClass(status) {
+        switch (status) {
+          case '进行中':
+            return 'status1';
+          case '已结束':
+            return 'status0';
+          default:
+            return '';
+        }
+      }
+    } 
   };
   </script>
   <style lang="less" scoped>
@@ -108,15 +111,6 @@
       margin-bottom: 10px;
       
     }
-    .competition-status {
-      padding: 4px;
-      display: inline-block;
-      background-color: #FECC09;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 10px 1px;
-    }
     .title {
       color: #020202;
       text-align: left;
@@ -132,14 +126,8 @@
       min-width: 80px;
       text-align: left;
     }
-    .details {
-      padding: 5px;
-      float: right;
-      color: #7341C2;
-      align-self: flex-end;
-    }
     .item-status {
-      font-size: 14px;
+      font-size: 18px;
       color: #B3B3B3;
       margin: 10px;
       margin-left: 20px;
@@ -154,10 +142,19 @@
       background-color: #7341C2;
       color: #fff;
       border-radius: 5px;
-      margin-top: 40%;
+      margin-top: 30%;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .status1 {
+      /* 状态1的样式 */
+
+    }
+
+    .status0 {
+      /* 状态2的样式 */
+      background-color: #B3B3B3;
     }
     p {
       text-align: left;
@@ -166,5 +163,4 @@
       text-decoration: none;
       color: #fff;
     }
-  
   </style>

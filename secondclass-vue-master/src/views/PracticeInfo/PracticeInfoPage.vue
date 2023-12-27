@@ -39,59 +39,34 @@
       //模拟网络请求
       netrequest() {
         this.competitions = [{
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
+          title: '人贵自立，勤奋为桥|当音乐遇见校史',
           image: 'https://pic.616pic.com/ys_img/00/80/92/cMWWiGDRZO.jpg',
           link: 'https://www.saikr.com/vse/cwctic/2023',
-          organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
-          level: '全国性',
-          registrationTime: '2023.10.21 ～ 2023.12.29',
-          competitionTime: '2023.12.30 ～ 2023.12.31',
-          remainingDays: 23
+          introduction: '本次活动以“勤学、修德、明辨、笃实，扣好人生第一粒扣子”为题，以《爱的礼赞》切入，结合时事政策，生动系统讲述了我校发展历程、光辉成就、茅以升先生等知名校友的光辉事件。',
+          time: '星期三 12月10日 18:00',
+          adddress: '图书馆二楼报告厅',
+          remainingDays: "23/400",
+          status: "进行中"
         },
         {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
+          title: '人贵自立，勤奋为桥|当音乐遇见校史',
           image: 'https://img1.baidu.com/it/u=2477635992,2988894215&fm=253&fmt=auto&app=138&f=JPEG?w=350&h=350',
           link: 'https://www.saikr.com/vse/cwctic/2023',
-          organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
-          level: '全国性',
-          registrationTime: '2023.10.21 ～ 2023.12.29',
-          competitionTime: '2023.12.30 ～ 2023.12.31',
-          remainingDays: 23
+          introduction: '本次活动以“勤学、修德、明辨、笃实，扣好人生第一粒扣子”为题，以《爱的礼赞》切入，结合时事政策，生动系统讲述了我校发展历程、光辉成就、茅以升先生等知名校友的光辉事件。',
+          time: '星期三 12月10日 18:00',
+          adddress: '图书馆二楼报告厅',
+          remainingDays: "23/400",
+          status: "进行中"
         },
         {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
+          title: '人贵自立，勤奋为桥|当音乐遇见校史',
           image: 'https://img2.baidu.com/it/u=541125345,2421264996&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=501',
           link: 'https://www.saikr.com/vse/cwctic/2023',
-          organizer: '四川省翻译协会 陕西省翻译协会 广西翻译协会 河南省翻译协会 河北省翻译协会 甘肃省翻译工作者协会 宁夏翻译协会 安徽省翻译协会 重庆翻译学会 哈尔滨市翻译协会 山西省翻译协会 贵州省翻译协会 黑龙江省翻译协会 深圳市翻译协会',
-          level: '全国性',
-          registrationTime: '2023.10.21 ～ 2023.12.29',
-          competitionTime: '2023.12.30 ～ 2023.12.31',
-          remainingDays: 23
-        }]; // 假设你的API返回的数据就是你需要的数据
-  
-        this.HotCompetitions = [{
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
-        },
-        {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
-        },
-        {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
-        },
-        {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
-        },
-        {
-          title: '【多省市译协盖章】2023年第九届中西dassadasdasdsadasdfdfsdfsdfsfds部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
-        },
-        {
-          title: '【多省市译协盖章】2023年第九届中西部外语翻译大赛',
-          link: 'https://www.saikr.com/vse/cwctic/2023'
+          introduction: '本次活动以“勤学、修德、明辨、笃实，扣好人生第一粒扣子”为题，以《爱的礼赞》切入，结合时事政策，生动系统讲述了我校发展历程、光辉成就、茅以升先生等知名校友的光辉事件。',
+          time: '星期三 12月10日 18:00',
+          adddress: '图书馆二楼报告厅',
+          remainingDays: "23/400",
+          status: "已结束"
         }]; // 假设你的API返回的数据就是你需要的数据
         console.log(this.$store.state.competitionType)
       }

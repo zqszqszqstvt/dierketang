@@ -224,11 +224,9 @@ export default{
     background-color: #f5f5f5;
     justify-content: center;
 }
-
 .box2{
     width: 1200px;
 }
-
 .detain{
     display: flex;
     margin-top: 28px;
@@ -236,18 +234,15 @@ export default{
     cursor: pointer;
     margin-left: auto
 }
-
 .detain_title{
     color: #581BB7;
 }
-
 .img_detain{
     width: 13px;
     height: 8px;
     margin: 5px;
     transition: all ease-in-out 0.3s;
 }
-
 .navigate{
     /* display: flex; */
     /* justify-content: center; */
@@ -257,7 +252,6 @@ export default{
     background-color: rgba(255, 255, 255, 1);
     border-radius: 10px;
 }
-
 .filter{
     display: flex;
     overflow: hidden;
@@ -265,14 +259,12 @@ export default{
     width: 100px;
     /* margin-right: 14px; */
 }
-
 .filtertitle{
     font-size: 14px;
     color: rgba(0, 0, 0, 1);
     margin-top: 28px;
     /* margin-left: 30px; */
 }
-
 .filtertitle2{
     font-size: 14px;
     color: rgba(0, 0, 0, 1);
@@ -282,8 +274,6 @@ export default{
     display: flex;
     /* margin-left: 30px; */
 }
-
-
 .categorie1{
     display: flex;
     /* justify-content: center; */
@@ -299,7 +289,6 @@ export default{
     margin-left: 30px;
     margin-right: 30px;
 }
-
 .categorie3{
     display: flex;
     /* justify-content: center; */
@@ -307,31 +296,26 @@ export default{
     margin-left: 30px;
     margin-right: 30px;
 }
-
 .categorie4{
     display: flex;
     /* justify-content: center; */
     margin-left: 30px;
     margin-right: 30px;
 }
-
 .sort{
     display: flex;
     position: relative;
 }
-
 .sortBy{
     display: flex;
     margin-top: 28px;
     margin-bottom: 28px;
 }
-
 .sortType{
     margin-right: 40px;
     font-size: 24px;
     cursor: pointer;
 }
-
 .sort_bottom{
     /* width: 36px; */
     height: 7px;
@@ -344,19 +328,15 @@ export default{
     margin-left: 18px;
     margin-right: 18px; */
 }
-
 .active_sort_bottom{
     background-color: #581BB7;
 }
-
 .active_sort{
     color: #581BB7;
 }
-
 .Sort_container{
     flex-direction: column;
 }
-
 .sum_notes{
     /* flex-wrap: wrap;
     align-content: center;
@@ -369,7 +349,6 @@ export default{
     position: absolute;
     margin-top: 34px;
 }
-
 .Infomation{
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -409,6 +388,4 @@ export default{
     margin-left: 40px;
     background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngb4a5129f6d66eea0273f2f4d5a10e39af42f726bd488f6400c129730ac79ece4) no-repeat 170px center;
 } */
-
-
 </style>

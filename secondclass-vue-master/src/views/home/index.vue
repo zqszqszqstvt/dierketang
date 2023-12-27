@@ -84,7 +84,7 @@ export default {
           desc: "解决理论知识问题",
           btnText: "能力自画像“我的成绩”",
           img: lesson1Img,
-          route: ""
+          route: "/ClassScore"
         },
         {
           tip: "第二课堂",
@@ -92,7 +92,7 @@ export default {
           desc: "解决实践动手能力问题",
           btnText: "校内课程资源",
           img: lesson2Img,
-          route: ""
+          route: "/MyCompetition"
         },
         {
           tip: "第三课堂",

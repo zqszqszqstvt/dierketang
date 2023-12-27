@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="left">
-      <img src="./images/acm.png" alt="">
+      <img :src="require(`@/views/MyCompetition/images/${award.img}`)" alt="">
     </div>
     <div class="right">
       <h2>{{ award.competitionName }}</h2>

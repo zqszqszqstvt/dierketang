@@ -50,56 +50,66 @@ export default {
     netrequest() {
       this.Awards=[{
           competitionName: 'ACM大赛',
-          competitionLevel: '校级',
-          awardLevel: '二等奖',
-          score: '5'
+          competitionLevel: '世界级',
+          awardLevel: '一等奖',
+          img: 'acm.png',
+          score: '20'
+        },
+        {
+          competitionName: '蓝乔杯',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          img: 'lanqiaobei.png',
+          score: '15'
         },
         {
           competitionName: '蓝乔杯',
           competitionLevel: '省级',
           awardLevel: '一等奖',
+          img: 'lanqiaobei.png',
           score: '10'
-        },
-        {
-          competitionName: '蓝乔杯',
+        },{
+          competitionName: 'ACM大赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
+          img: 'acm.png',
           score: '15'
         },{
           competitionName: '蓝乔杯',
+          competitionLevel: '校级',
+          awardLevel: '一等奖',
+          img: 'lanqiaobei.png',
+          score: '5'
+        },{
+          competitionName: '大英赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
-          score: '20'
+          img: 'english.png',
+          score: '15'
+        },{
+          competitionName: '互联网+',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          img: 'hulianwang.png',
+          score: '15'
+        },{
+          competitionName: '计算机大赛',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          img: 'jisuanji.png',
+          score: '15'
+        },{
+          competitionName: '挑战杯大赛',
+          competitionLevel: '国家级',
+          awardLevel: '一等奖',
+          img: 'tiaozhanbei.png',
+          score: '15'
         },{
           competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
+          competitionLevel: '校级',
           awardLevel: '一等奖',
-          score: '20'
-        },{
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
-        },{
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
-        },{
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
-        },{
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
-        },{
-          competitionName: '蓝乔杯',
-          competitionLevel: '国家级',
-          awardLevel: '一等奖',
-          score: '20'
+          img: 'lanqiaobei.png',
+          score: '5'
         }]
     }
   }
