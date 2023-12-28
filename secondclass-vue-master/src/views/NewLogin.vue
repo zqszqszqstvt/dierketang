@@ -50,17 +50,17 @@
               <form style="margin-top: 10px">
                 <div class="div2" >
                   <span class="span2">账号</span>
-                  <input type="text" class="text1">
+                  <input type="text" class="text1" placeholder="请输入账号">
                 </div>
                 <div class="div2" >
                   <span class="span2">密码</span>
-                  <input type="text" class="text1">
+                  <input type="password" class="text1" placeholder="请输入密码">
                 </div>
                 <el-row>
                   <el-col :span="16">
                     <div class="div2" style="width: 100%;">
                       <span class="span2" style="width: 40%">验证码</span>
-                      <input type="text" class="text1" style="width: 60%;">
+                      <input type="text" class="text1" style="width: 60%;" placeholder="请输入验证码">
                     </div>
                   </el-col>
                   <el-col :span="1"></el-col>
@@ -106,7 +106,7 @@
   background-color: #F6F6F6;
   border: 0px;
   padding: 0;
-  font-size: 20px;
+  font-size: 15px;
   outline: none;
 }
 .div2{

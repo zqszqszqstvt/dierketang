@@ -92,6 +92,26 @@
       </el-col>
     </el-row>
   </div>
+
+
+  <div class="footer">
+    <div class="content">
+      <div class="left">
+        <img class="logo" :src="logoImg" alt="" />
+        <div class="text">
+          地址：中国湖北武汉东湖高新技术开发区光谷一路206号
+        </div>
+        <div class="text">邮编：430205</div>
+        <div class="cr">
+          版权所有：武汉工程大学计算机科学与工程学院人工智能学院
+        </div>
+      </div>
+      <div class="right">
+        <img class="qrcode" :src="qrcode" alt="" />
+        <div class="desc">官网微信公众号</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -100,6 +120,8 @@ import Statistic from "@/components/Statistic.vue"
 import CourseLink from "@/components/CourseLink.vue";
 import CourseList from "@/components/CourseList.vue";
 import {Bottom} from "@element-plus/icons-vue";
+import logoImg from "@/assets/layout/logo.png";
+import qrcode from "@/assets/home/qrcode.png";
 export default {
   methods:{
     clickTotal(){
@@ -127,6 +149,8 @@ export default {
   },
   data(){
     return{
+      qrcode,
+      logoImg,
       studyHour:36,
       studyNumber:20,
       homeworkSchedule:62,
@@ -140,27 +164,26 @@ export default {
       finishColour:'#808080',
 
       cou:[//课程数据
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"public/IMG_0469-2.jpg",schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
 
       ]
 
@@ -215,5 +238,54 @@ export default {
   font-size:23px;
   margin:0px;
   user-select:none
+}
+.footer {
+  padding: 38px 0 18px;
+  background-color: #404040;
+  height: 194px;
+  .content {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .left {
+      .logo {
+      }
+      .text {
+        margin-top: 12px;
+        font-size: 14px;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 20px;
+      }
+      .cr {
+        width: 996px;
+        border-top: 1px solid #4c4c4c;
+        padding-top: 13px;
+        font-size: 14px;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        color: #6f6f6f;
+        line-height: 20px;
+        position: absolute;
+        bottom: -7px;
+      }
+    }
+    .right {
+      position: relative;
+      top: 7px;
+      text-align: center;
+      .desc {
+        margin-top: 13px;
+        font-size: 14px;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 20px;
+      }
+    }
+  }
 }
 </style>
