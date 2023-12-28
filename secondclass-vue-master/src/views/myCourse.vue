@@ -77,13 +77,13 @@
       <el-col :span="16">
         <el-row gutter="10">
           <el-col :span="2">
-            <p :style="{ color: totalColour,fontSize:'23px',margin:'0px'}" @click="clickTotal">全部</p>
+            <p class="p4" :style="{ color: totalColour}" @click="clickTotal">全部</p>
           </el-col>
           <el-col :span="2">
-            <p :style="{ color: ongoingColour,fontSize:'23px',margin:'0px'}" @click="clickOn">进行中</p>
+            <p class="p4" :style="{ color: ongoingColour}" @click="clickOn">进行中</p>
           </el-col>
           <el-col :span="2">
-            <p :style="{ color: finishColour,fontSize:'23px',margin:'0px'}" @click="clickFinish">已完成</p>
+            <p class="p4" :style="{ color: finishColour}" @click="clickFinish">已完成</p>
           </el-col>
         </el-row>
       </el-col>
@@ -210,5 +210,10 @@ export default {
   font-size: 13px;
   margin-top: 3px;
   margin-bottom: 20px;
+}
+.p4{
+  font-size:23px;
+  margin:0px;
+  user-select:none
 }
 </style>

@@ -43,6 +43,8 @@ import KaoYanBaoYan from "@/views/KaoYanBaoYan/KaoYanBaoYanPage.vue"
 import MyCompetition from "@/views/MyCompetition/MyCompetitionPage.vue"
 import CourseInfo from "@/views/CourseInfo/CourseInfoPage.vue"
 import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
+import NewLogin from "@/views/NewLogin.vue";
+import myCourse from "@/views/myCourse.vue";
 
 const routes = [
   {
@@ -272,7 +274,22 @@ const routes = [
     components: {
       content: Help,
     },
-  },
+  }, {
+    path: '/newlogin',
+    components: {
+      content: NewLogin
+    }
+  },{
+    path: '/mycourse',
+    components: {
+      content: myCourse
+    }
+  },{
+    path: '/homepage',
+    components: {
+      content: HomePage
+    }
+  }
 ];
 
 const routerHistory = createWebHistory();
