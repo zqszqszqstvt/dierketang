@@ -108,6 +108,7 @@
   padding: 0;
   font-size: 15px;
   outline: none;
+  border-radius: 3px;
 }
 .div2{
   width: 100%;
