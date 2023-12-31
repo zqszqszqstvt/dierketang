@@ -1,8 +1,8 @@
 
 
 <template>
-  <div style="width: 23%;height: 100%;border: 0px;min-width: 100px;min-height: 80px;border-radius:5px;background-color: white">
-  <div style="width: 100%;height: 100%;">
+  <div style="max-width:300px;width: 23%;height: 100%;border: 0px;min-width: 100px;min-height: 80px;border-radius:5px;background-color: white;">
+  <div style="width: 100%;height: 100%;border-radius: 6px">
     <div style="width: 100%;height: 80%">
       <a :href=link>
         <img :src=picture>
@@ -35,5 +35,16 @@ img{
 a {
   color: black; /* 继承父元素的颜色 */
   text-decoration: none; /* 取消下划线效果 */
+}
+.div1{
+  max-width:300px;
+  width: 23%;
+  height: 100%;
+  border: 0px;
+  min-width: 100px;
+  min-height: 80px;
+  border-radius:5px;
+  background-color: white;
+  border-radius: 6px;
 }
 </style>

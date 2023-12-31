@@ -122,7 +122,27 @@ import CourseList from "@/components/CourseList.vue";
 import {Bottom} from "@element-plus/icons-vue";
 import logoImg from "@/assets/layout/logo.png";
 import qrcode from "@/assets/home/qrcode.png";
+import axios from "axios";
 export default {
+  mounted() {
+    axios.post('http://localhost:9102/selectAll',{
+      resourcesId:15
+    },).then(res=>{
+      console.log("返回的数据为",res.data.data)
+      this.data1=res.data.data[0];
+      //this.data2=this.data1.resourcesPosition;
+      //this.data2.push(3)
+      this.data2=res.data.data[0];
+      for(var i=0;i<res.data.data.length;i++){
+          this.cou.push({name:res.data.data[i].resourcesName,link: "https://www.bilibili.com/",
+          picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21});
+      }
+      //this.cou.push({name:name,link: "https://www.bilibili.com/",picture:qrcode,schedule:21});
+      this.data1=1;
+    }).catch(error=>{
+      console.log(error.response)
+    })
+  },
   methods:{
     clickTotal(){
       this.finishColour=this.ongoingColour='#808080';
@@ -137,7 +157,7 @@ export default {
       this.totalColour=this.ongoingColour='#808080';
       this.finishColour='blueviolet';
       //下面筛选已完成的课程返回给CourseLish
-    }
+    },
   },
   components:{
     Bottom,
@@ -149,6 +169,8 @@ export default {
   },
   data(){
     return{
+      data1:0,
+      data2:[1,2,3],
       qrcode,
       logoImg,
       studyHour:36,
@@ -164,32 +186,16 @@ export default {
       finishColour:'#808080',
 
       cou:[//课程数据
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        //{name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
+        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
 
       ]
-
-
     }
-  }
+  },
+
 }
 </script>
 <style scoped>

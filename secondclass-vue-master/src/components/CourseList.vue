@@ -2,7 +2,7 @@
 
 <template>
   <div style="width: 100%; min-width: 400px">
-    <div style="gap: 10px; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; min-height: 300px;">
+    <div class="div1">
         <CourseLink v-for="(a) in range" :picture='list1[a].picture' :link="list1[a].link" :name="list1[a].name" :schedule="list1[a].schedule"
                     style="margin:auto" />
     </div>
@@ -84,5 +84,12 @@ export default {
 <style scoped>
 .button{
   border: none;
+}
+.div1{
+  min-height: 300px;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
