@@ -225,17 +225,18 @@ export default {
 }
 .p2{
   font-size: 23px;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-bottom: 3px;
   font-weight: bold;
 }
 .p3{
   font-size: 13px;
   margin-top: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .p4{
-  font-size:23px;
+  font-weight: bold;
+  font-size:20px;
   margin:0px;
   user-select:none
 }

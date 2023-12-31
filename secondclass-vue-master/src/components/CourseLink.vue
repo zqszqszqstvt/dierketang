@@ -8,7 +8,7 @@
         <img :src=picture>
         <div style="  display: flex;justify-content: space-between;width: 100%;height: 20%">
           <div style="width: 75px;height: 41px;display:flex;margin-left: 5%;align-items: center">
-            <p style="font-size: 16px;fontWeight: bold"> {{name}}</p>
+            <p style="font-size: 14px;fontWeight: bold"> {{name}}</p>
           </div>
           <div style="width: 75px;height: 41px;display: flex;justify-content: right;margin-right: 5%;align-items: center">
             <p style="color: darkgrey;font-size: 12px">已学{{schedule}}%</p>
