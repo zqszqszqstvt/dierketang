@@ -1,6 +1,8 @@
 <script>
 import picture from "@element-plus/icons/lib/Picture.js";
 import axios from "axios";
+import {ref} from "vue";
+//const myComment=ref('');
 export default {
   data(){
     return{
@@ -8,22 +10,54 @@ export default {
       text:"",
       name:this.$route.params.courseName,
       id:this.$route.params.courseId,
+      myComment:'',
+      comments:[],
+      data:1
     }
   },
   methods:{
     cy(){
       this.$router.push('/CoursePage/' +this.id+'/'+this.name);
       axios.get("http://localhost:9102/addSC?sId=3&cId=+"+this.id);
+    },
+    tj(){
+      axios({
+        method: 'post',
+        url: 'http://localhost:9102/addComment',
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        data: {
+          courseId:this.id,
+          text:this.myComment,
+          userName:'子淇'
+        }
+      }).then(ref=>{
+        axios.get("http://localhost:9102/getComment?id="+this.id).then(res=>{
+          this.data=res.data.data;
+          while(this.comments.length>0) this.comments.pop();
+          for(var i=res.data.data.length-1;i>=0;i--){
+            this.comments.push({text:res.data.data[i].text,name:res.data.data[i].userName});
+          }
+        });
+      })
     }
   },
   created() {
     axios.get("http://localhost:9102/getDetails?id="+this.id).then(res=>{
       this.text=res.data.data;
-    })
+    });
+    axios.get("http://localhost:9102/getComment?id="+this.id).then(res=>{
+      this.data=res.data.data;
+      while(this.comments.length>0) this.comments.pop();
+      for(var i=res.data.data.length-1;i>=0;i--){
+        this.comments.push({text:res.data.data[i].text,name:res.data.data[i].userName});
+      }
+    });
   },
 }
 </script>
-<template>
+<template slot-scope="scope">
   <el-row>
     <el-col :span="1"></el-col>
     <el-col :span="22" style="margin-top: 10px;background-color: #999999;border-radius: 20px">
@@ -46,6 +80,19 @@ export default {
     </el-col>
     <el-col :span="1"></el-col>
   </el-row>
+
+  <el-row style="margin-top: 30px">
+    <el-col :span="1"></el-col>
+    <el-col :span="22">
+      <div class="div1" style="background-color: white">
+        <h1>评论</h1>
+          <p class="p1" v-for="(value,key) in comments">{{value.name}}:{{value.text}}</p>
+        <el-input v-model="myComment" maxlength="100" :size="'large'" style="width: 60%;"></el-input>
+        <el-button style="margin-top: 10px" @click="tj">提交评论</el-button>
+      </div>
+    </el-col>
+    <el-col :span="1"></el-col>
+  </el-row>
 </template>
 
 <style scoped>
@@ -56,6 +103,7 @@ export default {
   align-items: center;
   background-color: #999999;
   border-radius: 20px;
+  width: 100%;
 }
 .button1{
   border-radius: 2px;
@@ -66,6 +114,15 @@ export default {
   background-color: #581BB7;
   color: white;
   font-weight: bold;
+  font-size: 20px;
+}
+.p1{
+  border: 2px;
+  width: 70%;
+  background-color: #999999;
+  margin: 5px;
+  min-height: 30px;
+  border-radius: 3px;
   font-size: 20px;
 }
 </style>
