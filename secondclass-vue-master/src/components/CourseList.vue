@@ -3,7 +3,9 @@
 <template>
   <div style="width: 100%; min-width: 400px">
     <div class="div1">
-        <CourseLink v-for="(a) in range" :picture='list1[a].picture' :link="list1[a].link" :name="list1[a].name" :schedule="list1[a].schedule"
+        <CourseLink v-for="(a) in range" :picture='list1[a].picture'
+                    :name="list1[a].name" :schedule="list1[a].schedule"
+                    :CourseId="list1[a].couresID" :heat="list1[a].heat"
                     style="margin:auto" />
     </div>
   </div>
@@ -40,33 +42,6 @@ export default {
       this.endIdx=Math.min(14,this.list1.length-1);
       this.edPage = newValue.length % 15 > 0 ? Math.floor(newValue.length / 15) + 1 : Math.floor(newValue.length / 15);
     },
-    resettingPage(){
-      this.operate.push(this.page);
-      this.page=1;
-      this.startIdx=0;
-      this.endIdx=Math.min(14,this.list1.length-1);
-    },
-    nextPage(){
-      if(this.page>=this.edPage) return;
-      this.operate.push(this.page);
-      this.page++;
-      this.startIdx+=15;
-      this.endIdx=Math.min(this.endIdx+15,this.list1.length-1);
-    },
-    lastPage() {
-      if(this.page<=1) return;
-      this.operate.push(this.page);
-      this.page--;
-      this.startIdx=Math.max(0,this.startIdx-15);
-      this.endIdx=this.startIdx+14;
-    },
-    backtrack(){
-      if(this.operate.length<=0) return;
-      this.page=this.operate[this.operate.length-1];
-      this.operate.pop();
-      this.startIdx=(this.page-1)*15;
-      this.endIdx=Math.min(this.startIdx+14,this.list1.length-1);
-    }
   },
   computed: {
     picture() {

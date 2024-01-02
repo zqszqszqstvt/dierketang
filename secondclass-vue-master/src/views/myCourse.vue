@@ -1,30 +1,5 @@
 <template >
-  <div style="width: 100%;min-width: 1700px;background-color: #F6F6F6;height: auto;">
-    <el-row type="flex" justify="center" style="background-color: #F6F6F6;">
-      <el-col :span="16">
-        <div class="totalScore">
-          <el-row>
-            <el-col :span="1"></el-col>
-            <el-col :span="6">
-              <h2 style="margin:10px 0px">第一课堂总成绩</h2>
-              <p class="p1">姓名：<span style="fontWeight: bold">{{name}}</span></p>
-              <p class="p1">专业：<span style="fontWeight: bold">{{major}}</span></p>
-            </el-col>
-            <el-col :span="6">
-              <div style="height: 41px;width: 100%"></div>
-              <p class="p1">学院：<span style="fontWeight: bold">{{college}}</span></p>
-              <p class="p1">年级：<span style="fontWeight: bold">{{grade}}级</span></p>
-            </el-col>
-            <el-col :span="6"></el-col>
-            <el-col :span="5">
-              <el-progress type="circle" :percentage="score" :color="'blueviolet'" :stroke-width="17" :width="100">
-                <span style="font-weight: bold;color: black"><span style="font-size: 20px">{{ score }}</span>分</span>
-              </el-progress>
-            </el-col>
-          </el-row>
-        </div>
-      </el-col>
-    </el-row>
+  <div style="width: 100%;min-width: 1700px;background-color: #F6F6F6;height: auto;margin-top: 20px">
     <el-row type="flex" justify="center">
       <el-col :span="16">
         <div class="studyData">
@@ -125,35 +100,85 @@ import qrcode from "@/assets/home/qrcode.png";
 import axios from "axios";
 export default {
   mounted() {
-    axios.post('http://localhost:9102/selectAll',{
-      resourcesId:15
+    axios.post('http://localhost:9102//selectAllCourse',{
     },).then(res=>{
       console.log("返回的数据为",res.data.data)
-      this.data1=res.data.data[0];
-      //this.data2=this.data1.resourcesPosition;
-      //this.data2.push(3)
+      this.data1=res.data.data;
       this.data2=res.data.data[0];
       for(var i=0;i<res.data.data.length;i++){
-          this.cou.push({name:res.data.data[i].resourcesName,link: "https://www.bilibili.com/",
-          picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21});
+        this.cou.push({name:res.data.data[i].courseName, picture:"http://localhost:8080/img/go.438d88be.jpg",
+          schedule:21,endTime:res.data.data[i].courseEndtime,couresID:res.data.data[i].courseId,
+          heat:res.data.data[i].courseHeat
+        });
+        this.studyNumber=this.cou.length;
       }
       //this.cou.push({name:name,link: "https://www.bilibili.com/",picture:qrcode,schedule:21});
-      this.data1=1;
     }).catch(error=>{
       console.log(error.response)
     })
   },
   methods:{
     clickTotal(){
+      axios.post('http://localhost:9102/selectAllCourse',{
+      },).then(res=>{
+        console.log("返回的数据为",res.data.data)
+        this.data1=res.data.data;
+        this.data2=res.data.data[0];
+        while(this.cou.length>0) this.cou.pop();
+        for(var i=0;i<res.data.data.length;i++){
+          this.cou.push({name:res.data.data[i].courseName, picture:"http://localhost:8080/img/go.438d88be.jpg",
+            schedule:21,endTime:res.data.data[i].courseEndtime,couresID:res.data.data[i].courseId,
+            heat:res.data.data[i].courseHeat
+          });
+        }
+        //this.cou.push({name:name,link: "https://www.bilibili.com/",picture:qrcode,schedule:21});
+        this.data1=1;
+      }).catch(error=>{
+        console.log(error.response)
+      })
       this.finishColour=this.ongoingColour='#808080';
       this.totalColour='blueviolet';
     },
     clickOn(){
+      axios.post('http://localhost:9102/selectDoingCourse',{
+      },).then(res=>{
+        console.log("返回的数据为",res.data.data)
+        this.data1=res.data.data;
+        this.data2=res.data.data[0];
+        while(this.cou.length>0) this.cou.pop();
+        for(var i=0;i<res.data.data.length;i++){
+          this.cou.push({name:res.data.data[i].courseName, picture:"http://localhost:8080/img/go.438d88be.jpg",
+            schedule:21,endTime:res.data.data[i].courseEndtime,couresID:res.data.data[i].courseId,
+            heat:res.data.data[i].courseHeat
+          });
+        }
+        //this.cou.push({name:name,link: "https://www.bilibili.com/",picture:qrcode,schedule:21});
+        this.data1=1;
+      }).catch(error=>{
+        console.log(error.response)
+      })
       this.finishColour=this.totalColour='#808080';
       this.ongoingColour='blueviolet';
       //下面筛选进行中的课程返回给CourseLish
     },
     clickFinish(){
+      axios.post('http://localhost:9102/selectEndCourse',{
+      },).then(res=>{
+        console.log("返回的数据为",res.data.data)
+        this.data1=res.data.data;
+        this.data2=res.data.data[0];
+        while(this.cou.length>0) this.cou.pop();
+        for(var i=0;i<res.data.data.length;i++){
+          this.cou.push({name:res.data.data[i].courseName, picture:"http://localhost:8080/img/go.438d88be.jpg",
+            schedule:21,endTime:res.data.data[i].courseEndtime,couresID:res.data.data[i].courseId,
+            heat:res.data.data[i].courseHeat
+          });
+        }
+        //this.cou.push({name:name,link: "https://www.bilibili.com/",picture:qrcode,schedule:21});
+        this.data1=1;
+      }).catch(error=>{
+        console.log(error.response)
+      })
       this.totalColour=this.ongoingColour='#808080';
       this.finishColour='blueviolet';
       //下面筛选已完成的课程返回给CourseLish
@@ -187,10 +212,7 @@ export default {
 
       cou:[//课程数据
         //{name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
+        //{name:"课程",link:"https://www.baidu.com/" ,picture:"http://localhost:8080/img/go.438d88be.jpg",schedule:21},
 
       ]
     }

@@ -45,6 +45,8 @@ import CourseInfo from "@/views/CourseInfo/CourseInfoPage.vue"
 import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
 import NewLogin from "@/views/NewLogin.vue";
 import myCourse from "@/views/myCourse.vue";
+import CoursePage from "@/views/CoursePage.vue";
+import CourseDetails from "@/views/CourseDetails.vue";
 
 const routes = [
   {
@@ -288,6 +290,16 @@ const routes = [
     path: '/homepage',
     components: {
       content: HomePage
+    }
+  },{
+  path: '/coursePage/:courseId/:courseName',
+    components: {
+    content:CoursePage
+    }
+  },{
+  path: '/CourseDetails/:courseId/:courseName',
+    components: {
+      content:CourseDetails
     }
   }
 ];
