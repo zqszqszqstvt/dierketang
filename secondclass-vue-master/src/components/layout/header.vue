@@ -114,7 +114,7 @@ export default {
               label: "我的课程",
               code: "self04",
               img: require("@/assets/layout/nav0402.png"),
-              route: "/CourseInfo"
+              route: "/MyCourse"
             },
           ],
         },
