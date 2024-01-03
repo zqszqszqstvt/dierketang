@@ -101,7 +101,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #999999;
+  background-color: #808080;
   border-radius: 20px;
   width: 100%;
 }
@@ -119,7 +119,7 @@ export default {
 .p1{
   border: 2px;
   width: 70%;
-  background-color: #999999;
+  background-color: #808080;
   margin: 5px;
   min-height: 30px;
   border-radius: 3px;
