@@ -12,7 +12,8 @@ export default {
       id:this.$route.params.courseId,
       myComment:'',
       comments:[],
-      data:1
+      data:1,
+      username:'用户名',
     }
   },
   methods:{
@@ -30,7 +31,7 @@ export default {
         data: {
           courseId:this.id,
           text:this.myComment,
-          userName:'未登录用户'
+          userName:this.username
         }
       }).then(ref=>{
         axios.get("http://localhost:9102/getComment?id="+this.id).then(res=>{
