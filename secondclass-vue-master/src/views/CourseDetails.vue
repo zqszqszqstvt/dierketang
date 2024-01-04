@@ -30,7 +30,7 @@ export default {
         data: {
           courseId:this.id,
           text:this.myComment,
-          userName:'子淇'
+          userName:'未登录用户'
         }
       }).then(ref=>{
         axios.get("http://localhost:9102/getComment?id="+this.id).then(res=>{

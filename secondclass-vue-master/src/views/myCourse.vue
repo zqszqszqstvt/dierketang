@@ -11,35 +11,25 @@
           </el-row>
           <el-row gutter="0" type="flex" justify="center">
 
-            <el-col :span="8">
+            <el-col :span="12">
               <div class="div1">
                 <el-row>
                   <el-col :span="1"></el-col>
                   <el-col :span="10"></el-col>
                   <el-col :span="13">
-                    <p class="p2">{{studyHour}}小时</p>
+                    <p class="p2">{{studyHour}}</p>
                     <p class="p3">学习时长</p>
                   </el-col>
                 </el-row>
               </div>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="12">
               <div class="div1"><el-row>
                 <el-col :span="1"></el-col>
                 <el-col :span="10"></el-col>
                 <el-col :span="13">
                   <p class="p2">{{studyNumber}}门</p>
                   <p class="p3">学习课程数</p>
-                </el-col>
-              </el-row></div>
-            </el-col>
-            <el-col :span="8">
-              <div class="div1"><el-row>
-                <el-col :span="1"></el-col>
-                <el-col :span="10"></el-col>
-                <el-col :span="13">
-                  <p class="p2">{{homeworkSchedule}}分</p>
-                  <p class="p3">作业完成度</p>
                 </el-col>
               </el-row></div>
             </el-col>
@@ -100,11 +90,14 @@ import qrcode from "@/assets/home/qrcode.png";
 import axios from "axios";
 export default {
   mounted() {
+    axios.get('http://localhost:9102/selectStudyTimeByUser?id='+this.userId).then(res=>{
+      this.studyHour=res.data.data;
+      this.data2=res.data;
+    });
     axios.post('http://localhost:9102//selectAllCourse',{
     },).then(res=>{
-      console.log("返回的数据为",res.data.data)
       this.data1=res.data.data;
-      this.data2=res.data.data[0];
+      //this.data2=res.data.data[0];
       for(var i=0;i<res.data.data.length;i++){
         this.cou.push({name:res.data.data[i].courseName, picture:"http://localhost:8080/img/go.438d88be.jpg",
           schedule:21,endTime:res.data.data[i].courseEndtime,couresID:res.data.data[i].courseId,
@@ -194,11 +187,12 @@ export default {
   },
   data(){
     return{
+      userId:3,
       data1:0,
       data2:[1,2,3],
       qrcode,
       logoImg,
-      studyHour:36,
+      studyHour:0,
       studyNumber:20,
       homeworkSchedule:62,
       score:88,
