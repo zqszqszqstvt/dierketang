@@ -45,6 +45,9 @@
     this.fetchDataAndCreateCharts();
     
   },
+  activated() {
+    this.fetchDataAndCreateCharts();
+  },
   methods: {
     async fetchDataAndCreateCharts() {
       // 获取数据
@@ -56,7 +59,20 @@
       this.years = data.years;
       this.scores = data.scores;
 
-      // 创建图表
+      // 销毁旧的图表实例
+      if (this.radarChart) {
+        this.radarChart.destroy();
+        this.radarChart = null;
+      }
+      if (this.lineChart) {
+        this.lineChart.destroy();
+        this.lineChart = null;
+      }
+
+      // 等待DOM更新完成
+      await this.$nextTick();
+
+      // 创建新的图表实例
       this.createCharts();
     },
     async createCharts() {

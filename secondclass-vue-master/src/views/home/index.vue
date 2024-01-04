@@ -18,7 +18,7 @@
         <div class="subtitle">CLASSIFICATION</div> -->
           <div class="block-wrapper">
             <div v-for="item in list" :key="item.title" class="block">
-              <router-link :to="item.route">
+              <router-link :to="item.route" class="no-underline">
                 <div class="tip">{{ item.tip }}</div>
                 <img :src="item.img" alt="" />
                 <div class="content">
@@ -108,7 +108,7 @@ export default {
           desc: "解决自主学习问题",
           btnText: "能力自画像“我的竞赛”",
           img: lesson4Img,
-          route: "/CourseInfo"
+          route: "/FourthClassChoose"
         },
       ],
     };
@@ -302,4 +302,7 @@ export default {
     }
   }
 }
+.no-underline {
+      text-decoration: none;
+    }
 </style>
