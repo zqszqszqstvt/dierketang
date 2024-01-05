@@ -1,18 +1,34 @@
 <template>
-    <div class = "category">
-        <!--课程学习科目类别-->
-        <div v-for="(category,index) in categories" class = "fl item-link" >
-            <div   @click="CourseInfoClick(category.title)">
-                <h1 class="item-title" :class="{active_h1:category.active}" >{{ category.title }}</h1>
-                <div class="item-bottom" :class="{active_bo:category.active}"></div>
+<div>
+    <div style="margin: 10px 0;padding-left:20px">
+        <!-- 使用组件 传入标题 -->
+        <Location
+          title=""
+          second_title="学院资源"
+          father_title="课程学习"
+        ></Location>
+    </div>
+    <div>
+        <div class = "category">
+            <!--课程学习科目类别-->
+            <div v-for="(category,index) in categories" class = "fl item-link" >
+                <div   @click="CourseInfoClick(category.title)">
+                    <h1 class="item-title" :class="{active_h1:category.active}" >{{ category.title }}</h1>
+                    <div class="item-bottom" :class="{active_bo:category.active}"></div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
+import Location from '@/components/location.vue'
 export default {
 name: 'CourseInfoChosse',
+components: {
+    Location,
+  },
     data() {
         return {
         }

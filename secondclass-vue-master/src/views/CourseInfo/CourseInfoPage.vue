@@ -5,9 +5,6 @@
             :visible.sync="visidialog"
         >
         </el-dialog>
-        <div class="main-title">
-                我的学业 > 我的课程
-        </div>
         <div class="navigate">
             <CourseInfoChoose @getCourseInfo="getCourseInfo" :categories="categories"/>
             <div class="box-serch" @keyup.enter="searchTo">
@@ -82,19 +79,19 @@ export default{
                 {title:'硬件系统原理',active:false}
             ]
             this.CourseInfos = [
-                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好JAVA',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好JAVA',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+                {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
             ]
             this.total = this.CourseInfos.length
             this.getPageInfo()
@@ -104,26 +101,26 @@ export default{
             switch (CourseName) {
                 case "全部":
                     this.CourseInfos = [
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
                     ]
                     this.total = this.CourseInfos.length
                     this.handleCurrentChange(1)
                     break;
                 default:
                     this.CourseInfos = [
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
+                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
                     ]
                     this.total = this.CourseInfos.length
                     this.handleCurrentChange(1)
@@ -200,10 +197,7 @@ export default{
 <style scoped>
 
 .box{
-    flex-wrap: wrap;
-    flex-direction: column;
-    display: flex;
-    align-content: center;
+
 }
 
 .navigate{
@@ -246,6 +240,7 @@ export default{
 }
 
 .box-serch{
+    padding-top:40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,14 +257,12 @@ export default{
     background-color: #f5f5f5
 }
 
-::v-deep .search .el-input .el-input__wrapper{
-    border:none; 
-    box-shadow: 0 0 0 0;
+
+:deep(.el-input__wrapper){
+    box-shadow: 0 0 0 0px var(--el-input-border-color, var(--el-border-color)) inset;
+    border: none; /* 对border进行样式修改 */
     background-color:#f5f5f5
 }
 
-.main-title{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
 </style>

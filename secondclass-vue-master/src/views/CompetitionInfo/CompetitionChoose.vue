@@ -45,8 +45,7 @@ export default {
         { title: '理科', subjects: [{ name: '数学', active: false }, { name: '物理', active: false }, { name: '化学化工', active: false }, { name: '健康生命&医学', active: false }, { name: '力学', active: false }], active: false },
         { title: '商科', subjects: [{ name: '创业', active: false }, { name: '商业', active: false }, { name: '创青春', active: false }], active: false },
         { title: '综合', subjects: [{ name: '职业技能', active: false }, { name: '挑战杯', active: false }, { name: '环保公益', active: false }, { name: '社会综合', active: false }], active: false }
-        
-        // 添加更多类别
+
       ],
       competitionLevels: [
         { name: '全部', active: true },
@@ -55,12 +54,12 @@ export default {
         { name: '省级', active: false },
         { name: '国家级', active: false },
         { name: '全球级', active: false }
-        // 添加更多级别
+
       ],
       sortingOptions: [
         { label: '按时间排序', active: true },
         { label: '按热度排序', active: false }
-        // 添加更多排序方式
+
       ]
     };
   },
@@ -105,7 +104,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 .item-title {
   display: flex;
   align-items: center;
@@ -123,7 +121,6 @@ export default {
   margin-bottom: 20px; // 下边距
   cursor: pointer;
   white-space: nowrap;
-  font-weight: bold;
 }
 .item-box {
   display: flex; 
@@ -137,17 +134,11 @@ export default {
   border-radius: 4px;
 }
 .box {
-  
-  // border: 1px solid #d8d5d5; /* 设置边框，1px 宽，实线，黑色 */
-  // width: 50%; /* 设置宽度为 50% */
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 30px;
   padding-bottom: 30px;
-  // border-radius: 10px; /* 设置边框为圆角，半径为 10px */
   background-color: #FFFFFF;
   border-radius: 10px;
 }
-
-
 </style>

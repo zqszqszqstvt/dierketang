@@ -46,6 +46,8 @@ import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
 import PracticeInfo from "@/views/PracticeInfo/PracticeInfoPage.vue"
 import MyCourse from "@/views/MyCourse/myCourse.vue"
 import FourthClassChoose from "@/views/FourthClassChoose/FourthClassChoosePage.vue"
+import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
+
 const routes = [
   {
     path: "/PracticeInfo",
@@ -76,6 +78,13 @@ const routes = [
     components: {
       content: CourseInfo,
     },
+  },
+  {  
+    path: "/CourseDetail",
+    name: "CourseDetail",
+    components: {
+      content: CourseDetail,
+    }, 
   },
   {
     path: "/FourthClassChoose",
