@@ -36,6 +36,8 @@ import Register from "@/views/Register";
 import Choose from "@/views/Choose";
 import LoginS from "@/views/LoginS";
 import RegisterS from "@/views/RegisterS";
+
+import NewLogin from "@/views/NewLogin/NewLogin.vue"
 import HomePage from "@/views/home/index.vue";
 import ClassScore from "@/views//ClassScore/ClassScorePage.vue"
 import CompetitionInfo from "@/views/CompetitionInfo/CompetitionPage.vue"
@@ -48,7 +50,14 @@ import MyCourse from "@/views/MyCourse/myCourse.vue"
 import FourthClassChoose from "@/views/FourthClassChoose/FourthClassChoosePage.vue"
 import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
 
+
 const routes = [
+  {
+    path: "/NewLogin",
+    components: {
+      content: NewLogin,
+    },
+  },
   {
     path: "/PracticeInfo",
     components: {

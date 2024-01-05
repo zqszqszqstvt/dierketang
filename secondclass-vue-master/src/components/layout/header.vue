@@ -120,8 +120,8 @@ export default {
         },
         {
           label: "登录/注册",
-          code: "login",
-          route: "/login"
+          code: "NewLogin",
+          route: "/NewLogin"
         },
       ],
     };
