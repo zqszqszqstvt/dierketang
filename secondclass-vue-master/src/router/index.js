@@ -37,7 +37,7 @@ import Choose from "@/views/Choose";
 import LoginS from "@/views/LoginS";
 import RegisterS from "@/views/RegisterS";
 
-import NewLogin from "@/views/NewLogin/NewLogin.vue"
+
 import HomePage from "@/views/home/index.vue";
 import ClassScore from "@/views//ClassScore/ClassScorePage.vue"
 import CompetitionInfo from "@/views/CompetitionInfo/CompetitionPage.vue"
@@ -49,7 +49,9 @@ import PracticeInfo from "@/views/PracticeInfo/PracticeInfoPage.vue"
 import MyCourse from "@/views/MyCourse/myCourse.vue"
 import FourthClassChoose from "@/views/FourthClassChoose/FourthClassChoosePage.vue"
 import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
-
+import NewLogin from "@/views/NewLogin/NewLogin.vue"
+import student from "@/views/NewLogin/student.vue"
+import teacher from "@/views/NewLogin/teacher.vue"
 
 const routes = [
   {
@@ -57,6 +59,15 @@ const routes = [
     components: {
       content: NewLogin,
     },
+    children: [
+      {
+        path: 'student',
+        component: student
+      },
+      {
+        path: 'teacher',
+        component: teacher
+      }]
   },
   {
     path: "/PracticeInfo",
