@@ -49,26 +49,26 @@ import PracticeInfo from "@/views/PracticeInfo/PracticeInfoPage.vue"
 import MyCourse from "@/views/MyCourse/myCourse.vue"
 import FourthClassChoose from "@/views/FourthClassChoose/FourthClassChoosePage.vue"
 import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
-import NewLogin from "@/views/NewLogin/NewLogin.vue"
-import student from "@/views/NewLogin/student.vue"
-import teacher from "@/views/NewLogin/teacher.vue"
+// import NewLogin from "@/views/NewLogin/NewLogin.vue"
+// import student from "@/views/NewLogin/student.vue"
+// import teacher from "@/views/NewLogin/teacher.vue"
 
 const routes = [
-  {
-    path: "/NewLogin",
-    components: {
-      content: NewLogin,
-    },
-    children: [
-      {
-        path: 'student',
-        component: student
-      },
-      {
-        path: 'teacher',
-        component: teacher
-      }]
-  },
+  // {
+  //   path: "/NewLogin",
+  //   components: {
+  //     content: NewLogin,
+  //   },
+  //   children: [
+  //     {
+  //       path: 'student',
+  //       component: student
+  //     },
+  //     {
+  //       path: 'teacher',
+  //       component: teacher
+  //     }]
+  // },
   {
     path: "/PracticeInfo",
     components: {
