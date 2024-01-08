@@ -176,9 +176,7 @@ const routes = [
   // },
   {
     path: "/",
-    components: {
-      content: PostRecom,
-    },
+    redirect: "/home"
   },
   {
     path: "/login",
