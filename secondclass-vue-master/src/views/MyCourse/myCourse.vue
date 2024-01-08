@@ -1,12 +1,30 @@
 <template >
-  <div style="width: 100%;min-width: 1700px;background-color: #F6F6F6;height: auto;">
+  <div style="width: 100%;min-width: 500px;background-color: #F6F6F6;height: auto;">
+    <el-row type="flex" justify="center" style="margin-top: 5px;margin-bottom: 0">
+      <el-col :span="16">
+        <el-row style="margin: 3px 0">
+          <el-col :span="5" >
+            <router-link class="rl1" to="/postRecom">
+              能力自画像
+            </router-link>
+            <a class="rl1">
+              >
+            </a>
+            <router-link class="rl1" to="/myCourse">
+              我的课程
+            </router-link>
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
+
     <el-row type="flex" justify="center" style="background-color: #F6F6F6;">
       <el-col :span="16">
         <div class="totalScore">
           <el-row>
             <el-col :span="1"></el-col>
             <el-col :span="6">
-              <h2 style="margin:10px 0px">第一课堂总成绩</h2>
+              <h2 style="margin:10px 0px;font-size: 21px;margin-top: 20px">第一课堂总成绩</h2>
               <p class="p1">姓名：<span style="fontWeight: bold">{{name}}</span></p>
               <p class="p1">专业：<span style="fontWeight: bold">{{major}}</span></p>
             </el-col>
@@ -17,7 +35,7 @@
             </el-col>
             <el-col :span="6"></el-col>
             <el-col :span="5">
-              <el-progress type="circle" :percentage="score" :color="'blueviolet'" :stroke-width="17" :width="100">
+              <el-progress type="circle" :percentage="score" :color="'blueviolet'" :stroke-width="17" :width="100" style="margin-top: 20px">
                 <span style="font-weight: bold;color: black"><span style="font-size: 20px">{{ score }}</span>分</span>
               </el-progress>
             </el-col>
@@ -25,23 +43,23 @@
         </div>
       </el-col>
     </el-row>
+
+
     <el-row type="flex" justify="center">
       <el-col :span="16">
         <div class="studyData">
           <el-row>
-            <el-col :span="1"></el-col>
-            <el-col :span="23">
-              <h3 style="margin-top: 20px;margin-bottom: 0px">学习数据</h3>
+            <el-col :span="8">
+              <h3 style="margin-top: 20px;margin-bottom: 5px;margin-left: 4%">学习数据</h3>
             </el-col>
           </el-row>
           <el-row gutter="0" type="flex" justify="center">
-
             <el-col :span="8">
-              <div class="div1">
+              <div class="div1" style="margin-left: 5%;margin-right: 1%">
                 <el-row>
                   <el-col :span="1"></el-col>
-                  <el-col :span="10"></el-col>
-                  <el-col :span="13">
+                  <el-col :span="8"></el-col>
+                  <el-col :span="15">
                     <p class="p2">{{studyHour}}小时</p>
                     <p class="p3">学习时长</p>
                   </el-col>
@@ -49,20 +67,20 @@
               </div>
             </el-col>
             <el-col :span="8">
-              <div class="div1"><el-row>
+              <div class="div1" style="margin-left: 3%;margin-right: 3%"><el-row>
                 <el-col :span="1"></el-col>
-                <el-col :span="10"></el-col>
-                <el-col :span="13">
+                <el-col :span="8"></el-col>
+                <el-col :span="15">
                   <p class="p2">{{studyNumber}}门</p>
                   <p class="p3">学习课程数</p>
                 </el-col>
               </el-row></div>
             </el-col>
             <el-col :span="8">
-              <div class="div1"><el-row>
+              <div class="div1" style="margin-left: 1%;margin-right: 5%"><el-row>
                 <el-col :span="1"></el-col>
-                <el-col :span="10"></el-col>
-                <el-col :span="13">
+                <el-col :span="8"></el-col>
+                <el-col :span="15">
                   <p class="p2">{{homeworkSchedule}}分</p>
                   <p class="p3">作业完成度</p>
                 </el-col>
@@ -73,6 +91,8 @@
         </div>
       </el-col>
     </el-row>
+
+
     <el-row type="flex" justify="center">
       <el-col :span="16">
         <el-row gutter="10">
@@ -115,10 +135,10 @@
 </template>
 
 <script>
-import ProgressBar from "./ProgressBar.vue";
-import Statistic from "./Statistic.vue"
-import CourseLink from "./CourseLink.vue";
-import CourseList from "./CourseList.vue";
+import ProgressBar from "@/components/ProgressBar.vue";
+import Statistic from "@/components/Statistic.vue"
+import CourseLink from "@/components/CourseLink.vue";
+import CourseList from "@/components/CourseList.vue";
 import {Bottom} from "@element-plus/icons-vue";
 import logoImg from "@/assets/layout/logo.png";
 import qrcode from "@/assets/home/qrcode.png";
@@ -196,6 +216,11 @@ export default {
 .el-row {
   margin-bottom: 10px;
 }
+.rl1{
+  text-decoration: none;
+  font-size: 13px;
+  color: #999999
+}
 .totalScore{
   width: 100%;
   height: auto;
@@ -204,7 +229,7 @@ export default {
   border-radius:5px;
 }
 .p1{
-  margin: 4px 0px;
+  margin: 12px 0px;
   font-size: 14px;
 }
 .demo-progress .el-progress--circle {
@@ -218,21 +243,24 @@ export default {
 }
 .div1{
   background-color: #F2F4FF;
-  margin: 10px 5%;
-  width: 90%;
-  height: auto;
-  border-radius:5px;
+//margin: 10px 5%;
+  margin-bottom: 25px;
+  width: 93%;
+  height: 110px;
+  border-radius:15px;
 }
 .p2{
-  font-size: 23px;
+  font-size: 27px;
   margin-top: 25px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 .p3{
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 0px;
   margin-bottom: 25px;
+  font-weight: bold;
+//font-family: 'SimHei';
 }
 .p4{
   font-weight: bold;
