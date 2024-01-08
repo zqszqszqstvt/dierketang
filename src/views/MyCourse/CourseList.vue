@@ -2,15 +2,15 @@
 
 <template>
   <div style="width: 100%; min-width: 400px">
-    <div style="gap: 10px; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; min-height: 300px;">
+    <div style="gap: 10px; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; min-height: 300px;">
         <CourseLink v-for="(a) in range" :picture='list1[a].picture' :link="list1[a].link" :name="list1[a].name" :schedule="list1[a].schedule"
-                    style="margin:auto" />
+                    style="margin:0" />
     </div>
   </div>
 </template>
 
 <script>
-import CourseLink from "@/components/CourseLink.vue";
+import CourseLink from "./CourseLink.vue";
 import picture from "@element-plus/icons/lib/Picture.js";
 export default {
   name: "CourseList",
