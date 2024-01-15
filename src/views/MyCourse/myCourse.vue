@@ -135,13 +135,27 @@
 </template>
 
 <script>
-import ProgressBar from "@/components/ProgressBar.vue";
-import Statistic from "@/components/Statistic.vue"
-import CourseLink from "@/components/CourseLink.vue";
-import CourseList from "@/components/CourseList.vue";
+import ProgressBar from "./ProgressBar.vue";
+import Statistic from "./Statistic.vue"
+import CourseLink from "./CourseLink.vue";
+import CourseList from "./CourseList.vue";
 import {Bottom} from "@element-plus/icons-vue";
 import logoImg from "@/assets/layout/logo.png";
 import qrcode from "@/assets/home/qrcode.png";
+import c1 from "@/assets/CourseCover/1.jpg";
+import c2 from "@/assets/CourseCover/2.jpg";
+import c3 from "@/assets/CourseCover/3.jpg";
+import c4 from "@/assets/CourseCover/4.jpg";
+import c5 from "@/assets/CourseCover/5.jpg";
+import c6 from "@/assets/CourseCover/6.jpg";
+import c7 from "@/assets/CourseCover/7.jpg";
+import c8 from "@/assets/CourseCover/8.jpg";
+import c9 from "@/assets/CourseCover/9.jpg";
+import c10 from "@/assets/CourseCover/10.jpg";
+import c11 from "@/assets/CourseCover/11.jpg";
+import c12 from "@/assets/CourseCover/12.jpg";
+import c13 from "@/assets/CourseCover/13.jpg";
+import c14 from "@/assets/CourseCover/14.jpg";
 export default {
   methods:{
     clickTotal(){
@@ -172,38 +186,31 @@ export default {
       qrcode,
       logoImg,
       studyHour:36,
-      studyNumber:20,
+      studyNumber:13,
       homeworkSchedule:62,
       score:88,
-      name:"子淇",
-      college:"计算机学院",
-      major:"软件工程",
-      grade:"2021",
+      name:"阿发",
+      college:"计算机科学与技术学院",
+      major:"计算机科学与技术",
+      grade:"2019",
       ongoingColour:'#808080',
       totalColour:'blueviolet',
       finishColour:'#808080',
 
       cou:[//课程数据
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
-        {name:"课程",link:"https://www.baidu.com/" ,picture:qrcode,schedule:21},
+        {name:"C++程序设计",link:"https://www.baidu.com/" ,picture:c1,schedule:100},
+        {name:"SYUCPCT语法",link:"https://www.baidu.com/" ,picture:c2,schedule:100},
+        {name:"数据结构与算法",link:"https://www.baidu.com/" ,picture:c4,schedule:85},
+        {name:"大数据基础应用",link:"https://www.baidu.com/" ,picture:c5,schedule:82},
+        {name:"数据结构",link:"https://www.baidu.com/" ,picture:c6,schedule:78},
+        {name:"用户交互设计与实现",link:"https://www.baidu.com/" ,picture:c7,schedule:74},
+        {name:"深度神经网络",link:"https://www.baidu.com/" ,picture:c8,schedule:62},
+        {name:"数字逻辑",link:"https://www.baidu.com/" ,picture:c9,schedule:51},
+        {name:"数据库概率实验",link:"https://www.baidu.com/" ,picture:c10,schedule:30},
+        {name:"C++程序设计",link:"https://www.baidu.com/" ,picture:c11,schedule:12},
+        {name:"python程序设计",link:"https://www.baidu.com/" ,picture:c12,schedule:0},
+        {name:"大数据储存",link:"https://www.baidu.com/" ,picture:c13,schedule:0},
+        {name:"python程序设计",link:"https://www.baidu.com/" ,picture:c14,schedule:0},
 
       ]
 
