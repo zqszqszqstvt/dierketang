@@ -7,11 +7,8 @@
       <div class="user">
         <MyCompetitionUser/>
       </div>
-      <!-- <div class="info-title">
-        <h3>第四课堂/竞赛管理</h3>
-      </div>
-      <MyCompetitionCommit/> -->
-      <el-dialog title="登记奖项" :model-value="addshow" width="65%">
+      <!-- 弹窗 新增成绩弹窗 -->
+      <el-dialog title="登记奖项" :model-value="addshow" width="65%" :show-close="false">
         <MyCompetitionCommit/>
       </el-dialog>
       
@@ -54,6 +51,7 @@ export default {
     this.netrequest();
   },
   computed: {
+    // 弹窗 用store的变量来决定显示弹窗否
     addshow() {
       return this.$store.state.addCopetitionShow;
     }
@@ -125,9 +123,10 @@ export default {
           score: '5'
         }]
     },
+    // 弹窗 点击出现弹窗
     addClick() {
       this.$store.dispatch('updateAddCompetitionShow');
-    }
+    },
   }
 };
 </script>

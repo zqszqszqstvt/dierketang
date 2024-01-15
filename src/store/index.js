@@ -10,7 +10,7 @@ export default createStore({
     companyType: "全部",
     jobSourceType: "全部",
     firstDateType: "全部",
-
+    // 弹窗 
     addCopetitionShow: false,
     addGradesShow: false,
     addPracticeShow: false,
@@ -40,7 +40,7 @@ export default createStore({
       context.commit('UpdatePractice4',value)
     },
 
-    // 更新弹窗显示状态
+    // 弹窗 更新弹窗显示状态
     updateAddCompetitionShow(context) {
       context.commit('UpdateAddCompetitionShow')
     },
@@ -78,7 +78,7 @@ export default createStore({
       state.firstDateType=value
     },
 
-    // 更新弹窗显示状态
+    // 弹窗 更新弹窗显示状态
     UpdateAddCompetitionShow(state) {
       state.addCopetitionShow=!state.addCopetitionShow
     },

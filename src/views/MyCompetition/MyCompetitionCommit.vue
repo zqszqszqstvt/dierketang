@@ -65,6 +65,7 @@ export default {
     console.log(formData);
     // 在这里可以发送formData到服务器
     },
+    //给按钮增加一个更改弹窗显示状态的函数
     quit() {
       this.$store.dispatch('updateAddCompetitionShow');
     },
