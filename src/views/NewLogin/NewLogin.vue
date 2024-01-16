@@ -117,8 +117,11 @@ export default {
   name: 'NewLogin',
   mounted() {
     // 获取屏幕高度和宽度
+    //var loginBoxWidth=loginBox.offsetWidth;
+    //var loginBoxHeight=loginBox.offsetHeight;
+
     var screenWidht=screen.availWidth;
-    var screenHeight1 = (screen.availHeight)/2-68-45-45;
+    var screenHeight1 = (screen.availHeight)/2-68-45;
     var screenHeight2 = (screen.availHeight)/2-45;
     // 获取要设置高度的元素
     var dynamicBox1 = document.getElementById('dynamicBox1');
@@ -127,8 +130,15 @@ export default {
      //将屏幕高度应用到元素的高度上
     dynamicBox1.style.height = screenHeight1 + 'px';
     dynamicBox2.style.height = screenHeight2 + 'px';
-    loginBox.style.left=screenWidht/2-400+'px';
-    loginBox.style.top=screenHeight2-250+'px';
+
+    /*
+
+        loginBox.style.left=screenWidht/2-400+'px';
+        loginBox.style.top=screenHeight2-250+'px';
+
+         */
+    loginBox.style.left = screenWidht / 2 - loginBox.offsetWidth / 2 + 'px';
+    loginBox.style.top = screenHeight2 - loginBox.offsetHeight / 2 + 'px';
   },
   data(){
     return{
