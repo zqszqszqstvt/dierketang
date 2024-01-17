@@ -10,13 +10,14 @@
         <ClassScoreCommit/>
         <div class="gradescard">
             <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
+            <span style="margin-left: 40px;">全部成绩></span>
           <div class="termselect" style="{
             width: 80%;
       position: relative; 
-      right: 0; 
+       
       transform: translateX(100%); 
     }">
-            <label>学期选择</label>
+            <label style="font-size: large; font-weight: bold;">学期选择</label>
             <select @change="changegrade" >
               <!-- 这里添加你的选项 -->
               <option value="0">全部</option>
@@ -25,6 +26,8 @@
               <option value="3">大三年级</option>
               <option value="4">大四年级</option>
             </select>
+            <!-- <span>全部成绩></span> -->
+          
           </div>
           <div class="classItem">
               <ClassScoreItem v-for="(item, index) in grades" :key="index" :grade="item"/>
@@ -123,9 +126,11 @@
       align-items: center;
     }
     .mini-box {
-      width: auto;
+      width: 962px;
+      //width: auto;
     }
     .top-box {
+      box-sizing: border-box;
       width: 100%;
       margin-bottom: 30px;
       padding: 20px;
@@ -147,11 +152,12 @@
       margin-right: 3px;
     }
     .termselect {
-      margin-left: 30px;
+    //  margin-left: 30px;
       margin-bottom: 10px;
       display: inline-block; 
     }
     .gradescard {
+      box-sizing: border-box;
      width: 100%;
       position: relative;
       border-radius: 10px;
@@ -172,6 +178,7 @@
       align-items: center;
     }
     .buttom {
+      box-sizing: border-box;
      width: 100%;
       padding: 20px;
       border-radius: 10px;
