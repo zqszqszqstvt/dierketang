@@ -2,10 +2,10 @@
     <div>
       <div style="display: flex;">
         <div class="radar">
-          <canvas id="radarChart" width="400" height="400"></canvas>
+          <canvas id="radarChart" width="370" height="370"></canvas>
         </div>
         <div class="radar2">
-          <canvas id="lineChart" width="400" height="400"></canvas>
+          <canvas id="lineChart" width="370" height="370"></canvas>
         </div>
       </div>
     </div>

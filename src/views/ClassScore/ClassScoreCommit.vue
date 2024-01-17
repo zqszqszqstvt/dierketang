@@ -92,6 +92,7 @@
   
   <style lang="less" scoped>
   .card {
+    box-sizing: border-box;
   width: 100%;
     padding: 20px;
     border-radius: 10px;
@@ -168,7 +169,7 @@
   .button-group {
   flex: 1 0 100%;
   text-align: left;
-  margin-left: 90px;
+  margin-left: 75px;
 }
 .button-group button {
   padding: 10px 40px;

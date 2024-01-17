@@ -94,6 +94,7 @@
   </script>
   <style lang="less" scoped>
   .box {
+    
     display: flex;
     position: relative;
     height: auto;
@@ -116,8 +117,8 @@
     text-align: center;
   }
   .info {
-    margin-right: 30%;
-    width: 50%;
+    margin-right: 20%;
+    width: 70%;
     left: 0;
     right: auto;
 
