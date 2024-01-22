@@ -44,10 +44,10 @@ export default createStore({
     updateAddCompetitionShow(context) {
       context.commit('UpdateAddCompetitionShow')
     },
-    addGradesShow(context) {
+    updateAddGradesShow(context) {
       context.commit('UpdateAddGradesShow')
     },
-    addPracticeShow(context) {
+    updateAddPracticeShow(context) {
       context.commit('UpdateAddPracticeShow')
     },
   },

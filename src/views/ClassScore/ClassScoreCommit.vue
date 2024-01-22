@@ -30,8 +30,8 @@
         </div>
 
         <div class="button-group">
-          <button  type="submit">增加</button>
-          <button type="button" @click="resetForm">重置</button>
+          <button type="submit" @click="add">增加</button>
+          <button type="button" @click="quit">取消</button>
         </div>
       </form>
     </div>
@@ -70,19 +70,18 @@
         }
       
       },
-
-      resetForm() {
-        this.gradeLevel='1';
-        this.subjectName='';
-        this.Score='';
-        this.file = null;
-      },
       handleFileUpload(event) {
         this.file = event.target.files[0];
         // 在这里处理文件
       },
       ClipboardItem(event){
         document.querySelector('input[id="file"]').click();  
+      },
+      quit() {
+        this.$store.dispatch('updateAddGradesShow');
+      },
+      add() {
+        this.$store.dispatch('updateAddGradesShow');
       }
       
 

@@ -4,9 +4,12 @@
         <div class="top-box">
           <ThirdClassScoreTop/>
         </div>
-        <ThirdClassScoreCommit/>
+        <el-dialog title="登记奖项" :model-value="addshow" width="65%" :show-close="false">
+          <ThirdClassScoreCommit/>
+        </el-dialog>
         <div class="gradescard">
             <h2 class="termselect" style="width: 55%;">我的实践</h2> 
+            <button class="add" @click="addClick">添加</button>
           <div class="termselect" style="{
             width: 80%;
       position: relative; 
@@ -43,6 +46,12 @@
     async created() {
       // const response = await axios.get('你的API地址');
       this.netrequest(0);
+    },
+    computed: {
+      // 弹窗 用store的变量来决定显示弹窗否
+      addshow() {
+        return this.$store.state.addPracticeShow;
+      }
     },
     methods: {
       //模拟网络请求
@@ -94,6 +103,10 @@
            img: '6.png',
           }]
         
+      },
+      // 弹窗 点击出现弹窗
+      addClick() {
+        this.$store.dispatch('updateAddPracticeShow');
       },
      
     }
@@ -177,6 +190,19 @@
       background-color: #fff;
       margin-top: 30px;
     }
-  
+    .add {
+      width: 100px;  
+      height: 40px;  
+      margin-right: 30px;
+      background-color: #FFFFFF;
+      color: #581BB7;  
+      border: none;  
+      border-radius: 4px;  
+      font-size: 16px;
+    }
+    .add:hover {
+      background-color: #581BB7;
+      color: #FFFFFF;  
+    }
   
   </style>
