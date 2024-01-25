@@ -7,14 +7,18 @@
       <div class="user">
         <MyCompetitionUser/>
       </div>
-      <div class="info-title">
-        <h3>第四课堂/竞赛管理</h3>
-      </div>
-      <MyCompetitionCommit/>
+      <!-- 弹窗 新增成绩弹窗 -->
+      <el-dialog title="登记奖项" :model-value="addshow" width="65%" :show-close="false">
+        <MyCompetitionCommit/>
+      </el-dialog>
+      
       <div class="awards-box">
         <div class="awards-title">
           <h2>我的竞赛</h2>
-          <div class="more">全部竞赛></div>
+          <div class="more">
+            <button class="add" @click="addClick">添加</button>
+            <span>全部竞赛></span>
+          </div>
         </div>
         <div class="awardsItem">
           <MyCompetitionCard v-for="(item, index) in Awards" :key="index" :award="item"/>
@@ -32,7 +36,8 @@ export default {
   name: 'MyCompetitionPage',
   data() {
     return {
-      Awards: []
+      Awards: [],
+      
     };
   },
   components: {
@@ -44,6 +49,12 @@ export default {
     // const response = await axios.get('你的API地址');
     
     this.netrequest();
+  },
+  computed: {
+    // 弹窗 用store的变量来决定显示弹窗否
+    addshow() {
+      return this.$store.state.addCopetitionShow;
+    }
   },
   methods: {
     //模拟网络请求
@@ -111,7 +122,11 @@ export default {
           img: 'lanqiaobei.png',
           score: '5'
         }]
-    }
+    },
+    // 弹窗 点击出现弹窗
+    addClick() {
+      this.$store.dispatch('updateAddCompetitionShow');
+    },
   }
 };
 </script>
@@ -143,6 +158,20 @@ export default {
   margin-top: 80px;
   display: flex;
   justify-content: space-between;
+}
+.add {
+  width: 100px;  
+  height: 40px;  
+  margin-right: 30px;
+  background-color: #FFFFFF;
+  color: #581BB7;  
+  border: none;  
+  border-radius: 4px;  
+  font-size: 16px;
+}
+.add:hover {
+  background-color: #581BB7;
+  color: #FFFFFF;  
 }
 .awards-title .more {
   font-size: 18px;

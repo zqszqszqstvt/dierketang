@@ -7,8 +7,11 @@
         <div class="top-box">
           <ClassScoreTop/>
         </div>
-        <ClassScoreCommit/>
+        <el-dialog title="登记奖项" :model-value="addshow" width="65%" :show-close="false">
+          <ClassScoreCommit/>
+        </el-dialog>
         <div class="gradescard">
+
           <el-row>
             <el-col :span="20">
             <h2 class="termselect" style="width: 55%;">我的课程成绩</h2>
@@ -28,6 +31,7 @@
                   <option value="3">大三年级</option>
                   <option value="4">大四年级</option>
                 </select>
+
           </div>
             </el-col>
           </el-row>
@@ -68,6 +72,12 @@
     async created() {
       // const response = await axios.get('你的API地址');
       this.netrequest(0);
+    },
+    computed: {
+      // 弹窗 用store的变量来决定显示弹窗否
+      addshow() {
+        return this.$store.state.addGradesShow;
+      }
     },
     methods: {
       //模拟网络请求
@@ -117,7 +127,11 @@
         const selectedGrade = event.target.value;
         // 根据选择的年级发送请求
         this.netrequest(selectedGrade);
-      }
+      },
+      // 弹窗 点击出现弹窗
+      addClick() {
+        this.$store.dispatch('updateAddGradesShow');
+      },
     }
   };
   </script>
@@ -128,9 +142,11 @@
       align-items: center;
     }
     .mini-box {
-      width: auto;
+      width: 962px;
+      //width: auto;
     }
     .top-box {
+      box-sizing: border-box;
       width: 100%;
       margin-bottom: 30px;
       padding: 20px;
@@ -152,11 +168,12 @@
       margin-right: 3px;
     }
     .termselect {
-      margin-left: 30px;
+    //  margin-left: 30px;
       margin-bottom: 10px;
       display: inline-block; 
     }
     .gradescard {
+      box-sizing: border-box;
      width: 100%;
       position: relative;
       border-radius: 10px;
@@ -177,16 +194,29 @@
       align-items: center;
     }
     .buttom {
-     width: 100%;
+      box-sizing: border-box;
+      width: 100%;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       background-color: #fff;
       margin-top: 30px;
     }
-  
+    .add {
+      width: 100px;
+      height: 40px;
+      background-color: #FFFFFF;
+      color: #581BB7;
+      border: none;  
+      border-radius: 4px;  
+      font-size: 16px;
+    }
+    .add:hover {
+      background-color: #581BB7;
+      color: #FFFFFF;  
+    }
     .main-title {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
   </style>

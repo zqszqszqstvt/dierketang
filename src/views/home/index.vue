@@ -54,7 +54,10 @@
 
 <script>
 import logoImg from "@/assets/layout/logo.png";
-import bannerImg from "@/assets/home/banner.png";
+import bannerImg1 from "@/assets/home/banner1.png";
+import bannerImg2 from "@/assets/home/banner2.png";
+import bannerImg3 from "@/assets/home/banner3.png";
+import bannerImg4 from "@/assets/home/banner4.png";
 import lesson1Img from "@/assets/home/lesson1.png";
 import lesson2Img from "@/assets/home/lesson2.png";
 import lesson3Img from "@/assets/home/lesson3.png";
@@ -74,7 +77,7 @@ export default {
       logoImg,
       /** 手写carousel */
       carouselIndex: 0,
-      bannerList: [bannerImg, bannerImg, bannerImg, bannerImg],
+      bannerList: [bannerImg1, bannerImg2, bannerImg3, bannerImg4],
       timer: undefined,
       qrcode,
       list: [

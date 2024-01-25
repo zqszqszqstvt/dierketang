@@ -32,8 +32,8 @@
         <input id="competitionScore" v-model="competitionScore" type="number">
       </div>
       <div class="button-group">
-        <button type="submit">增加</button>
-        <button type="button" @click="resetForm">重置</button>
+        <button type="submit" @click="add">增加</button>
+        <button type="button" @click="quit">取消</button>
       </div>
     </form>
   </div>
@@ -65,11 +65,12 @@ export default {
     console.log(formData);
     // 在这里可以发送formData到服务器
     },
-    resetForm() {
-      this.competitionLevel='0';
-      this.awardLevel='1';
-      this.competitionName='';
-      this.competitionScore='';
+    //给按钮增加一个更改弹窗显示状态的函数
+    quit() {
+      this.$store.dispatch('updateAddCompetitionShow');
+    },
+    add() {
+      this.$store.dispatch('updateAddCompetitionShow');
     }
   },
   props: {

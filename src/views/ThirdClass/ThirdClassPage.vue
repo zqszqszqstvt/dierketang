@@ -4,9 +4,12 @@
         <div class="top-box">
           <ThirdClassScoreTop/>
         </div>
-        <ThirdClassScoreCommit/>
+        <el-dialog title="登记奖项" :model-value="addshow" width="65%" :show-close="false">
+          <ThirdClassScoreCommit/>
+        </el-dialog>
         <div class="gradescard">
             <h2 class="termselect" style="width: 55%;">我的实践</h2> 
+            <button class="add" @click="addClick">添加</button>
           <div class="termselect" style="{
             width: 80%;
       position: relative; 
@@ -17,6 +20,7 @@
           </div>
           <div class="classItem">
               <ThirdClassScoreItem v-for="(item, index) in grades" :key="index" :grade="item" class="items"/>
+              
           </div>
         </div>
       </div>
@@ -43,6 +47,12 @@
       // const response = await axios.get('你的API地址');
       this.netrequest(0);
     },
+    computed: {
+      // 弹窗 用store的变量来决定显示弹窗否
+      addshow() {
+        return this.$store.state.addPracticeShow;
+      }
+    },
     methods: {
       //模拟网络请求
       netrequest() {
@@ -53,39 +63,50 @@
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf2f6686e5c9ccfba5469de97f4097763699467f12e2d5a57615081df272da487'
+            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf2f6686e5c9ccfba5469de97f4097763699467f12e2d5a57615081df272da487',
+            img:'1.png',
+            //img: '/src/views/ThirdClass/images/1.png',
           },{
             subject: '心理素质与身体素质',
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9718c8c95adf14f065f37e1e1b1b5ab6680b97b5b595dec54c3b81c93a1a4d0a'
+            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9718c8c95adf14f065f37e1e1b1b5ab6680b97b5b595dec54c3b81c93a1a4d0a',
+            img: '2.png',
           },{
             subject: '艺术体验与审美修养',
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5e3c80035aeb6cc78aca40171452aed8ba3fe5a630c809cdd61652972380560a'
+            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5e3c80035aeb6cc78aca40171452aed8ba3fe5a630c809cdd61652972380560a',
+            img: '3.png',
           },{
             subject: '文化沟通与交往能力',
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc2755149059c33f22b0b7f5500ada5d3b1a84ee1f98c7522a78a14172353cbd7'
+            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc2755149059c33f22b0b7f5500ada5d3b1a84ee1f98c7522a78a14172353cbd7',
+            img: '4.png',
           },{
             subject: '社会工作与领导能力',
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng625647de8e62a03f2ab8bea320b5e008aa9f1bc6430b49541085915a4518a577'
+           // surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng625647de8e62a03f2ab8bea320b5e008aa9f1bc6430b49541085915a4518a577',
+           img: '5.png',
           },{
             subject: '学术科技与创新创业',
             score: '20',
             all:'10',
             completion:'7',
-            surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng31b4d96cc1d17aed767e93d96d225fb717511e92a2260822915001aecba1f3aa'
+           // surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng31b4d96cc1d17aed767e93d96d225fb717511e92a2260822915001aecba1f3aa',
+           img: '6.png',
           }]
         
+      },
+      // 弹窗 点击出现弹窗
+      addClick() {
+        this.$store.dispatch('updateAddPracticeShow');
       },
      
     }
@@ -99,9 +120,10 @@
       align-items: center;
     }
     .mini-box {
-      width: auto;
+      width: 962px;
     }
     .top-box {
+      box-sizing: border-box;
       width: 100%;
       margin-top: 30px;
       margin-bottom: 30px;
@@ -139,7 +161,7 @@
       display: inline-block; 
     }
     .gradescard {
-     
+      box-sizing: border-box;
       position: relative;
       border-radius: 10px;
       padding: 20px;
@@ -160,6 +182,7 @@
       align-items: center;
     }
     .buttom {
+      box-sizing: border-box;
      width: 100%;
       padding: 20px;
       border-radius: 10px;
@@ -167,6 +190,19 @@
       background-color: #fff;
       margin-top: 30px;
     }
-  
+    .add {
+      width: 100px;  
+      height: 40px;  
+      margin-right: 30px;
+      background-color: #FFFFFF;
+      color: #581BB7;  
+      border: none;  
+      border-radius: 4px;  
+      font-size: 16px;
+    }
+    .add:hover {
+      background-color: #581BB7;
+      color: #FFFFFF;  
+    }
   
   </style>

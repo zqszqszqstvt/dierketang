@@ -2,7 +2,7 @@
     <div class="box">
       <div class="score-inall">
         <div class="progress-ring">
-            <svg :width="radius * 2+20" :height="radius * 2+20">
+            <svg :width="radius * 2 + 20" :height="radius * 2 + 20">
 
               <circle
             class="progress-ring__circle" id="c2"
@@ -28,7 +28,7 @@
             :cx="radius+12"
             :cy="radius+12"
             />
-          <text x="50%" y="50%" text-anchor="middle" :stroke="color" stroke-width="0px" dy=".3em" style="font-size: 30px;">{{ progress }}<tspan style="font-size: 20px;word-spacing: -20;" > 分</tspan></text>
+          <text x="50%" y="50%" text-anchor="middle" :stroke="color" stroke-width="0px" dy=".3em" style="font-size: 20px;">{{ progress }}<tspan style="font-size: 20px;word-spacing: -10;" > 分</tspan></text>
         </svg>
         </div>
         <h5 class="top-title">{{ grade.subject }}</h5>
@@ -41,7 +41,7 @@
     name: 'ClassScoreTop',
     data() {
       return {
-        radius: 60,
+        radius: 40,
         progress: 0,
       };
     },
