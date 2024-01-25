@@ -2,30 +2,30 @@
     <div class="box">
       <!-- 竞赛级别和排序方式 -->
       <div class="minibox">
-        <div class="item-box clearfix"  style="margin-top: 20px; padding-bottom: 0;">
+        <div class="item-box clearfix">
           <h3 class="fl item-title">行业类别：</h3>
-          <div class="fl item-con clearfix" style="position: relative; top: 6px;">
+          <div class="fl item-con clearfix">
             <div v-for="(item, lIndex) in industrys" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleIndustryClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
-        <div class="item-box clearfix"  style="margin-top: 20px; padding-bottom: 0;">
+        <div class="item-box clearfix">
           <h3 class="fl item-title">公司性质：</h3>
-          <div class="fl item-con clearfix" style="position: relative; top: 6px;">
+          <div class="fl item-con clearfix">
             <div v-for="(item, lIndex) in companys" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleCompanyClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
-        <div class="item-box clearfix"  style="margin-top: 20px; padding-bottom: 0;">
+        <div class="item-box clearfix">
           <h3 class="fl item-title">职位来源：</h3>
-          <div class="fl item-con clearfix" style="position: relative; top: 6px;">
+          <div class="fl item-con clearfix">
             <div v-for="(item, lIndex) in jobSources" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleJobSourcesClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
-        <div class="item-box clearfix" style="margin-top: 20px; padding-bottom: 0;">
+        <div class="item-box clearfix">
           <h3 class="fl item-title">首发日期：</h3>
-          <div class="fl item-con clearfix" style="position: relative; top: 5px;">
+          <div class="fl item-con clearfix">
             <div v-for="(item, sIndex) in firstDates" :key="sIndex" class="fl item-link" :class="{ active: item.active }" @click="handleFirstDatesClick(item.label)">{{ item.label }}</div>
           </div>
         </div>
@@ -97,9 +97,10 @@
   </script>
   <style lang="less" scoped>
   .item-title {
-    align-items: center;
-    margin: auto 0;
+
     white-space: nowrap; 
+    margin: 0;
+    padding: 0;
   }
   .item-con {
     display: flex;
@@ -114,12 +115,13 @@
     margin-bottom: 20px; // 下边距
     cursor: pointer;
     white-space: nowrap;
-    font-weight: bold;
   }
   .item-box {
     display: flex; 
-    align-items: center;
+    align-items: flex-start;
     padding: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
   .active {
     background-color: #7341C2;

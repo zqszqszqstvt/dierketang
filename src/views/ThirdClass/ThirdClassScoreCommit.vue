@@ -30,8 +30,8 @@
         </div>
 
         <div class="button-group">
-          <button  type="submit">增加</button>
-          <button type="button" @click="resetForm">重置</button>
+          <button type="submit" @click="add">增加</button>
+          <button type="button" @click="quit">取消</button>
         </div>
       </form>
     </div>
@@ -70,19 +70,18 @@
         }
       
       },
-
-      resetForm() {
-        this.gradeLevel='1';
-        this.subjectName='';
-        this.Score='';
-        this.file = null;
-      },
       handleFileUpload(event) {
         this.file = event.target.files[0];
         // 在这里处理文件
       },
       ClipboardItem(event){
         document.querySelector('input[id="file"]').click();  
+      },
+      quit() {
+        this.$store.dispatch('updateAddPracticeShow');
+      },
+      add() {
+        this.$store.dispatch('updateAddPracticeShow');
       }
       
 
@@ -92,10 +91,11 @@
   
   <style lang="less" scoped>
   .card {
+    box-sizing: border-box;
   width: 100%;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-top: 6px; 
     flex-wrap: wrap;  
@@ -142,26 +142,42 @@
     
   }
   
-  .form-group input{
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 70%;
-    margin: 5px;
-  }
+  // .form-group input{
+  //   padding: 5px;
+  //   border-radius: 5px;
+  //   border: 1px solid #ddd;
+  //   width: 70%;
+  //   margin: 5px;
+  // }
+  .form-group input {
+  width: 60%;
+  height: 35px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-right: 22%;
+}
+  // .form-group select {
+  //   padding: 5px;
+  //   border-radius: 5px;
+  //   border: 1px solid #ddd;
+  //   width: 70%;
+  //   margin: 5px;
+  // }
   .form-group select {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 70%;
-    margin: 5px;
-  }
-  
+  width: 62%;
+  height: 50px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-right: 22%;
+}
   .button-group {
     flex: 1 0 100%;
-    text-align: right;
-    display: flex;  
-  justify-content: flex-start;  
+    text-align: left;
+    margin-left: 75px;
    
   }
  
@@ -169,32 +185,34 @@
     display: none;
   }
   .button-group button {
-    padding: 5px 10px;
-    border-radius: 5px;
-    width: 15%;
-    margin: 3%;
-    cursor: pointer;
-    color: black; /* 设置文字颜色为黑色 */
-    border: 2px solid #DDDDDD; /* 设置边框 */
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
-  }
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 2%;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  border: 2px solid #F5F4F4;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* 添加过渡效果 */
+}
+.button-group button:first-child:hover {
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-color: transparent; /* 将边框颜色设置为透明 */
+  border-radius: 10px;
+}
+.button-group button:first-child {
+  background-color: #581BB7;
+  color: #FFFFFF;
+}
 
-  .button-group button:first-child:hover {
-    background-color: #007BFF; /* 当鼠标移动到第一个按钮上时，改变背景颜色 */
-    color: black; /* 当鼠标移动到第一个按钮上时，改变文字颜色 */
-    border: none;
-  }
-  .button-group button:first-child{
-    background-color:  #800080;
-    color: white;
-    border: none;
-  }
-
-  .button-group button:last-child:hover {
-    background-color: #DC3545; 
-    color: white; 
-    border: none;
-  }
+.button-group button:last-child:hover {
+  background-color: #DC3545;
+  color: #FFFFFF;
+  border-color: transparent; /* 将边框颜色设置为透明 */
+  border-radius: 10px;
+}
  
   select {
     background-color: #FFFFFF;

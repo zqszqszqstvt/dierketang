@@ -1,38 +1,38 @@
 <template>
     <div class="box">
       <div class="score-inall">
-        <div class="progress-ring" width="radius * 2+25" :height="radius * 2+25">
-            <svg :width="radius * 2+25" :height="radius * 2+25">
+        <div class="progress-ring" width="radius * 2+24" :height="radius * 2+24">
+            <svg :width="radius * 2+24" :height="radius * 2+24">
               <circle
             class="progress-ring__circle"
             stroke="#F4EDFF"
             :stroke-dasharray="circumference + ' ' + circumference"
-            stroke-width="16"
+            stroke-width="12"
             fill="transparent"
             stroke-linecap="round"  
             :r="normalizedRadius"
-            :cx="radius+16"
-            :cy="radius+16"
+            :cx="radius+12"
+            :cy="radius+12"
             />
             <circle
             class="progress-ring__circle"
             stroke="#800080"
             :stroke-dasharray="circumference + ' ' + circumference"
             :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
-            stroke-width="16"
+            stroke-width="12"
             fill="transparent"
             stroke-linecap="round"  
             :r="normalizedRadius"
-            :cx="radius+16"
-            :cy="radius+16"
+            :cx="radius+12"
+            :cy="radius+12"
             />
-          <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="0px" dy=".3em" style="font-size: 50px;"><tspan style="">{{ progress }}</tspan> <tspan style="font-size: 30px;word-spacing: -20;" > 分</tspan></text>
+          <text x="50%" y="50%" text-anchor="middle" stroke="#D8BFD8" stroke-width="0px" dy=".3em" style="font-size: 40px;"><tspan style="">{{ progress }}</tspan> <tspan style="font-size: 30px;word-spacing: -20;" > 分</tspan></text>
         </svg>
         </div>
        
       </div>
       <div class="info">
-      <h3 class="top-title">第三课堂总成绩</h3>
+      <h2 class="top-title">第三课堂总成绩</h2>
         <table>
           <tr>
             <td><p>姓名：<strong>{{ information.name }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
@@ -41,10 +41,6 @@
             <td><p>专业：<strong>{{ information.major }}</strong></p></td><td><p>年级：<strong>{{ information.grade }}级</strong></p></td>
           </tr>
         </table>
-       
-       
-        
-        
       </div>
     </div>
   </template>
@@ -55,7 +51,7 @@
     data() {
       return {
         information: null,
-        radius: 80,
+        radius: 60,
         progress: 0
       };
     },
@@ -125,12 +121,10 @@
   }
   .info {
     margin-right: 30%;
-    width: 50%;
+    width: 70%;
     left: 0;
     right: auto;
-    height: 166.4px;
-   
-
+    //height: 166.4px;
 
   }
   td
@@ -148,6 +142,7 @@ height: 100%;
 td{
   width: 50%;
   border-spacing:50px;
+  font-size: 18px;
 }
 .top-title{
   float: left;

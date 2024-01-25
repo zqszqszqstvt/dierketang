@@ -1,11 +1,4 @@
-<!--
- * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2024-01-04 01:47:10
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-01-04 20:21:11
- * @FilePath: \secondclass-vue-master\src\views\FourthClassChoose\FourthClassChoosePage.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+
 <template>
     <div>
         <div>
@@ -29,7 +22,7 @@
 </template>
 
 <script>
-import bannerImg from "@/assets/home/banner.png";
+import bannerImg from "@/assets/home/banner1.png";
 import oneImg from "@/assets/16gl-1.png";
 import twoImg from "@/assets/16gl-2.png";
 export default {

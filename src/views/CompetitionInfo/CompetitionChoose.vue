@@ -4,12 +4,13 @@
     <!-- 竞赛类别 -->
     <h3>竞赛类别：</h3>
     <div v-for="(category, index) in categories" :key="index" class="fl item-box">
-      <h4 class="item-title">
+        <h4 class="item-title">
           <div class="item-link" :class="{ active: category.active }" @click="handleCategoryClick(category.title)">{{ category.title }}</div>
         </h4>
+
         <div class="item-con clearfix" style="display: flex; flex-wrap: wrap;">
           <div v-for="(subject, sIndex) in category.subjects" :key="sIndex" class="fl item-link" :class="{ active: subject.active }" @click="handleSubjectClick(subject.name)">{{ subject.name }}</div>
-          
+ 
         </div>
     </div>
     </div>
@@ -106,8 +107,10 @@ export default {
 <style lang="less" scoped>
 .item-title {
   display: flex;
-  align-items: center;
-  margin: auto 0;
+  align-items: flex-start;
+  margin: 0;
+
+
 }
 .item-con {
   display: flex;
@@ -124,7 +127,7 @@ export default {
 }
 .item-box {
   display: flex; 
-  align-items: center;
+  align-items: flex-start;
   padding: auto;
 }
 .active {

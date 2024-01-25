@@ -2,8 +2,8 @@
     <div class="box">
       <div class="score-inall">
         <div class="progress-ring">
-           <div class="imga">
-            <img src="grade.surl" >
+           <div class="imga"  >
+            <img :src="require(`@/views/ThirdClass/images/${grade.img}`)" alt="">
            </div>
            <div class="d1">
             <h3>{{grade. subject}}</h3>
