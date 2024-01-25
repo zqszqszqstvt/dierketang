@@ -2,34 +2,9 @@
     <div class="box">
       <div class="score-inall">
         <div class="progress-ring">
-            <svg :width="radius * 2+20" :height="radius * 2+20">
-
-              <circle
-            class="progress-ring__circle" id="c2"
-            :stroke="color2"
-            :stroke-dasharray="circumference + ' ' + circumference"
-            r=" radius"
-            stroke-width="12"
-            fill="transparent"
-            stroke-linecap="round"  
-            :r="normalizedRadius"
-            :cx="radius+12"
-            :cy="radius+12"
-            />
-                <circle
-            class="progress-ring__circle" id="c1"
-            :stroke="color"
-            :stroke-dasharray="circumference + ' ' + circumference"
-            :style="{ strokeDashoffset: strokeDashoffset + 'px' }"
-            stroke-width="12"
-            fill="transparent"
-            stroke-linecap="round"  
-            :r="normalizedRadius"
-            :cx="radius+12"
-            :cy="radius+12"
-            />
-          <text x="50%" y="50%" text-anchor="middle" :stroke="color" stroke-width="0px" dy=".3em" style="font-size: 30px;">{{ progress }}<tspan style="font-size: 20px;word-spacing: -20;" > 分</tspan></text>
-        </svg>
+          <el-progress type="circle" :percentage=progress :color=color :stroke-width="10" :width="150" style="margin-top: 20px">
+            <span style="font-weight: bold;color: black">{{progress}}<span style="font-size: 20px">{{ score }}</span>分</span>
+          </el-progress>
         </div>
         <h5 class="top-title">{{ grade.subject }}</h5>
       </div>
