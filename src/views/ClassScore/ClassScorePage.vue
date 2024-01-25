@@ -9,23 +9,30 @@
         </div>
         <ClassScoreCommit/>
         <div class="gradescard">
-            <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
-          <div class="termselect" style="{
+          <el-row>
+            <el-col :span="18">
+            <h2 class="termselect" style="width: 55%;">我的课程成绩</h2>
+            </el-col>
+            <el-col span="6">
+              <div class="termselect" style="{
             width: 80%;
       position: relative; 
       right: 0; 
-      transform: translateX(100%); 
+      transform: translateX(100%);
+      margin-top: 20px;
     }">
-            <label>学期选择</label>
-            <select @change="changegrade" >
-              <!-- 这里添加你的选项 -->
-              <option value="0">全部</option>
-              <option value="1">大一年级</option>
-              <option value="2">大二年级</option>
-              <option value="3">大三年级</option>
-              <option value="4">大四年级</option>
-            </select>
+                <label >学期选择</label>
+                <select @change="changegrade" >
+                  <!-- 这里添加你的选项 -->
+                  <option value="0">全部</option>
+                  <option value="1">大一年级</option>
+                  <option value="2">大二年级</option>
+                  <option value="3">大三年级</option>
+                  <option value="4">大四年级</option>
+                </select>
           </div>
+            </el-col>
+          </el-row>
           <div class="classItem">
               <ClassScoreItem v-for="(item, index) in grades" :key="index" :grade="item"/>
           </div>
