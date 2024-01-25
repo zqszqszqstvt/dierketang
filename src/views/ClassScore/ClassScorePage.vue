@@ -10,16 +10,14 @@
         <ClassScoreCommit/>
         <div class="gradescard">
           <el-row>
-            <el-col :span="18">
+            <el-col :span="20">
             <h2 class="termselect" style="width: 55%;">我的课程成绩</h2>
             </el-col>
-            <el-col span="6">
+            <el-col span="4">
               <div class="termselect" style="{
             width: 80%;
-      position: relative; 
-      right: 0; 
-      transform: translateX(100%);
       margin-top: 20px;
+      margin-left: 30%;
     }">
                 <label >学期选择</label>
                 <select @change="changegrade" >
