@@ -2,7 +2,7 @@
     <div class="box">
       <div class="score-inall">
         <div class="progress-ring">
-          <el-progress type="circle" :percentage=progress :color=color :stroke-width="10" :width="100" style="margin-top: 20px">
+          <el-progress type="circle" :percentage=progress :color=color :stroke-width="10" :width="radius * 2" style="margin-top: 20px">
             <span style="font-weight: bold;color: black">{{progress}}<span style="font-size: 20px">{{ score }}</span>分</span>
           </el-progress>
         </div>

@@ -17,8 +17,8 @@
             <h2 class="termselect" style="width: 55%;">我的课程成绩</h2>
             </el-col>
             <el-col span="6">
-              <button class="add" @click="addClick">添加</button>
-              <span style="margin-left: 40px;">全部成绩></span>
+              <button class="add" @click="addClick" style="margin-top: 20px">添加</button>
+              <span style="margin-left: 40px;margin-top: 20px">全部成绩></span>
             </el-col>
             <el-col span="4">
               <div class="termselect" style="{
