@@ -11,27 +11,34 @@
           <ClassScoreCommit/>
         </el-dialog>
         <div class="gradescard">
-            <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
-            <button class="add" @click="addClick">添加</button>
-            <span style="margin-left: 40px;">全部成绩></span>
-          <div class="termselect" style="{
+
+          <el-row>
+            <el-col :span="14">
+            <h2 class="termselect" style="width: 55%;">我的课程成绩</h2>
+            </el-col>
+            <el-col span="6">
+              <button class="add" @click="addClick" style="margin-top: 20px">添加</button>
+              <span style="margin-left: 40px;margin-top: 20px">全部成绩></span>
+            </el-col>
+            <el-col span="4">
+              <div class="termselect" style="{
             width: 80%;
-      position: relative; 
-       
-      transform: translateX(100%); 
+      margin-top: 20px;
+      margin-left: 30%;
     }">
-            <label style="font-size: large; font-weight: bold;">学期选择</label>
-            <select @change="changegrade" >
-              <!-- 这里添加你的选项 -->
-              <option value="0">全部</option>
-              <option value="1">大一年级</option>
-              <option value="2">大二年级</option>
-              <option value="3">大三年级</option>
-              <option value="4">大四年级</option>
-            </select>
-            <!-- <span>全部成绩></span> -->
-          
+                <label >学期选择</label>
+                <select @change="changegrade" >
+                  <!-- 这里添加你的选项 -->
+                  <option value="0">全部</option>
+                  <option value="1">大一年级</option>
+                  <option value="2">大二年级</option>
+                  <option value="3">大三年级</option>
+                  <option value="4">大四年级</option>
+                </select>
+
           </div>
+            </el-col>
+          </el-row>
           <div class="classItem">
               <ClassScoreItem v-for="(item, index) in grades" :key="index" :grade="item"/>
           </div>
