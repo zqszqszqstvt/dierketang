@@ -18,7 +18,7 @@
         <div class="subtitle">CLASSIFICATION</div> -->
           <div class="block-wrapper">
             <div v-for="item in list" :key="item.title" class="block">
-              <router-link :to="item.route" class="no-underline">
+              <a :href="item.route"  class="no-underline">
                 <div class="tip">{{ item.tip }}</div>
                 <img :src="item.img" alt="" />
                 <div class="content">
@@ -26,7 +26,7 @@
                   <div class="desc">{{ item.desc }}</div>
                   <!-- <div class="btn">{{ item.btnText }}</div> -->
                 </div>
-              </router-link>
+              </a>
             </div>
           </div>
       </div>
@@ -87,7 +87,7 @@ export default {
           desc: "解决理论知识问题",
           btnText: "能力自画像“我的成绩”",
           img: lesson1Img,
-          route: "/ClassScore"
+          route: "http://csewit.fanya.chaoxing.com/portal/schoolCourseInfo/columnCourse?columnId=77098"
         },
         {
           tip: "第二课堂",
@@ -95,7 +95,7 @@ export default {
           desc: "解决实践动手能力问题",
           btnText: "校内课程资源",
           img: lesson2Img,
-          route: "/MyCompetition"
+          route: "/CompetitionInfo"
         },
         {
           tip: "第三课堂",
