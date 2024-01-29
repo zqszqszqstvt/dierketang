@@ -95,7 +95,7 @@ export default {
           desc: "解决实践动手能力问题",
           btnText: "校内课程资源",
           img: lesson2Img,
-          route: "/CompetitionInfo"
+          route: "http://localhost:8081/CompetitionInfo"
         },
         {
           tip: "第三课堂",
@@ -103,7 +103,7 @@ export default {
           desc: "解决社会适应问题",
           btnText: "信息发布",
           img: lesson3Img,
-          route: "/PracticeInfo"
+          route: "http://localhost:8081/PracticeInfo"
         },
         {
           tip: "第四课堂",
@@ -111,7 +111,7 @@ export default {
           desc: "解决自主学习问题",
           btnText: "能力自画像“我的竞赛”",
           img: lesson4Img,
-          route: "/FourthClassChoose"
+          route: "http://localhost:8081/FourthClassChoose"
         },
       ],
     };
