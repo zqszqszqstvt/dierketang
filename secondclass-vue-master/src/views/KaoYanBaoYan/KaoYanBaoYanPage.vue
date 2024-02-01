@@ -50,7 +50,77 @@ export default {
   methods: {
     //模拟网络请求
     netrequest() {
+      //异步网络请求
+      // try {
+      //   const responseNews = await axios.get('你的API地址1') //获取News的API
+      //   this.News = responseNews.data //返回的数据就是需要的数据
+
+      //   const responseHotBaoYanInfos = await axios.get('你的API地址2') //获取HotBaoYanInfos的API
+      //   this.HotBaoYanInfos = responseHotBaoYanInfos.data
+      // } catch (error) {
+      //   console.error(error);
+      // }
       this.News=[{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
+        title: '2024考研日程表',
+        link: 'https://yz.chsi.com.cn/kyzx/kydt/',
+        time: '2023-09-15'
+      },{
         title: '2024考研日程表',
         link: 'https://yz.chsi.com.cn/kyzx/kydt/',
         time: '2023-09-15'

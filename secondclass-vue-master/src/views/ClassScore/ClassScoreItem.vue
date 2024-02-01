@@ -77,6 +77,7 @@
     margin-left: 20px;
     margin-right: 20px;
     width: 100px;
+    
 }
 
   .progress-ring__circle {
@@ -88,5 +89,6 @@
   .progress-ring, .top-title {
     text-align: center;
   }
+ 
 
   </style>

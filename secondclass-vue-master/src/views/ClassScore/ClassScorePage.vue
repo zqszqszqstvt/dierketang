@@ -6,10 +6,15 @@
         </div>
         <ClassScoreCommit/>
         <div class="gradescard">
-          <h2>我的课程成绩</h2>
-          <div class="termselect">
+          <h2 class="termselect" style="width: 55%;">我的课程成绩</h2> 
+          <div class="termselect" style="{
+            width: 80%;
+            position: relative; 
+            right: 0; 
+            transform: translateX(100%); 
+          }">
             <label>学期选择</label>
-            <select @change="changegrade">
+            <select @change="changegrade" >
               <!-- 这里添加你的选项 -->
               <option value="0">全部</option>
               <option value="1">大一年级</option>
@@ -23,7 +28,7 @@
           </div>
         </div>
         <div class="buttom">
-          <h2>第一课堂能力</h2>
+          <h2>第一课堂能力画像</h2>
           <div class="chart">
             <div class="mini-chart">
               <ClassScoreCapacity/>
@@ -115,11 +120,16 @@
       align-items: center;
     }
     .mini-box {
-      width: auto;
+      width: 65%;
     }
     .top-box {
       margin-top: 30px;
       margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      padding-left: 3%;
+      padding-right: 5%;
     }
     .classItem {
         display: flex;
@@ -131,16 +141,23 @@
     h2 {
       text-align: left;
       margin: 20px;
+      margin-left: 0;
+
     }
     .termselect label{
       margin-right: 3px;
     }
     .termselect {
-      margin-left: 30px;
       margin-bottom: 10px;
+      display: inline-block; 
     }
     .gradescard {
-      width: 100%;
+      position: relative;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #FFFFFF;
+      margin-top: 30px;
+      padding-left: 3%;
     }
     .termselect select {
       width: 100px;
@@ -155,11 +172,12 @@
       align-items: center;
     }
     .buttom {
-      width: 1000px;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       background-color: #fff;
-      margin-top: 6px;
+      margin-top: 30px;
+      padding-left: 3%;
     }
+  
+  
   </style>

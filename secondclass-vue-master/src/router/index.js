@@ -37,14 +37,20 @@ import Choose from "@/views/Choose";
 import LoginS from "@/views/LoginS";
 import RegisterS from "@/views/RegisterS";
 import HomePage from "@/views/home/index.vue";
-import ClassScore from "@/views/ClassScore/ClassScorePage.vue"
+import ClassScore from "@/views//ClassScore/ClassScorePage.vue"
 import CompetitionInfo from "@/views/CompetitionInfo/CompetitionPage.vue"
 import KaoYanBaoYan from "@/views/KaoYanBaoYan/KaoYanBaoYanPage.vue"
 import MyCompetition from "@/views/MyCompetition/MyCompetitionPage.vue"
 import CourseInfo from "@/views/CourseInfo/CourseInfoPage.vue"
 import Recruitment from "@/views/Recruitment/RecruitmentPage.vue"
-
+import PracticeInfo from "@/views/PracticeInfo/PracticeInfoPage.vue"
 const routes = [
+  {
+    path: "/PracticeInfo",
+    components: {
+      content: PracticeInfo,
+    },
+  },
   {
     path: "/CompetitionInfo",
     components: {
@@ -114,7 +120,7 @@ const routes = [
   {
     path: "/",
     components: {
-      content: HomePage,
+      content: PostRecom,
     },
   },
   {
@@ -278,7 +284,7 @@ const routes = [
 const routerHistory = createWebHistory();
 const router = createRouter({
   history: routerHistory,
-  routes,
+  routes
 });
 
 // router.beforeEach((to,from,next)=>{

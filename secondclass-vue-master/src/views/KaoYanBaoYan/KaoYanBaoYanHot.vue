@@ -3,7 +3,6 @@
     <img src="./images/hot.png" class="icon" width="25" height="25" />
     <a class="item-link" :href="HotBaoYanInfo.link" target="_blank">
       <strong><span class="item-title">{{ HotBaoYanInfo.title }}</span></strong>
-      
     </a>
   </div>
 </template>
