@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="banner">
-      <div class="list" :style="{ left: -(carouselIndex * 100) + '%' }">
+      <div class="list" :style="{ left: -(Math.floor(carouselIndex) * 100) + '%' }">
         <img v-for="img in bannerList" :src="img" alt="" />
       </div>
       <div class="carousel">
@@ -67,9 +67,11 @@ export default {
   name: "HomePage",
   components: {},
   mounted() {
-    this.timer = setInterval(() => {
-      this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
-    }, 3 * 1000);
+    // this.timer = setInterval(() => {
+    //   this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
+    // }, 3 * 1000);
+    //更改方式为调用启动定时器函数方式
+    this.startTimer();
   },
   beforeMount() {},
   data() {
@@ -119,7 +121,14 @@ export default {
   methods: {
     changeCarouselIndex(index) {
       if (this.carouselIndex !== index) this.carouselIndex = index;
+      clearInterval(this.timer);
+      this.startTimer();
     },
+    startTimer(){
+      this.timer = setInterval(() => {
+      this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
+    }, 3 * 1000);
+    }
   },
 };
 </script>
