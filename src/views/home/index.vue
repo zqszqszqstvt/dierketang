@@ -18,7 +18,7 @@
         <div class="subtitle">CLASSIFICATION</div> -->
           <div class="block-wrapper">
             <div v-for="item in list" :key="item.title" class="block">
-              <a :href="item.route"  class="no-underline">
+              <a :href="item.route"  class="no-underline" target="_blank">
                 <div class="tip">{{ item.tip }}</div>
                 <img :src="item.img" alt="" />
                 <div class="content">
