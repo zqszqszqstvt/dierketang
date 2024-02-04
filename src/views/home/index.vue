@@ -120,9 +120,12 @@ export default {
   },
   methods: {
     changeCarouselIndex(index) {
-      if (this.carouselIndex !== index) this.carouselIndex = index;
-      clearInterval(this.timer);
-      this.startTimer();
+      if (this.carouselIndex !== index) {
+        this.carouselIndex = index;      
+        clearInterval(this.timer);
+        this.startTimer();
+      }
+
     },
     startTimer(){
       this.timer = setInterval(() => {
