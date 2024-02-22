@@ -24,7 +24,7 @@
           <el-row>
             <el-col :span="1"></el-col>
             <el-col :span="6">
-              <h2 style="margin:10px 0px;font-size: 21px;margin-top: 20px">第一课堂总成绩</h2>
+              <h2 style="margin:10px 0px;font-size: 21px;margin-top: 20px">第四课堂总成绩</h2>
               <p class="p1">姓名：<span style="fontWeight: bold">{{name}}</span></p>
               <p class="p1">专业：<span style="fontWeight: bold">{{major}}</span></p>
             </el-col>

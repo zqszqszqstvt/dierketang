@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <div>
+        <div class="bannerImgBox">
             <img :src="bannerImg" alt="">
         </div>
         <div class="options">
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import bannerImg from "@/assets/home/banner1.png";
+import bannerImg from "@/assets/home/banner4.png";
 import oneImg from "@/assets/16gl-1.png";
 import twoImg from "@/assets/16gl-2.png";
 export default {
@@ -62,5 +62,13 @@ export default {
 
 .no-underline {
   text-decoration: none;
+}
+.bannerImgBox{
+  position: relative;
+}
+.bannerImgBox img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

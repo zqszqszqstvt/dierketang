@@ -24,7 +24,8 @@ export default {
   data() {
     return {
     competitions: [],
-    HotCompetitions: []
+    HotCompetitions: [],
+    DeadlineDate:0,
   };
   },
   components: {
@@ -102,6 +103,7 @@ export default {
     //   }]; // 假设你的API返回的数据就是你需要的数据
     //   console.log(this.$store.state.competitionType)
     // }
+    
   }
 }
 </script>
