@@ -1,9 +1,9 @@
 <template>
   <div class="item">
     <div class="title">
-      <a :href="news.link" target="_blank">{{ news.title }}</a>
+      <a :href="news.url" target="_blank">{{ news.title }}</a>
     </div>
-    <div class="time">{{ news.time }}</div>
+    <div class="time">{{ news.postingDate }}</div>
   </div>
 </template>
 

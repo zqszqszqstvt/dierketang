@@ -20,10 +20,10 @@
           <span class="item-tit">竞赛级别</span>{{ competition.level }}
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">报名时间</span>{{ competition.registrationTime }}
+          <span class="item-tit">报名时间:{{ competition.registerStartDate }} - {{ competition.registerEndDate }} </span>
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">比赛时间</span>{{ competition.competitionTime }}
+          <span class="item-tit">比赛时间:{{competition.competeStartDate}} - {{competition.competeEndDate}}</span>
         </p>
       </div>
     </div>
@@ -35,7 +35,7 @@
         <a :href="competition.link" target="_blank">报名请登录</a>
       </div>
       <div class="item-status">
-        距离报名截止还有 {{ competition.remainingDays }} 天
+        距离报名截止还有 {{getDeadlineDate(competition.registerEndDate) }} 天
       </div>
     </div>
   </div>
@@ -53,6 +53,22 @@ export default {
     competition: {
       type: Object,
       required: true
+    }
+  },
+  methods:{
+    getDeadlineDate(registerEndDate){
+      // 获取当前日期
+        let now = new Date();
+
+        // 设置目标日期
+        let targetDate = new Date(registerEndDate);
+
+        // 计算两者之间的毫秒数差值
+        let diff = targetDate - now;
+
+        // 将毫秒转换为天数
+        let DeadlineDate = Math.floor(diff / (1000 * 60 * 60 * 24));
+        return DeadlineDate+1;
     }
   }
 };
