@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="banner">
-      <div class="list" :style="{ left: -(carouselIndex * 100) + '%' }">
+      <div class="list" :style="{ left: -(Math.floor(carouselIndex) * 100) + '%' }">
         <img v-for="img in bannerList" :src="img" alt="" />
       </div>
       <div class="carousel">
@@ -18,7 +18,7 @@
         <div class="subtitle">CLASSIFICATION</div> -->
           <div class="block-wrapper">
             <div v-for="item in list" :key="item.title" class="block">
-              <a :href="item.route"  class="no-underline">
+              <a :href="item.route"  class="no-underline" target="_blank">
                 <div class="tip">{{ item.tip }}</div>
                 <img :src="item.img" alt="" />
                 <div class="content">
@@ -67,9 +67,11 @@ export default {
   name: "HomePage",
   components: {},
   mounted() {
-    this.timer = setInterval(() => {
-      this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
-    }, 3 * 1000);
+    // this.timer = setInterval(() => {
+    //   this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
+    // }, 3 * 1000);
+    //更改方式为调用启动定时器函数方式
+    this.startTimer();
   },
   beforeMount() {},
   data() {
@@ -118,8 +120,18 @@ export default {
   },
   methods: {
     changeCarouselIndex(index) {
-      if (this.carouselIndex !== index) this.carouselIndex = index;
+      if (this.carouselIndex !== index) {
+        this.carouselIndex = index;      
+        clearInterval(this.timer);
+        this.startTimer();
+      }
+
     },
+    startTimer(){
+      this.timer = setInterval(() => {
+      this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
+    }, 3 * 1000);
+    }
   },
 };
 </script>

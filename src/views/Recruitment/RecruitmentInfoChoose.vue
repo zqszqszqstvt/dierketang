@@ -54,6 +54,8 @@ export default{
 }
 
 .item{
+    display: flex;
+    align-items: center;
     background-color: rgba(255, 255, 255, 1);
     margin-right: 25px;
     height: 28px;
@@ -65,8 +67,8 @@ export default{
 .title{
     /* text-align: left; */
     font-size: 14px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    /* margin-top: 4px;
+    margin-bottom: 4px; */
     margin-left: 7px;
     margin-right: 7px;
     
