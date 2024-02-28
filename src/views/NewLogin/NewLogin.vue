@@ -40,7 +40,7 @@
               </form>
               <el-row justify="space-between" style="margin-top: 10px">
                 <el-col :span="5"><el-link class="a1" :underline="false">忘记密码?</el-link></el-col>
-                <el-col :span="5"><el-link class="a1" :underline="false"><a href="http://localhost:8080/NewRegister"  class="no-underline" target="_blank">立即注册</a></el-link> </el-col>
+                <el-col :span="5"><el-link class="a1" :underline="false"><a href="http://47.95.170.89:8080/NewRegister"  class="no-underline" target="_blank">立即注册</a></el-link> </el-col>
               </el-row>
             </div>
           </el-col>

@@ -75,16 +75,12 @@
           sno: this.sno,
           dept: this.dept
         };
-
-        // 发送POST请求
         axios.post('http://47.96.75.164:8080/user/register', formData)
           .then(response => {
-            // 处理响应
             console.log(response);
             this.$router.push('/newLogin');
           })
           .catch(error => {
-            // 处理错误
             console.error(error);
             alert('注册失败，请稍后再试。');
           });
