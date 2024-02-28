@@ -51,6 +51,7 @@ import FourthClassChoose from "@/views/FourthClassChoose/FourthClassChoosePage.v
 import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
 import newLogin from "@/views/NewLogin/NewLogin.vue"
 import ThirdClass from "@/views/ThirdClass/ThirdClassPage.vue"
+import NewRegister from "@/views/Register/index.vue"
 // import NewLogin from "@/views/NewLogin/NewLogin.vue"
 // import student from "@/views/NewLogin/student.vue"
 // import teacher from "@/views/NewLogin/teacher.vue"
@@ -71,6 +72,12 @@ const routes = [
   //       component: teacher
   //     }]
   // },
+  {
+    path: "/NewRegister",
+    components: {
+      content:NewRegister
+    }
+  },
   {
     path: "/newLogin",
     components: {

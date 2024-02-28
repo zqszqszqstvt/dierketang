@@ -46,7 +46,7 @@ export default {
   mounted() {},
   watch: {
     $route(to, from) {
-      this.isHomePage = to.path.includes("/home");
+      this.isHomePage = to.path.includes("/home") || to.path.includes("/NewRegister");
       console.log(this.$route.matched);
     },
   },
