@@ -18,7 +18,7 @@
         <div class="subtitle">CLASSIFICATION</div> -->
           <div class="block-wrapper">
             <div v-for="item in list" :key="item.title" class="block">
-              <a :href="item.route"  class="no-underline" target="_blank">
+              <a v-if="isExternalLink(item.route)" :href="item.route"  class="no-underline" target="_blank">
                 <div class="tip">{{ item.tip }}</div>
                 <img :src="item.img" alt="" />
                 <div class="content">
@@ -27,6 +27,16 @@
                   <!-- <div class="btn">{{ item.btnText }}</div> -->
                 </div>
               </a>
+
+              <router-link v-else :to="item.route" class="no-underline">
+                <div class="tip">{{ item.tip }}</div>
+                <img :src="item.img" alt="" />
+                <div class="content">
+                  <div class="title">{{ item.title }}</div>
+                  <div class="desc">{{ item.desc }}</div>
+                  <!-- <div class="btn">{{ item.btnText }}</div> -->
+                </div>
+              </router-link>
             </div>
           </div>
       </div>
@@ -97,7 +107,7 @@ export default {
           desc: "解决实践动手能力问题",
           btnText: "校内课程资源",
           img: lesson2Img,
-          route: "http://47.95.170.89/CompetitionInfo"
+          route: "/CompetitionInfo"
         },
         {
           tip: "第三课堂",
@@ -105,7 +115,7 @@ export default {
           desc: "解决社会适应问题",
           btnText: "信息发布",
           img: lesson3Img,
-          route: "http://47.95.170.89/PracticeInfo"
+          route: "/PracticeInfo"
         },
         {
           tip: "第四课堂",
@@ -113,7 +123,7 @@ export default {
           desc: "解决自主学习问题",
           btnText: "能力自画像“我的竞赛”",
           img: lesson4Img,
-          route: "http://47.95.170.89/FourthClassChoose"
+          route: "/FourthClassChoose"
         },
       ],
     };
@@ -131,6 +141,10 @@ export default {
       this.timer = setInterval(() => {
       this.carouselIndex = (this.carouselIndex + 1) % this.bannerList.length;
     }, 3 * 1000);
+    },
+    isExternalLink(route) {
+      // 检查链接是否是外部链接
+      return /^(https?:|mailto:|tel:)/.test(route);
     }
   },
 };

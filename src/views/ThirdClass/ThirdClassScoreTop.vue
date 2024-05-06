@@ -35,10 +35,10 @@
       <h2 class="top-title">第三课堂总成绩</h2>
         <table>
           <tr>
-            <td><p>姓名：<strong>{{ information.name }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
+            <td><p>姓名：<strong>{{ information.username }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
           </tr>
           <tr>
-            <td><p>专业：<strong>{{ information.major }}</strong></p></td><td><p>年级：<strong>{{ information.grade }}级</strong></p></td>
+            <td><p>专业：<strong>{{ information.rank }}</strong></p></td><td><p>年级：<strong>{{ information.dept }}级</strong></p></td>
           </tr>
         </table>
       </div>
@@ -82,12 +82,26 @@
         network() {
             this.progress=80
             this.information={
-                name: '阿发',
+                username: '阿发',
                 college: '计算机科学与技术学院',
-                major: '智能科学与技术',
-                grade: '2019'
+                rank: '智能科学与技术',
+                dept: '2019'
             }
-        }
+        },
+        load(){
+        this.request.get("/user/disan/getgrade", {
+          params: {
+            id: this.$store.state.id
+          }
+        })
+      .then(res => {
+            this.information = res.data
+            this.progress = res.data.score
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      }
         
     }
   };

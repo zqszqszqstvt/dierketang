@@ -3,8 +3,8 @@
     <div class="user">
       <img :src="userInfo.avatarUrl" alt="头像" class="avatar">
       <div class="user-info">
-        <h2>{{ userInfo.nickname }}</h2>
-        <p>{{ userInfo.profession }}</p>
+        <h2>{{ userInfo.username }}</h2>
+        <p>{{ userInfo.speciality }}</p>
       </div>
     </div>
     <div class="score">
@@ -47,19 +47,32 @@ export default {
     };
   },
   created() {
-    // axios.get('你的API地址')
-    //   .then(response => {
-    //     this.userInfo = response.data;
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
-    this.userInfo={
+    this.load()
+  },
+  methods: {
+    load(){
+      //   this.request.get("/user/pic/top", {
+      //     params: {
+      //       id: this.$store.state.id
+      //     }
+      //   })
+      // .then(res => {
+      //       this.userInfo = res.data
+      //       this.progress = res.data.score
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
+
+
+      this.userInfo={
         avatarUrl:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fae4eb3f2-ae53-4943-bdc9-0d6e105210c6%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1704613130&t=3f91b14fd970d4fd00df2bb1d991e440',
-        nickname:'阿发',
-        profession:'智能科学与技术'
+        username:'阿发',
+        speciality:'智能科学与技术'
       }
-    this.progress=50
+      this.progress=50
+
+      }
   },
    props: {
   },

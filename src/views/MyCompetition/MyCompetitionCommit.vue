@@ -28,8 +28,9 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="competitionScore">竞赛加分</label>
-        <input id="competitionScore" v-model="competitionScore" type="number">
+          <label for="file">选择文件</label>
+          <button type="button" class="custom-file-button" @click="ClipboardItem" ><span class="enorme-plus">+</span >选择文件</button>
+          <span  v-if="!file" id="noFileLabel" >未选择任何文件</span>
       </div>
       <div class="button-group">
         <button type="submit" @click="add">增加</button>
@@ -46,32 +47,63 @@ export default {
       competitionLevel: '0',
       awardLevel: '1',
       competitionName: '',
-      competitionScore: ''
+      file: null,
+      imgurl:''
     };
   },
   methods: {
     submitForm() {
-      // 在这里处理表单提交
-      if (!this.competitionLevel || !this.awardLevel || !this.competitionName || !this.competitionScore) {
-      alert('所有信息都必须填写！');
-      return;
-    }
-    const formData = {
-      competitionLevel: this.competitionLevel,
-      awardLevel: this.awardLevel,
-      competitionName: this.competitionName,
-      competitionScore: this.competitionScore
-    };
-    console.log(formData);
-    // 在这里可以发送formData到服务器
-    },
+        // 在这里处理表单提交
+        if (!this.competitionLevel || !this.awardLevel || !this.competitionName || !this.file) {
+            alert('所有字段不为空！');
+            return;
+        }
+        if(this.competitionLevel && this.awardLevel && this.competitionName && this.file) {
+          this.uploadImg()
+          let formData = new FormData();
+          formData.append('image', this.imgurl);
+          formData.append('student_id', this.$store.state.id);
+          formData.append('competition_level', this.competitionLevel);
+          formData.append('award_level', this.awardLevel);
+          formData.append('competition_name', this.competitionName);
+          this.request.post("/user/pic/upmycomp", formData)
+          .then(res => {
+            if(res.status === 200) {
+              alert("已提交！")
+            }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+        }
+      },
+      uploadImg() {
+        this.request.post("/user/common/upload", this.file)
+          .then(res => {
+            if(res.status === 200) {
+              this.imgurl = res.data
+            }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
     //给按钮增加一个更改弹窗显示状态的函数
     quit() {
       this.$store.dispatch('updateAddCompetitionShow');
     },
     add() {
       this.$store.dispatch('updateAddCompetitionShow');
-    }
+    },
+    ClipboardItem(event){
+      this.$nextTick(() => {
+    const fileInput = document.querySelector('input[id="file"]');
+    fileInput.click();
+    fileInput.addEventListener('change', (e) => {
+      this.file = e.target.files[0];
+    });
+  });
+    },
   },
   props: {
   }
@@ -162,5 +194,15 @@ form {
 
   select {
     background-color: #FFFFFF;
+  }
+  .custom-file-button{
+    color: #800080;
+    background-color: transparent; /* 设置背景色为透明 */  
+    text-align: center; /* 居中文本 */  
+    border-radius: 5px; /* 添加圆角 */  
+    box-shadow: none; /* 移除默认阴影 */  
+   border-color: #800080;
+    margin: 5px;
+    width: 35%;
   }
 </style>

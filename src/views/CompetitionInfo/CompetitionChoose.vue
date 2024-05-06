@@ -23,13 +23,13 @@
           <div v-for="(level, lIndex) in competitionLevels" :key="lIndex" class="item item-link" :class="{ active: level.active }" @click="handleLevelClick(level.name)">{{ level.name }}</div>
         </div>
       </div>
-      <hr style="border: none; border-top: 1px dashed #D3D3D3;">
+      <!-- <hr style="border: none; border-top: 1px dashed #D3D3D3;">
       <div class="item-box clearfix" style="margin-top: 20px; padding-bottom: 0;">
         <h3 class="fl item-title">排序方式：</h3>
         <div class="fl item-con clearfix" style="position: relative; top: 5px;">
           <div v-for="(sorting, sIndex) in sortingOptions" :key="sIndex" class="fl item-link" :class="{ active: sorting.active }" @click="handleSortingClick(sorting.label)">{{ sorting.label }}</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -57,11 +57,11 @@ export default {
         { name: '全球级', active: false }
 
       ],
-      sortingOptions: [
-        { label: '按时间排序', active: true },
-        { label: '按热度排序', active: false }
+      // sortingOptions: [
+      //   { label: '按时间排序', active: true },
+      //   { label: '按热度排序', active: false }
 
-      ]
+      // ]
     };
   },
    methods: {
@@ -94,12 +94,12 @@ export default {
       this.$store.dispatch('updateCondition2', title)
     },
 
-    handleSortingClick(title) {
-      this.sortingOptions.forEach((sorting) => {
-        sorting.active = sorting.label === title;
-      });
-      this.$store.dispatch('updateCondition3', title)
-    }
+    // handleSortingClick(title) {
+    //   this.sortingOptions.forEach((sorting) => {
+    //     sorting.active = sorting.label === title;
+    //   });
+    //   this.$store.dispatch('updateCondition3', title)
+    // }
   },
 };
 </script>

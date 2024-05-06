@@ -11,7 +11,7 @@
                     <span class="option-text">课程学习</span>
                 </div>
             </router-link>
-            <router-link to="/CourseInfo" class="no-underline">
+            <router-link to="/ShiYan" class="no-underline">
                 <div class="option">
                     <img :src="twoImg" alt="">
                     <span class="option-text">实践平台</span>

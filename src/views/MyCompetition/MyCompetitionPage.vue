@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       Awards: [],
-      
+      total: 0
     };
   },
   components: {
@@ -45,9 +45,7 @@ export default {
     MyCompetitionCommit,
     MyCompetitionCard
   },
-  async created() {
-    // const response = await axios.get('你的API地址');
-    
+  created() {
     this.netrequest();
   },
   computed: {
@@ -57,70 +55,82 @@ export default {
     }
   },
   methods: {
-    //模拟网络请求
+    load() {
+      this.request.get("/user/pic/mycomp", {
+          params: {
+            student_id: this.$store.state.id
+          }
+        })
+      .then(res => {
+            this.Awards = res.data
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
     netrequest() {
       this.Awards=[{
           competitionName: 'ACM大赛',
           competitionLevel: '世界级',
           awardLevel: '一等奖',
           img: 'acm.png',
-          score: '20'
+          grade: '20'
         },
         {
           competitionName: '蓝乔杯',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'lanqiaobei.png',
-          score: '15'
+          grade: '15'
         },
         {
           competitionName: '蓝乔杯',
           competitionLevel: '省级',
           awardLevel: '一等奖',
           img: 'lanqiaobei.png',
-          score: '10'
+          grade: '10'
         },{
           competitionName: 'ACM大赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'acm.png',
-          score: '15'
+          grade: '15'
         },{
           competitionName: '蓝乔杯',
           competitionLevel: '校级',
           awardLevel: '一等奖',
           img: 'lanqiaobei.png',
-          score: '5'
+          grade: '5'
         },{
           competitionName: '大英赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'english.png',
-          score: '15'
+          grade: '15'
         },{
           competitionName: '互联网+',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'hulianwang.png',
-          score: '15'
+          grade: '15'
         },{
           competitionName: '计算机大赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'jisuanji.png',
-          score: '15'
+          grade: '15'
         },{
           competitionName: '挑战杯大赛',
           competitionLevel: '国家级',
           awardLevel: '一等奖',
           img: 'tiaozhanbei.png',
-          score: '15'
+          grade: '15'
         },{
           competitionName: '蓝乔杯',
           competitionLevel: '校级',
           awardLevel: '一等奖',
           img: 'lanqiaobei.png',
-          score: '5'
+          grade: '5'
         }]
     },
     // 弹窗 点击出现弹窗

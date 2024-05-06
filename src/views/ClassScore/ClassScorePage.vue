@@ -2,7 +2,7 @@
     <div class="box">
       <div class="mini-box">
         <div class="main-title">
-          能力自画像>我的竞赛
+          能力自画像>我的成绩
         </div>
         <div class="top-box">
           <ClassScoreTop/>
@@ -73,9 +73,9 @@
         ClassScoreItem,
         ClassScoreCapacity
     },
-    async created() {
-      // const response = await axios.get('你的API地址');
-      this.netrequest(0);
+    created() {
+      this.netrequest()
+      this.load()
     },
     computed: {
       // 弹窗 用store的变量来决定显示弹窗否
@@ -84,53 +84,72 @@
       }
     },
     methods: {
-      //模拟网络请求
+      //网络请求
+      load(){
+        this.request.get("/api/user/pic/getclass", {
+          params: {
+            id: localStorage.getItem('id'),
+            term: this.$store.state.term
+          }
+        })
+      .then(res => {
+            this.grades = res.data
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
       netrequest(grade) {
         //发送选择的学期，返回对应学期的课程成绩
         if(grade==0) {
           this.grades=[{
-            subject: '高数上',
-            score: '20'
+            courseName: '高数上',
+            grade: '20'
           },{
-            subject: '高数下',
-            score: '90'
+            courseName: '高数下',
+            grade: '90'
           },{
-            subject: '计算机组成原理',
-            score: '60'
+            courseName: '计算机组成原理',
+            grade: '60'
           },{
-            subject: '数据结构',
-            score: '66'
+            courseName: '数据结构',
+            grade: '66'
           },{
-            subject: '智能计算',
-            score: '70'
+            courseName: '智能计算',
+            grade: '70'
           }]
         }else {
           this.grades=[{
-            subject: '其他',
-            score: '70'
+            courseName: '其他',
+            grade: '70'
           },{
-            subject: '高数上',
-            score: '20'
+            courseName: '高数上',
+            grade: '20'
           },{
-            subject: '高数下',
-            score: '90'
+            courseName: '高数下',
+            grade: '90'
           },{
-            subject: '计算机组成原理',
-            score: '60'
+            courseName: '计算机组成原理',
+            grade: '60'
           },{
-            subject: '数据结构',
-            score: '66'
+            courseName: '数据结构',
+            grade: '66'
           },{
-            subject: '智能计算',
-            score: '70'
+            courseName: '智能计算',
+            grade: '70'
           }]
         }
       },
       changegrade(event) {
         // 获取用户选择的年级
         const selectedGrade = event.target.value;
-        // 根据选择的年级发送请求
-        this.netrequest(selectedGrade);
+        this.$store.dispatch('updateSelectedGrade', selectedGrade)
+        .then(() => {
+          this.load();
+        }).catch(error => {
+          console.error(error);
+        });
+        console.log(this.$store.state.id, this.$store.state.term)
       },
       // 弹窗 点击出现弹窗
       addClick() {

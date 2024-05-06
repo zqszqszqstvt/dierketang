@@ -54,6 +54,18 @@
       }
     },
     methods: {
+      load(){
+        this.request.get("/user/disan/shijian", {
+          params: {
+            student_id: this.$store.state.id          }
+        })
+      .then(res => {
+            this.grades = res.data
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
       //模拟网络请求
       netrequest() {
         //发送选择的学期，返回对应学期的课程成绩

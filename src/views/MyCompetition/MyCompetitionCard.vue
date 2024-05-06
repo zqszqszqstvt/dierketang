@@ -6,7 +6,7 @@
     <div class="right">
       <h2>{{ award.competitionName }}</h2>
       <p>{{ award.competitionLevel }}{{ award.awardLevel }}</p>
-      <p class="score">{{ award.score }}分</p>
+      <p class="score">{{ award.grade }}分</p>
     </div>
   </div>
 </template>

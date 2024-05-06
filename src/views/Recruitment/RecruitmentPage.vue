@@ -62,19 +62,21 @@
             </div>            
         </div>
         <div class="Infomation">
-            <RecruitmentInfo @chooseone="chooseOne" v-for="(item,index) in itemInfo" :Info="item" :is_last="index===itemInfo.length-1?true:false" />
+            <RecruitmentInfo @chooseone="chooseOne" v-for="(item,index) in Infomations" :Info="item" :is_last="index===Infomations.length-1?true:false" />
         </div>
-        <div>
-            <el-pagination
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-size="pageSize"
-            layout="prev,pager,next"
-            :total="total"
-            hide-on-single-page
-            >
-            </el-pagination>
-            </div>
+        <div class="demo-pagination-block">
+            <div class="demonstration"></div>
+              <el-pagination
+                v-model:current-page="currentPage"
+                v-model:page-size="pageSize"
+                :page-sizes="[10, 15, 20, 30]"
+                :small="small"
+                :disabled="disabled"
+                :background="background"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="newsTotal"
+              />
+          </div>
         </div>
     </div>
 </template>
@@ -99,9 +101,14 @@ export default{
 
             Infomations:[],
             itemInfo:[],
-            total:1,
-            currentPage:1,
-            pageSize:8,
+
+
+            currentPage: 1,
+            pageSize: 10,
+            small: false,
+            background: false,
+            disabled: false,
+            newsTotal: 10,
 
         }
     },
@@ -111,7 +118,16 @@ export default{
     },
     async created(){
         this.netrequest();
+        this.loadData()
     },
+    watch: {
+    currentPage(newVal, oldVal) {
+      this.loadData()
+    },
+    pageSize(newVal, oldVal) {
+      this.loadData()
+    }
+  },
     methods:{
         netrequest(){
             this.industry_category=[
@@ -152,44 +168,73 @@ export default{
                 {title:"两周内",active:false,moveon:false},
             ]
             this.Infomations=[
-                {title:"2024届校招四航局六公司机电管理岗",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"中交四航局",label:"房地产开发"},
-                {title:"Web前端软件开发工程师（J11635)",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"蜂巢能源",label:"房地产开发"},
-                {title:"HM软件：前端开发工程师",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"深圳中电技术",label:"房地产开发"},
-                {title:"2024届校招数据专员",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"梧桐树保险经纪有限公司",label:"房地产开发"},
-                {title:"2024届校招四航局六公司机电管理岗",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"中交四航局",label:"房地产开发"},
-                {title:"Web前端软件开发工程师（J11635)",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"蜂巢能源",label:"房地产开发"},
-                {title:"HM软件：前端开发工程师",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"深圳中电技术",label:"房地产开发"},
-                {title:"2024届校招数据专员",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"梧桐树保险经纪有限公司",label:"房地产开发"},
-                {title:"2024届校招数据专员",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"梧桐树保险经纪有限公司",label:"房地产开发"},
-                {title:"2024届校招四航局六公司机电管理岗",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"中交四航局",label:"房地产开发"},
-                {title:"Web前端软件开发工程师（J11635)",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"蜂巢能源",label:"房地产开发"},                {title:"HM软件：前端开发工程师",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"深圳中电技术",label:"房地产开发"},
-                {title:"2024届校招数据专员",from:"校园招聘",city:"全国",sum:"2",date:"2023.08.12",company:"梧桐树保险经纪有限公司",label:"房地产开发"}
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
                 ]
-                this.total=this.Infomations.length
-            this.creatPage()
+
         },
-        creatPage(){
-            this.itemInfo=[]
-            for(let i=(this.currentPage-1)*this.pageSize;i<this.Infomations.length;i++){
-                this.itemInfo.push(this.Infomations[i])
-                if(this.itemInfo.length===this.pageSize) break;
-            }
+        loadData() {
+            let date;
+      switch (this.$store.state.postingDate) {
+        case '一天内':
+          date = this.getFormattedDate(-1);
+          break;
+        case '三天内':
+          date = this.getFormattedDate(-3);
+          break;
+        case '一周内':
+          date = this.getFormattedDate(-7);
+          break;
+        case '两周内':
+          date = this.getFormattedDate(-14);
+          break;
+        default:
+          date = this.getFormattedDate(-1);
+      }
+            this.request.get("/user/recruit/getlist",{
+          params: {
+            category: this.$store.state.category,
+            companyNature: this.$store.state.companyNature,
+            soure: this.$store.state.soure,
+            postingDate: date,
+            size: this.pageSize,
+            page: this.currentPage
+          }
+        })
+      .then(res => {
+            this.Infomations = res.data.records
+            this.newsTotal = res.data.total / this.pageSize + 1
+        })
+        .catch(error => {
+          console.error(error);
+        });
         },
-        handleCurrentChange(pageNumber){
-            this.currentPage=pageNumber
-            this.creatPage()
-        },
+        getFormattedDate(days) {
+      const today = new Date();
+      const targetDate = new Date(today.getTime() + days * 24 * 60 * 60 * 1000);
+      const year = targetDate.getFullYear();
+      const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+      const day = String(targetDate.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    },
         industry_choose(cho){
-            console.log(cho)
+            this.$store.dispatch('updateJob1', cho)
+            // console.log(cho)
         },
         nature_choose(cho){
-            console.log(cho)
+            this.$store.dispatch('updateJob2', cho)
         },
         from_choose(cho){
-            console.log(cho)
+            this.$store.dispatch('updateJob3', cho)
         },
         date_choose(cho){
-            console.log(cho)
+            this.$store.dispatch('updateJob4', cho)
         },
         detain(){
             this.is_detain=!this.is_detain
@@ -214,7 +259,6 @@ export default{
         }
     }
 }
-
 </script>
 
 <style scoped>
@@ -376,7 +420,12 @@ export default{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+.demo-pagination-block + .demo-pagination-block {
+  margin-top: 10px;
+}
+.demo-pagination-block .demonstration {
+  margin-bottom: 16px;
+}
 
 /* ::v-deep .search .el-input__inner{
     padding: 0px 20px;

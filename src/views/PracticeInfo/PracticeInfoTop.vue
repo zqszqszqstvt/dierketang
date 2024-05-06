@@ -3,28 +3,28 @@
       <!-- 竞赛级别和排序方式 -->
       <div class="minibox">
         <div class="item-box clearfix">
-          <h3 class="fl item-title">行业类别：</h3>
+          <h3 class="fl item-title">实践种类：</h3>
           <div class="fl item-con clearfix">
-            <div v-for="(item, lIndex) in industrys" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleIndustryClick(item.name)">{{ item.name }}</div>
+            <div v-for="(item, lIndex) in category" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handlecategoryClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
         <div class="item-box clearfix">
-          <h3 class="fl item-title">公司性质：</h3>
+          <h3 class="fl item-title">实践类别：</h3>
           <div class="fl item-con clearfix">
-            <div v-for="(item, lIndex) in companys" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleCompanyClick(item.name)">{{ item.name }}</div>
+            <div v-for="(item, lIndex) in type" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handletypeClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
         <div class="item-box clearfix">
-          <h3 class="fl item-title">职位来源：</h3>
+          <h3 class="fl item-title">实践级别：</h3>
           <div class="fl item-con clearfix">
-            <div v-for="(item, lIndex) in jobSources" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handleJobSourcesClick(item.name)">{{ item.name }}</div>
+            <div v-for="(item, lIndex) in level" :key="lIndex" class="item item-link" :class="{ active: item.active }" @click="handlelevelClick(item.name)">{{ item.name }}</div>
           </div>
         </div>
         <hr style="border: none; border-top: 1px dashed #D3D3D3;">
         <div class="item-box clearfix">
-          <h3 class="fl item-title">首发日期：</h3>
+          <h3 class="fl item-title">时间范围：</h3>
           <div class="fl item-con clearfix">
             <div v-for="(item, sIndex) in firstDates" :key="sIndex" class="fl item-link" :class="{ active: item.active }" @click="handleFirstDatesClick(item.label)">{{ item.label }}</div>
           </div>
@@ -38,7 +38,7 @@
     name: 'PracticeInfoTop',
     data() {
       return {
-        industrys: [
+        category: [
           { name: '全部', active: true },
           { name: '思想政治与志愿服务', active: false },
           { name: '心理素质与身体素质', active: false },
@@ -47,13 +47,13 @@
           { name: '社会工作与领导能力', active: false },
           { name: '学术科技与创新创业', active: false }
         ],
-        companys: [
+        type: [
           { name: '全部', active: true },
           { name: '活动', active: false },
           { name: '讲座', active: false },
           { name: '文体比赛', active: false },
         ],
-        jobSources: [
+        level: [
           { name: '全部', active: true },
           { name: '校级项目', active: false },
           { name: '院级项目', active: false },
@@ -68,20 +68,20 @@
       };
     },
      methods: {
-      handleIndustryClick(title) {
-        this.industrys.forEach((industry) => {
+      handlecategoryClick(title) {
+        this.category.forEach((industry) => {
         industry.active = industry.name === title;
         });
         this.$store.dispatch('updatePractice1', title)
       },
-      handleCompanyClick(title) {
-        this.companys.forEach((company) => {
+      handletypeClick(title) {
+        this.type.forEach((company) => {
           company.active = company.name === title;
         });
         this.$store.dispatch('updatePractice2', title)
       },
-      handleJobSourcesClick(title) {
-        this.jobSources.forEach((jobSource) => {
+      handlelevelClick(title) {
+        this.level.forEach((jobSource) => {
           jobSource.active = jobSource.name === title;
         });
         this.$store.dispatch('updatePractice3', title)

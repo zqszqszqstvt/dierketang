@@ -10,6 +10,19 @@
         <div class="competition-item">
           <PracticeInfoItem v-for="(item, index) in competitions" :key="index" :competition="item"/>
         </div>
+        <div class="demo-pagination-block">
+            <div class="demonstration"></div>
+              <el-pagination
+                v-model:current-page="currentPage"
+                v-model:page-size="pageSize"
+                :page-sizes="[10, 15, 20, 30]"
+                :small="small"
+                :disabled="disabled"
+                :background="background"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="newsTotal"
+              />
+        </div>
       </div>
     </div>
   </template>
@@ -23,16 +36,54 @@
     data() {
       return {
       competitions: [],
-      HotCompetitions: []
+
+      currentPage: 1,
+      pageSize: 10,
+      small: false,
+      background: false,
+      disabled: false,
+      newsTotal: 10,
     };
     },
     components: {
       PracticeInfoTop,
       PracticeInfoItem
     },
-    async created() {
-      // const response = await axios.get('你的API地址');
-      
+    computed: {
+      practiceCategory() {
+        return this.$store.state.practiceCategory
+      },
+      practiceType() {
+        return this.$store.state.practiceType
+      },
+      practiceLevel() {
+        return this.$store.state.practiceLevel
+      },
+      practiceFirstDate() {
+        return this.$store.state.practiceFirstDate
+      },
+    },
+    watch: {
+    practiceCategory(newVal, oldVal) {
+      this.load()
+    },
+    practiceType(newVal, oldVal) {
+      this.load()
+    },
+    practiceLevel(newVal, oldVal) {
+      this.load()
+    },
+    practiceFirstDate(newVal, oldVal) {
+      this.load()
+    },
+    currentPage(newVal, oldVal) {
+      this.loadNews()
+    },
+    pageSize(newVal, oldVal) {
+      this.loadNews()
+    }
+  },
+    created() {
       this.netrequest();
     },
     methods: {
@@ -69,7 +120,26 @@
           status: "已结束"
         }]; // 假设你的API返回的数据就是你需要的数据
         console.log(this.$store.state.competitionType)
-      }
+      },
+      load(){
+        this.request.get("/user/disan/getlist", {
+          params: {
+            category: this.$store.state.practiceCategory,
+            type: this.$store.state.practiceType,
+            level: this.$store.state.practiceLevel,
+            activity_start_date: this.$store.state.practiceFirstDate,
+            pagesum: this.pageSize,
+            pageid: this.currentPage
+          }
+        })
+      .then(res => {
+            this.News = res.data.records
+            this.newsTotal = res.data.total / this.pageSize + 1
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
     }
   }
   </script>
@@ -94,6 +164,14 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  // 分页样式
+.demo-pagination-block + .demo-pagination-block {
+  margin-top: 10px;
+}
+.demo-pagination-block .demonstration {
+  margin-bottom: 16px;
+}
+
   </style>
   
   

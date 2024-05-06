@@ -76,7 +76,7 @@
                 </el-col>
               </el-row></div>
             </el-col>
-            <el-col :span="8">
+            <!-- <el-col :span="8">
               <div class="div1" style="margin-left: 1%;margin-right: 5%"><el-row>
                 <el-col :span="1"></el-col>
                 <el-col :span="8"></el-col>
@@ -85,7 +85,7 @@
                   <p class="p3">作业完成度</p>
                 </el-col>
               </el-row></div>
-            </el-col>
+            </el-col> -->
 
           </el-row>
         </div>
@@ -111,6 +111,20 @@
         <CourseList :list1=cou />
       </el-col>
     </el-row>
+
+    <div class="demo-pagination-block">
+            <div class="demonstration"></div>
+              <el-pagination
+                v-model:current-page="currentPage"
+                v-model:page-size="pageSize"
+                :page-sizes="[10, 15, 20, 30]"
+                :small="small"
+                :disabled="disabled"
+                :background="background"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="newsTotal"
+              />
+          </div>
   </div>
 
 
@@ -185,17 +199,26 @@ export default {
     return{
       qrcode,
       logoImg,
+
       studyHour:36,
       studyNumber:13,
-      homeworkSchedule:62,
+
       score:88,
       name:"阿发",
       college:"计算机科学与技术学院",
       major:"计算机科学与技术",
       grade:"2019",
+
       ongoingColour:'#808080',
       totalColour:'blueviolet',
       finishColour:'#808080',
+
+      currentPage: 1,
+      pageSize: 10,
+      small: false,
+      background: false,
+      disabled: false,
+      newsTotal: 10,
 
       cou:[//课程数据
         {name:"C++程序设计",link:"https://www.baidu.com/" ,picture:c1,schedule:100},
@@ -216,7 +239,68 @@ export default {
 
 
     }
+  },
+  methods: {
+    loadInfo(){
+        this.request.get("/user/disi/mygrade", {
+          params: {
+            id: this.$store.state.id,
+          }
+        })
+      .then(res => {
+            this.name = res.data.username
+            this.college = res.data.college
+            this.major = res.data.dept
+            this.grade = res.data.rank
+            this.score = res.data.score
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
+      loadcos(){
+        this.request.get("/user/disi/getlist", {
+          params: {
+            pagesum: this.pageSize,
+            pageid: this.currentPage
+          }
+        })
+      .then(res => {
+            this.cou = res.data.records
+            this.newsTotal = res.data.total / this.pageSize + 1 
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      },
+      loadsum() {
+        this.request.get("/user/disi/Data", {
+          params: {
+            id: this.$store.state.id
+          }
+        })
+      .then(res => {
+          this.studyHour = res.data.learnTime,
+          this.studyNumber = res.data.learnCount
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      }
+  },
+  created() {
+    // this.loadInfo()
+    // this.loadcos()
+  },
+  watch: {
+    currentPage(newVal, oldVal) {
+      this.loadNews()
+    },
+    pageSize(newVal, oldVal) {
+      this.loadNews()
+    }
   }
+  
 }
 </script>
 <style scoped>
@@ -323,5 +407,17 @@ export default {
       }
     }
   }
+}
+.demo-pagination-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.demo-pagination-block + .demo-pagination-block {
+  margin-top: 10px;
+}
+.demo-pagination-block .demonstration {
+  margin-bottom: 16px;
 }
 </style>

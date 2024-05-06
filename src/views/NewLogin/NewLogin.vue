@@ -1,6 +1,4 @@
-
-
-<template xmlns="http://www.w3.org/1999/html">
+<template>
   <div >
     <div class="div1" id="loginBox">
       <el-row>
@@ -18,29 +16,32 @@
               <form style="margin-top: 10px">
                 <div class="div2" >
                   <span class="span2">账号</span>
-                  <input type="text" class="text1" placeholder="请输入账号">
+                  <input type="text" class="text1" v-model="userName" placeholder="请输入账号">
                 </div>
                 <div class="div2" >
                   <span class="span2">密码</span>
-                  <input type="password" class="text1" placeholder="请输入密码">
+                  <input type="password" class="text1" v-model="password" placeholder="请输入密码">
                 </div>
                 <el-row>
                   <el-col :span="16">
                     <div class="div2" style="width: 100%;">
                       <span class="span2" style="width: 40%">验证码</span>
-                      <input type="text" class="text1" style="width: 60%;" placeholder="请输入验证码">
+                      <input type="text" class="text1" style="width: 60%;" v-model="code" placeholder="请输入验证码">
                     </div>
                   </el-col>
                   <el-col :span="1"></el-col>
-                  <el-col :span="7">显示验证码</el-col>
+                  <el-col :span="7">
+                    <el-image :src="codeImg" :fit="fill" />
+                    <span @click="loadCodeImg" style="font-size: 13px;color: #581BB6;cursor: pointer;">看不清换一个</span>
+                  </el-col>
                 </el-row>
                 <el-button size="large" color="#581BB6" dark="#581BB6" style="width: 100%;">
-                  <span style="color: #FFFFFF">登录</span>
+                  <span style="color: #FFFFFF" @click="login">登录</span>
                 </el-button>
               </form>
               <el-row justify="space-between" style="margin-top: 10px">
                 <el-col :span="5"><el-link class="a1" :underline="false">忘记密码?</el-link></el-col>
-                <el-col :span="5"><el-link class="a1" :underline="false"><a href="http://47.95.170.89:8080/NewRegister"  class="no-underline" target="_blank">立即注册</a></el-link> </el-col>
+                <el-col :span="5"><el-link class="a1" :underline="false"><router-link to="/NewRegister" class="no-underline">立即注册</router-link></el-link> </el-col>
               </el-row>
             </div>
           </el-col>
@@ -50,6 +51,111 @@
     <div style="width: 100%;background-color: #F2F4F3" id="dynamicBox2"></div>
   </div>
 </template>
+
+
+<script>
+import {reactive, ref} from "vue";
+import LoginImg from "@/assets/login.png";
+const input=ref('')
+export default {
+  name: 'NewLogin',
+  mounted() {
+    // 获取屏幕高度和宽度
+    //var loginBoxWidth=loginBox.offsetWidth;
+    //var loginBoxHeight=loginBox.offsetHeight;
+
+    var screenWidht=screen.availWidth;
+    var screenHeight1 = (screen.availHeight)/2-68-45;
+    var screenHeight2 = (screen.availHeight)/2-45;
+    // 获取要设置高度的元素
+    var dynamicBox1 = document.getElementById('dynamicBox1');
+    var dynamicBox2 = document.getElementById('dynamicBox2');
+    var loginBox=document.getElementById('loginBox')
+     //将屏幕高度应用到元素的高度上
+    dynamicBox1.style.height = screenHeight1 + 'px';
+    dynamicBox2.style.height = screenHeight2 + 'px';
+
+    /*
+
+        loginBox.style.left=screenWidht/2-400+'px';
+        loginBox.style.top=screenHeight2-250+'px';
+
+         */
+    loginBox.style.left = screenWidht / 2 - loginBox.offsetWidth / 2 + 'px';
+    loginBox.style.top = screenHeight2 - loginBox.offsetHeight / 2 + 'px';
+
+    this.loadCodeImg();
+    this.timer = setInterval(this.loadCodeImg, 60000);
+  },
+  beforeDestroy() {
+    clearInterval(this.timer); // 组件销毁时清除定时器
+  },
+  data(){
+    return{
+      selected:'#1F1F1F',
+      unSelected:'#9E9E9E',
+      studentColor:'#1F1F1F',
+      teacherColor:'#9E9E9E',
+      userName:'',
+      password:'',
+      code:'',
+      LoginImg,
+
+      codeImg: '',
+      uuid: '',
+
+      timer: null,
+    }
+  },
+  methods:{
+    loadCodeImg() {
+      this.request.get("/api/user/login/checkcode")
+          .then(res => {
+              this.codeImg = res.data.img
+              this.uuid = res.data.uuid
+
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    login() {
+      this.request.post("/api/user/login/log",
+        {
+          username: this.userName,
+          password: this.password,
+          code: this.code,
+          uuid: this.uuid
+        }
+      ).then(res => {
+              
+              const id = res.data.id;
+              localStorage.setItem('id', id);
+              const token = res.data.token;
+              localStorage.setItem('Token', token);
+              const redirect = this.$route.query.redirect || '/home';
+              console.log(redirect)
+              this.$router.push(redirect);
+              this.$message.success("登录成功")
+        })
+        .catch(error => {
+          console.error(error);
+          this.$message.error("登录失败，请检查您的用户名、密码和验证码");
+          this.loadCodeImg();
+        });
+    },
+    chooseStudent(){
+      this.studentColor=this.selected;
+      this.teacherColor=this.unSelected
+    },
+    chooseTeacher(){
+      this.teacherColor=this.selected;
+      this.studentColor=this.unSelected
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .div1{
@@ -111,59 +217,3 @@
       text-decoration: none;
     }
 </style>
-
-<script>
-import {reactive, ref} from "vue";
-import LoginImg from "@/assets/login.png";
-const input=ref('')
-export default {
-  name: 'NewLogin',
-  mounted() {
-    // 获取屏幕高度和宽度
-    //var loginBoxWidth=loginBox.offsetWidth;
-    //var loginBoxHeight=loginBox.offsetHeight;
-
-    var screenWidht=screen.availWidth;
-    var screenHeight1 = (screen.availHeight)/2-68-45;
-    var screenHeight2 = (screen.availHeight)/2-45;
-    // 获取要设置高度的元素
-    var dynamicBox1 = document.getElementById('dynamicBox1');
-    var dynamicBox2 = document.getElementById('dynamicBox2');
-    var loginBox=document.getElementById('loginBox')
-     //将屏幕高度应用到元素的高度上
-    dynamicBox1.style.height = screenHeight1 + 'px';
-    dynamicBox2.style.height = screenHeight2 + 'px';
-
-    /*
-
-        loginBox.style.left=screenWidht/2-400+'px';
-        loginBox.style.top=screenHeight2-250+'px';
-
-         */
-    loginBox.style.left = screenWidht / 2 - loginBox.offsetWidth / 2 + 'px';
-    loginBox.style.top = screenHeight2 - loginBox.offsetHeight / 2 + 'px';
-  },
-  data(){
-    return{
-      selected:'#1F1F1F',
-      unSelected:'#9E9E9E',
-      studentColor:'#1F1F1F',
-      teacherColor:'#9E9E9E',
-      userName:'',
-      password:'',
-      code:'',
-      LoginImg
-    }
-  },
-  methods:{
-    chooseStudent(){
-      this.studentColor=this.selected;
-      this.teacherColor=this.unSelected
-    },
-    chooseTeacher(){
-      this.teacherColor=this.selected;
-      this.studentColor=this.unSelected
-    }
-  }
-}
-</script>

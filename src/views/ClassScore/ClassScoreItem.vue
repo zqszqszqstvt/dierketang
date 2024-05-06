@@ -6,7 +6,7 @@
             <span style="font-weight: bold;color: black">{{progress}}<span style="font-size: 20px">{{ score }}</span>分</span>
           </el-progress>
         </div>
-        <h5 class="top-title">{{ grade.subject }}</h5>
+        <h5 class="top-title">{{ grade.courseName }}</h5>
       </div>
     </div>
   </template>
@@ -21,7 +21,7 @@
       };
     },
     created() {
-      this.progress = Number(this.grade.score);
+      this.progress = Number(this.grade.grade);
     },
      props: {
         grade: {

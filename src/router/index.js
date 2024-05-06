@@ -52,6 +52,8 @@ import CourseDetail from "@/views/CourseInfo/CourseDetail.vue"
 import newLogin from "@/views/NewLogin/NewLogin.vue"
 import ThirdClass from "@/views/ThirdClass/ThirdClassPage.vue"
 import NewRegister from "@/views/Register/index.vue"
+import ShiYan from "@/views/ShiYan/CourseInfoPage.vue"
+import request from "@/utils/request";
 // import NewLogin from "@/views/NewLogin/NewLogin.vue"
 // import student from "@/views/NewLogin/student.vue"
 // import teacher from "@/views/NewLogin/teacher.vue"
@@ -74,50 +76,68 @@ const routes = [
   // },
   {
     path: "/NewRegister",
+    name: 'NewRegister',
     components: {
       content:NewRegister
     }
   },
   {
     path: "/newLogin",
+    name: 'newLogin',
     components: {
       content:newLogin
     }
   },
   {
     path: "/ThirdClass",
+    name: 'ThirdClass',
     components: {
       content:ThirdClass
-    }
+    },
+    meta: { requiresAuth: true }
   },
   {
     path: "/PracticeInfo",
+    name: 'PracticeInfo',
     components: {
       content: PracticeInfo,
     },
   },
   {
     path: "/CompetitionInfo",
+    name: 'CompetitionInfo',
     components: {
       content: CompetitionInfo,
     },
   },
   {
     path: "/KaoYanBaoYan",
+    name: 'KaoYanBaoYan',
     components: {
       content: KaoYanBaoYan,
     },
   },
   {
     path: "/MyCompetition",
+    name: 'MyCompetition',
     components: {
       content: MyCompetition,
     },
+    meta: { requiresAuth: true }
   },
+  
   {
     path: "/CourseInfo",
+    name: 'CourseInfo',
     components: {
       content: CourseInfo,
+    },
+  },
+  {
+    path: "/ShiYan",
+    name: 'ShiYan',
+    components: {
+      content: ShiYan,
     },
   },
   {  
@@ -129,34 +149,54 @@ const routes = [
   },
   {
     path: "/FourthClassChoose",
+    name: 'FourthClassChoose',
     components: {
       content: FourthClassChoose,
     },
   },
   {
     path: "/Recruitment",
+    name: 'Recruitment',
     components: {
       content: Recruitment,
     },
   },
   {
     path: "/ClassScore",
+    name: 'ClassScore',
     components: {
       content: ClassScore,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/MyCourse",
+    name: 'MyCourse',
     components: {
       content: MyCourse,
     },
+    meta: { requiresAuth: true }
   },
+  {
+    path:'/home',
+    name: 'home',
+    components: {
+      content: HomePage,
+    },
+  },
+
+
+
+  
   {
     path: "/registerS",
     components: {
       content: RegisterS,
     },
   },
+
+
+
   {
     path: "/enterLoginS",
     components: {
@@ -169,12 +209,7 @@ const routes = [
       content: Choose,
     },
   },
-  {
-    path:'/home',
-    components: {
-      content: HomePage,
-    },
-  },
+
   // {
   //   path: "/",
   //   components: {
@@ -350,11 +385,32 @@ const router = createRouter({
   routes
 });
 
-// router.beforeEach((to,from,next)=>{
-//   if(to.path!=='/registerS'&&to.path!=='/choose'&&to.path!=='/enterLoginS'&&to.path!=='/enterLogin' &&to.path!=='/register' && localStorage.getItem("user")===null){//登录成功
-//     next('/choose');
-//   }else{
+// 全局前置守卫
+// router.beforeEach(async (to, from, next) => {
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+//   const token = localStorage.getItem('Token');
+
+//   if (requiresAuth && token) {
+//     try {
+//       const response = await request.post('/api/validate-token', { token });
+//       if (response.data.valid) {
+//         // 如果 token 有效，继续导航
+//         next();
+//       } else {
+//         next({ name: 'newLogin', query: { redirect: to.fullPath } });
+//       }
+//     } catch (error) {
+//       console.error('Token validation failed:', error);
+//       next({ name: 'newLogin', query: { redirect: to.fullPath } });
+//     }
+//   } else if (requiresAuth && !token) {
+//     next({ name: 'newLogin', query: { redirect: to.fullPath } });
+//   } else if (!requiresAuth) {
 //     next();
 //   }
-// })
+// });
+
+
+
+
 export default router;

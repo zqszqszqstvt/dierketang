@@ -8,13 +8,13 @@
             @click="chooseInfo(Info)"
             :style="active"
             >
-            {{ Info.title }}
+            <a :href="Info.url">{{ Info.position }}</a>
             </span>
             <div class="other_info">
                 <div class="info_from">
                     <span 
                         style="color: #FFFFFF;
-                        font-size: 12px;">{{ Info.from }}</span>
+                        font-size: 12px;">{{ Info.source }}</span>
                 </div>
                 <div class="other_item">
                     <img class="icon"
@@ -26,20 +26,20 @@
                     <img class="icon"
                         src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4a4f318bc12f75a7443bbc137c6054d45a6fa6399272dad588821618edd03e7a"
                     />
-                    <span class="other_title">招聘人数：{{ Info.sum }}</span>
+                    <span class="other_title">招聘人数：{{ Info.recruitingNumber }}</span>
                 </div>
                 <div class="other_item">
                     <img class="icon"
                         src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng1fafc5a2338646fbf6ec0568ab9ac9efad3a072d8d14366312319539c80efffe"
                     />
-                    <span class="other_title">发布时间：{{ Info.date }}</span>
+                    <span class="other_title">发布时间：{{ Info.postingDate }}</span>
                 </div>
             </div>
         </div>
         <div class="right_info">
             <span class="company">{{ Info.company }}</span>
             <div class="label">
-                <span style="color: #666666;font-size: 12px;">{{ Info.label }}</span>
+                <span style="color: #666666;font-size: 12px;">{{ Info.category }}</span>
             </div>
         </div>
     </div>
@@ -187,5 +187,7 @@ export default{
     margin-left: auto;
     border-radius: 4px;
 }
-
+a {
+  text-decoration: none;
+}
 </style>

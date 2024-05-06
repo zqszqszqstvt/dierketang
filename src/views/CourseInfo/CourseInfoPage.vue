@@ -7,7 +7,7 @@
         </el-dialog>
         <div class="navigate">
             <CourseInfoChoose @getCourseInfo="getCourseInfo" :categories="categories"/>
-            <div class="box-serch" @keyup.enter="searchTo">
+            <div class="box-serch" @keyup.enter="loadData">
             <el-autocomplete 
                 type="text" 
                 class="search" 
@@ -21,24 +21,23 @@
         </div>
         <div class="courseinfomations">
             <div class="courseinfo">
-            <CourseInfomation v-for="(item,index) in itemInfos" :key="index" :CourseInfo="item"/>
+            <CourseInfomation v-for="(item,index) in CourseInfos" :key="index" :CourseInfo="item"/>
             </div>
         </div>
-        <div>
-            <el-pagination
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-size="pageSize"
-            layout="prev,pager,next"
-            :total="total"
-            hide-on-single-page
-            >
-            </el-pagination>
-        </div>
+        <div class="demo-pagination-block">
+            <div class="demonstration"></div>
+              <el-pagination
+                v-model:current-page="currentPage"
+                v-model:page-size="pageSize"
+                :page-sizes="[10, 15, 20, 30]"
+                :small="small"
+                :disabled="disabled"
+                :background="background"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="newsTotal"
+              />
+          </div>
     </div>
-
-
-
 </template>
 
 <script>
@@ -50,17 +49,32 @@ export default{
         return{
         categories: [],
         CourseInfos:[],
-        itemInfos:[],
-        restaurants:[],
+        selectedCategory: '',
         alertMsg:'',
         visidialog:false,
         //分页
-        total:1,
-        currentPage:1,
-        pageSize:4,
-        searchInfo:''
+        currentPage: 1,
+        pageSize: 10,
+        small: false,
+        background: false,
+        disabled: false,
+        newsTotal: 10,
+
+        searchInfo:'',
+        prompt: []
         };
     },
+    watch: {
+    currentPage(newVal, oldVal) {
+      this.loadData()
+    },
+    pageSize(newVal, oldVal) {
+      this.loadData()
+    },
+    selectedCategory() {
+      this.loadData()
+    }
+  },
     components: {
         CourseInfoChoose,
         CourseInfomation
@@ -93,105 +107,47 @@ export default{
                 {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
                 {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
             ]
-            this.total = this.CourseInfos.length
-            this.getPageInfo()
         },
-        getCourseInfo(CourseName){
-            console.log(CourseName)
-            switch (CourseName) {
-                case "全部":
-                    this.CourseInfos = [
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img1.baidu.com/it/u=4255809981,1367127287&fm=253&fmt=auto&app=138&f=JPEG?w=807&h=500',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=4069565263,419463362&fm=253&fmt=auto&app=138&f=JPEG?w=713&h=400',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    ]
-                    this.total = this.CourseInfos.length
-                    this.handleCurrentChange(1)
-                    break;
-                default:
-                    this.CourseInfos = [
-                    {cimage:'https://img2.baidu.com/it/u=3696494615,273107722&fm=253&fmt=auto&app=120&f=JPEG?w=570&h=359',cname:'如何学好Python？',cteacher:'王强',cschool:'武汉工程大学',character:5,experiment:9,reportFramwork:true,cdesc:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远'},
-                    ]
-                    this.total = this.CourseInfos.length
-                    this.handleCurrentChange(1)
-                    break;
-            }
-            
+        loadData() {
+            this.request.get("/user/disi/list",{
+          params: {
+            type: this.selectedCategory,
+            text: this.searchInfo,
+            pageid: this.currentPage,
+            pagesum: this.pageSize,
+          }
+        })
+      .then(res => {
+            this.CourseInfos = res.data.records
+            this.newsTotal = res.data.total / this.pageSize + 1
+        })
+        .catch(error => {
+          console.error(error);
+        });
         },
-        handleCurrentChange(pageNumber){
-            this.currentPage=pageNumber;
-            console.log(pageNumber)
-            this.getPageInfo()
-        },
-        getPageInfo(){
-            this.itemInfos=[]
-            for(let i=(this.currentPage-1)*this.pageSize;i<this.CourseInfos.length;i++){
-                this.itemInfos.push(this.CourseInfos[i])
-                if(this.itemInfos.length===this.pageSize) break;
-            }
-        },
-        searchTo(){
-            let returnInfos=[];
-            for(let i=0;i<this.CourseInfos.length;i++){
-                console.log(this.CourseInfos[i].cname)
-                console.log(this.searchInfo)
-                if(this.CourseInfos[i].cname===this.searchInfo){
-                    returnInfos.push(this.CourseInfos[i])
-                }
-            }
-            this.searchInfo=''
-            if(returnInfos.length===0){
-                console.log("没有该课程")
-                this.alertMsg="没有该课程"
-                this.visidialog= true
-            }
-            else{
-                this.total=returnInfos.length
-                let temp = this.CourseInfos
-                this.CourseInfos=returnInfos
-                this.getPageInfo()
-                this.CourseInfos = temp
-            }
+        getCourseInfo(selectedCategory) {
+            this.selectedCategory = selectedCategory
         },
         querySearch(queryString,cb){
-            var allCourse=[]
-            for(var i=0;i<this.CourseInfos.length;i++){
-                allCourse.push({
-                    value:this.CourseInfos[i].cname
-                })
-            }
-            // console.log(allCourse)
-            var result = queryString
-                        ?allCourse.filter(this.createFillter(queryString))
-                        :[];
-            console.log(result)
-            cb(result)
-        },
-        createFillter(queryString){
-            return res => {
-                return (
-                    res.value.toLowerCase().indexOf(queryString.toLowerCase()) > -1
-                )
-            }
+            this.request.get("/user/disi/list",{
+          params: {
+            text: this.searchInfo,
+          }
+        })
+      .then(res => {
+            this.prompt = res.data.records
+        })
+        .catch(error => {
+          console.error(error);
+        });
+            cb(this.prompt)
         },
         handleSelect(item){
             this.searchInfo=item.value
-            this.searchTo()
+            this.loadData()
         }
     }
 }
-
-
 </script>
 
 <style scoped>
@@ -263,6 +219,11 @@ export default{
     border: none; /* 对border进行样式修改 */
     background-color:#f5f5f5
 }
-
+.demo-pagination-block + .demo-pagination-block {
+  margin-top: 10px;
+}
+.demo-pagination-block .demonstration {
+  margin-bottom: 16px;
+}
 
 </style>

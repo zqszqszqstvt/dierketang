@@ -20,10 +20,10 @@
           <span class="item-tit">竞赛级别</span>{{ competition.level }}
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">报名时间:{{ competition.registerStartDate }} - {{ competition.registerEndDate }} </span>
+          <span class="item-tit">报名时间:{{ competition.register_start_date }} - {{ competition.register_end_date }} </span>
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">比赛时间:{{competition.competeStartDate}} - {{competition.competeEndDate}}</span>
+          <span class="item-tit">比赛时间:{{competition.compete_start_date}} - {{competition.compete_end_date}}</span>
         </p>
       </div>
     </div>
@@ -35,7 +35,7 @@
         <a :href="competition.link" target="_blank">报名请登录</a>
       </div>
       <div class="item-status">
-        距离报名截止还有 {{getDeadlineDate(competition.registerEndDate) }} 天
+        距离报名截止还有 {{getDeadlineDate(competition.register_end_date) }} 天
       </div>
     </div>
   </div>

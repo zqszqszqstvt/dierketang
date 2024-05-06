@@ -35,10 +35,10 @@
       <h2 class="top-title">第一课堂总成绩</h2>
         <table>
           <tr>
-            <td><p>姓名：<strong>{{ information.name }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
+            <td><p>姓名：<strong>{{ information.username }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
           </tr>
           <tr>
-            <td><p>专业：<strong>{{ information.major }}</strong></p></td><td><p>年级：<strong>{{ information.grade }}级</strong></p></td>
+            <td><p>专业：<strong>{{ information.speciality }}</strong></p></td><td><p>排名：<strong>{{ information.rank }}</strong></p></td>
           </tr>
         </table>
       </div>
@@ -50,20 +50,21 @@
     name: 'ClassScoreTop',
     data() {
       return {
-        information: null,
+        information: {
+                name: '阿发',
+                college: '计算机科学与技术学院',
+                major: '智能科学与技术',
+                grade: '2019'
+            },
         radius: 60,
-        progress: 0
+        progress: 80
       };
     },
     created() {
-      // axios.get('你的API地址')
-      //   .then(response => {
-      //     this.userInfo = response.data;
-      //   })
-      //   .catch(error => {
-      //     console.error(error);
-      //   });
-      this.network()
+      this.load()
+    },
+    mounted() {
+      
     },
      props: {
     },
@@ -79,16 +80,21 @@
       }
     },
     methods: {
-        network() {
-            this.progress=80
-            this.information={
-                name: '阿发',
-                college: '计算机科学与技术学院',
-                major: '智能科学与技术',
-                grade: '2019'
-            }
-        }
-        
+      load(){
+        this.request.get("/api/user/pic/getscore", {
+          params: {
+            id: localStorage.getItem('id')
+          }
+        })
+      .then(res => {
+            this.information = res.data
+            this.progress = res.data.sumgrade
+        })
+        .catch(error => {
+          console.log("请求未正常返回")
+          console.error(error);
+        });
+      }
     }
   };
   </script>

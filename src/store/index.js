@@ -2,18 +2,25 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    // 竞赛
     competitionType: '全部',
     competitionLevelType: '全部',
-    competitionSortType: '按时间排序',
-
-    industryType: "全部",
-    companyType: "全部",
-    jobSourceType: "全部",
-    firstDateType: "全部",
+    // 实践
+    practiceCategory: "全部",
+    practiceType: "全部",
+    practiceLevel: "全部",
+    practiceFirstDate: "全部",
+    // 招聘
+    category: '互联网/IT电子/通信',
+    companyNature: '上市公司',
+    soure: '社招职位',
+    postingDate: '一天内',
     // 弹窗 
     addCopetitionShow: false,
     addGradesShow: false,
     addPracticeShow: false,
+    // 我的成绩学期选择
+    term: "0"
   },
   actions: {
     // 更新竞赛卡片选择
@@ -22,9 +29,6 @@ export default createStore({
     },
     updateCondition2(context,value) {
       context.commit('UpdateCondition2',value)
-    },
-    updateCondition3(context,value) {
-      context.commit('UpdateCondition3',value)
     },
     // 实践
     updatePractice1(context,value) {
@@ -39,6 +43,19 @@ export default createStore({
     updatePractice4(context,value) {
       context.commit('UpdatePractice4',value)
     },
+    // 招聘
+    updateJob1(context,value) {
+      context.commit('UpdateJob1',value)
+    },
+    updateJob2(context,value) {
+      context.commit('UpdateJob2',value)
+    },
+    updateJob3(context,value) {
+      context.commit('UpdateJob3',value)
+    },
+    updateJob4(context,value) {
+      context.commit('UpdateJob4',value)
+    },
 
     // 弹窗 更新弹窗显示状态
     updateAddCompetitionShow(context) {
@@ -50,6 +67,10 @@ export default createStore({
     updateAddPracticeShow(context) {
       context.commit('UpdateAddPracticeShow')
     },
+    // 学期选择
+    updateSelectedGrade(context,value) {
+      context.commit('UpdateSelectedGrade',value)
+    }
   },
   mutations: {
     // 更新竞赛卡片选择
@@ -60,24 +81,33 @@ export default createStore({
     UpdateCondition2(state,value) {
       state.competitionLevelType=value
     },
-    UpdateCondition3(state,value) {
-      state.competitionSortType=value
-    },
     // 实践
     UpdatePractice1(state,value) {
-      state.industryType=value
+      state.practiceCategory=value
       console.log('vuex的industryType更新了！')
     },
     UpdatePractice2(state,value) {
-      state.companyType=value
+      state.practiceType=value
     },
     UpdatePractice3(state,value) {
-      state.jobSourceType=value
+      state.practiceLevel=value
     },
     UpdatePractice4(state,value) {
-      state.firstDateType=value
+      state.practiceFirstDate=value
     },
-
+    // 招聘
+    UpdateJob1(state,value) {
+      state.category=value
+    },
+    UpdateJob2(state,value) {
+      state.companyNature=value
+    },
+    UpdateJob3(state,value) {
+      state.soure=value
+    },
+    UpdateJob4(state,value) {
+      state.postingDate=value
+    },
     // 弹窗 更新弹窗显示状态
     UpdateAddCompetitionShow(state) {
       state.addCopetitionShow=!state.addCopetitionShow
@@ -88,6 +118,10 @@ export default createStore({
     UpdateAddPracticeShow(state) {
       state.addPracticeShow=!state.addPracticeShow
     },
+    // 学期选择
+    UpdateSelectedGrade(state,value) {
+      state.term=value
+    }
   },
   getters: {}
 })

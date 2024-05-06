@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="file">选择文件</label>
           <button type="button" class="custom-file-button" @click="ClipboardItem" ><span class="enorme-plus">+</span >选择文件</button>
-          <input id="file" type="file" @change="handleFileUpload">
+          <input id="file" type="file" ref="fileInput">
           <span  v-if="!file" id="noFileLabel" >未选择任何文件</span>
         </div>
 
@@ -45,38 +45,54 @@
         gradeLevel: '1',
         subjectName: '',
         Score: '',
-        file: null
+        file: null,
+        imgurl:''
       };
     },
     methods: {
       submitForm() {
         // 在这里处理表单提交
-        if((!(this.subjectName && this.Score) && !this.file) || ((this.subjectName || this.Score) && this.file)) {
-            alert('请选择单科上传或者文件上传！');
+        if (!this.gradeLevel || !this.subjectName || !this.file || !this.Score) {
+            alert('所有字段不为空！');
             return;
         }
-        if(this.subjectName && this.Score) {
-            const formData = {
-                gradeLevel: this.gradeLevel,
-                subjectName: this.subjectName,
-                Score: this.Score
-            };
-            console.log(formData);
-            // 在这里可以发送formData到服务器
+        if(this.subjectName && this.Score && this.file && this.gradeLevel) {
+          this.uploadImg()
+          let formData = new FormData();
+          formData.append('file', this.imgurl);
+          formData.append('id', this.$store.state.id);
+          formData.append('activity_name', this.subjectName);
+          formData.append('category', this.gradeLevel);
+          formData.append('grade', this.Score);
+          this.request.post("/user/disan/upscore", formData)
+          .then(res => {
+            if(res.status === 200) {
+              alert("已提交！")
+            }
+        })
+        .catch(error => {
+          console.error(error);
+        });
         }
-        if(this.file) {
-            //处理文件上传
-            console.log('文件上传方式!')
-        }
-      
       },
-      handleFileUpload(event) {
-        this.file = event.target.files[0];
-        // 在这里处理文件
+      uploadImg() {
+        this.request.post("/user/common/upload", this.file)
+          .then(res => {
+            if(res.status === 200) {
+              this.imgurl = res.data
+            }
+        })
+        .catch(error => {
+          console.error(error);
+        });
       },
       ClipboardItem(event){
-        document.querySelector('input[id="file"]').click();  
-      },
+      const fileInput = document.querySelector('input[id="file"]');
+      fileInput.click();
+      fileInput.onchange = (e) => {
+        this.file = e.target.files[0];
+      }
+    },
       quit() {
         this.$store.dispatch('updateAddPracticeShow');
       },

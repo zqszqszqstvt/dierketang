@@ -1,9 +1,9 @@
 <template>
   <div class="item">
-    <div class="title">
+    <div class="title" @click="handleClick">
       <a :href="news.url" target="_blank">{{ news.title }}</a>
     </div>
-    <div class="time">{{ news.postingDate }}</div>
+    <div class="time">{{ news.posting_date }}</div>
   </div>
 </template>
 
@@ -12,13 +12,29 @@ export default {
   name: 'KaoYanBaoYanItem',
   data() {
     return {
-      
+      id: this.news.id,
+      heat: this.news.heat
     };
   },
   props: {
     news: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    handleClick() {
+      this.request.put("/user/kaoyan/addhot",{
+          params: {
+            id: this.id
+          }
+        })
+      .then(res => {
+            console.log("增加热度")
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 };

@@ -11,13 +11,13 @@
           <input id="Score" v-model="Score" type="text" placeholder="请输入">
         </div>
         <div class="form-group">
-          <label for="gradeLevel">学期选择</label>
+          <label for="gradeLevel">学年选择</label>
           <select id="gradeLevel" v-model="gradeLevel">
             <!-- 这里添加你的选项 -->
-            <option value="1">大一年级</option>
-            <option value="2">大二年级</option>
-            <option value="3">大三年级</option>
-            <option value="4">大四年级</option>
+            <option value="1">大一</option>
+            <option value="2">大二</option>
+            <option value="3">大三</option>
+            <option value="4">大四</option>
           </select>
         </div>
       
@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="file">选择文件</label>
           <button type="button" class="custom-file-button" @click="ClipboardItem" ><span class="enorme-plus">+</span >选择文件</button>
-          <input id="file" type="file" @change="handleFileUpload">
+          <input id="file" type="file" ref="fileInput">
           <span  v-if="!file" id="noFileLabel" >未选择任何文件</span>
         </div>
 
@@ -39,44 +39,65 @@
   
   <script>
   export default {
-    name: 'MyCompetitionCommit',
     data() {
       return {
         gradeLevel: '1',
         subjectName: '',
         Score: '',
-        file: null
+        file: null,
+        imgurl: ''
       };
     },
     methods: {
-      submitForm() {
+      async submitForm() {
         // 在这里处理表单提交
-        if((!(this.subjectName && this.Score) && !this.file) || ((this.subjectName || this.Score) && this.file)) {
-            alert('请选择单科上传或者文件上传！');
+        if (!this.subjectName || !this.Score || !this.file || !this.gradeLevel) {
+            alert('所有字段不为空！');
             return;
         }
-        if(this.subjectName && this.Score) {
-            const formData = {
-                gradeLevel: this.gradeLevel,
-                subjectName: this.subjectName,
-                Score: this.Score
-            };
-            console.log(formData);
-            // 在这里可以发送formData到服务器
+        if(this.subjectName && this.Score && this.file && this.gradeLevel) {
+          // await this.uploadImg()
+          let formData = new FormData();
+          formData.append('file', this.imgurl);
+          formData.append('student_id', localStorage.getItem('id'));
+          formData.append('course_name', this.subjectName);
+          formData.append('term', this.gradeLevel);
+          formData.append('grade', this.Score);
+          await this.request.post("/api/user/pic/upscore", formData)
+          .then(res => {
+              alert("已提交！")
+        })
+        .catch(error => {
+          console.error(error);
+        });
         }
-        if(this.file) {
-            //处理文件上传
-            console.log('文件上传方式!')
+      },
+      async uploadImg() {
+        let formData = new window.FormData();
+        formData.append('file', this.file);
+        console.log('formData.get(file)：', formData.get('file'));
+        try {
+          let res = await this.request.post("/api/user/common/upload", formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+          this.imgurl = res.data;
+        } catch (error) {
+         console.error(error);
         }
+      },
+
       
-      },
-      handleFileUpload(event) {
-        this.file = event.target.files[0];
-        // 在这里处理文件
-      },
       ClipboardItem(event){
-        document.querySelector('input[id="file"]').click();  
-      },
+      const fileInput = document.querySelector('input[id="file"]');
+      fileInput.click();
+      fileInput.onchange = async  (e) => {
+        this.file = e.target.files[0];
+        console.log('已选择的文件：', this.file);
+        await this.uploadImg();
+      }
+    },
       quit() {
         this.$store.dispatch('updateAddGradesShow');
       },
@@ -92,7 +113,7 @@
   <style lang="less" scoped>
   .card {
     box-sizing: border-box;
-  width: 100%;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     background-color: #fff;

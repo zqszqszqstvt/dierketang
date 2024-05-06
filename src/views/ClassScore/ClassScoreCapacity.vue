@@ -110,12 +110,48 @@
         }
       });
     },
+    termToYear(term) {
+      return '第' + term + '年';
+    },
     async getData() {  //异步请求数据
+      let line_score;
+      let line_term;
+      let abi_score;
+      let abi_type;
+
+      this.request.get("/api/user/pic/mygradepic", {
+          params: {
+            id: localStorage.getItem('id')
+          }
+        })
+      .then(res => {
+            line_score = res.data.list.map(item => item.grade);
+            line_term = res.data.list.map(item => item.term);
+            line_term = line_term.map(item => this.termToYear(item.term));
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
+        this.request.get("/api/user/pic/mypic", {
+          params: {
+            id: localStorage.getItem('id')
+          }
+        })
+      .then(res => {
+            abi_score = res.data.Object.keys(data);
+            abi_type = res.dataObject.values(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
+
         let data = {
-            "abilities": ["数学", "英语", "专业", "政治", "实践"],
-            "abilityData": [80, 90, 75, 85, 95],
-            "years": ["第一年", "第二年", "第三年", "第四年"],
-            "scores": [85, 88, 90, 92]
+            "abilities": abi_type,
+            "abilityData": abi_score,
+            "years": line_term,
+            "scores": line_score
         }
         return data;
     }
