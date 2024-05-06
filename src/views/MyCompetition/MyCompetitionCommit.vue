@@ -29,7 +29,8 @@
       </div>
       <div class="form-group">
           <label for="file">选择文件</label>
-          <button type="button" class="custom-file-button" @click="ClipboardItem" ><span class="enorme-plus">+</span >选择文件</button>
+          <button type="button" class="custom-file-button" @click="ClipboardItem"><span class="enorme-plus">+</span >选择文件</button>
+          <input id="file" type="file" ref="fileInput" style="display: none;">
           <span  v-if="!file" id="noFileLabel" >未选择任何文件</span>
       </div>
       <div class="button-group">
@@ -59,18 +60,16 @@ export default {
             return;
         }
         if(this.competitionLevel && this.awardLevel && this.competitionName && this.file) {
-          this.uploadImg()
+          
           let formData = new FormData();
           formData.append('image', this.imgurl);
           formData.append('student_id', this.$store.state.id);
           formData.append('competition_level', this.competitionLevel);
           formData.append('award_level', this.awardLevel);
           formData.append('competition_name', this.competitionName);
-          this.request.post("/user/pic/upmycomp", formData)
+          this.request.post("/api/user/pic/upmycomp", formData)
           .then(res => {
-            if(res.status === 200) {
               alert("已提交！")
-            }
         })
         .catch(error => {
           console.error(error);
@@ -78,11 +77,12 @@ export default {
         }
       },
       uploadImg() {
-        this.request.post("/user/common/upload", this.file)
+        let formData = new FormData();
+        formData.append('file', this.file);
+        this.request.post("/api/user/common/upload", formData)
           .then(res => {
-            if(res.status === 200) {
               this.imgurl = res.data
-            }
+              console.log("链接", this.imgurl)
         })
         .catch(error => {
           console.error(error);
@@ -99,13 +99,15 @@ export default {
       this.$nextTick(() => {
     const fileInput = document.querySelector('input[id="file"]');
     fileInput.click();
-    fileInput.addEventListener('change', (e) => {
+    fileInput.addEventListener('change',async (e) => {
       this.file = e.target.files[0];
+      this.uploadImg()
     });
   });
     },
   },
-  props: {
+  mounted() {
+    console.log(document.querySelector('input[id="file"]'))
   }
 };
 </script>

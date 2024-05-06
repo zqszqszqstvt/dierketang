@@ -73,7 +73,7 @@
         }
       },
       async uploadImg() {
-        let formData = new window.FormData();
+        let formData = new FormData();
         formData.append('file', this.file);
         console.log('formData.get(file)：', formData.get('file'));
         try {
@@ -87,8 +87,6 @@
          console.error(error);
         }
       },
-
-      
       ClipboardItem(event){
       const fileInput = document.querySelector('input[id="file"]');
       fileInput.click();

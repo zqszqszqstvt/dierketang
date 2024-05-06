@@ -47,6 +47,7 @@ export default {
   },
   created() {
     this.netrequest();
+    this.load();
   },
   computed: {
     // 弹窗 用store的变量来决定显示弹窗否
@@ -56,9 +57,9 @@ export default {
   },
   methods: {
     load() {
-      this.request.get("/user/pic/mycomp", {
+      this.request.get("/api/user/pic/mycomp", {
           params: {
-            student_id: this.$store.state.id
+            student_id: localStorage.getItem('id')
           }
         })
       .then(res => {

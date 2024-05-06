@@ -51,26 +51,18 @@ export default {
   },
   methods: {
     load(){
-      //   this.request.get("/user/pic/top", {
-      //     params: {
-      //       id: this.$store.state.id
-      //     }
-      //   })
-      // .then(res => {
-      //       this.userInfo = res.data
-      //       this.progress = res.data.score
-      //   })
-      //   .catch(error => {
-      //     console.error(error);
-      //   });
-
-
-      this.userInfo={
-        avatarUrl:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fae4eb3f2-ae53-4943-bdc9-0d6e105210c6%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1704613130&t=3f91b14fd970d4fd00df2bb1d991e440',
-        username:'阿发',
-        speciality:'智能科学与技术'
-      }
-      this.progress=50
+        this.request.get("/api/user/pic/top", {
+          params: {
+            id: localStorage.getItem('id')
+          }
+        })
+      .then(res => {
+            this.userInfo = res.data
+            this.progress = this.userInfo.socre
+        })
+        .catch(error => {
+          console.error(error);
+        });
 
       }
   },
