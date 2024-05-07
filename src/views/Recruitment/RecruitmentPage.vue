@@ -126,7 +126,33 @@ export default{
     },
     pageSize(newVal, oldVal) {
       this.loadData()
-    }
+    },
+    industry(newVal, oldVal) {
+      this.loadData()
+    },
+    nature(newVal, oldVal) {
+      this.loadData()
+    },
+    from(newVal, oldVal) {
+      this.loadData()
+    },
+    date(newVal, oldVal) {
+      this.loadData()
+    },
+  },
+  computed: {
+        industry(){
+            return this.$store.state.category
+        },
+        nature(){
+            return this.$store.state.companyNature
+        },
+        from(){
+            return this.$store.state.soure
+        },
+        date(){
+            return this.$store.state.postingDate
+        },
   },
     methods:{
         netrequest(){
@@ -197,7 +223,7 @@ export default{
         default:
           date = this.getFormattedDate(-1);
       }
-            this.request.get("/user/recruit/getlist",{
+            this.request.get("/api/user/recruit/getlist",{
           params: {
             category: this.$store.state.category,
             companyNature: this.$store.state.companyNature,

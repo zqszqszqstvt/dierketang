@@ -14,10 +14,10 @@
           <span class="item-tit">简介</span>{{ competition.introduction }}
           </p>
           <p class="event4-1-plan">
-            <span class="item-tit">时间</span>{{ competition.time }}
+            <span class="item-tit">时间</span>{{ ToTime(competition.activityStartDate) }} - {{ ToTime(competition.activityEndDate) }}
           </p>
           <p class="event4-1-plan">
-            <span class="item-tit">地点</span>{{ competition.adddress }}
+            <span class="item-tit">地点</span>{{ competition.address }}
           </p>
         </div>
       </div>
@@ -40,6 +40,9 @@
         
       };
     },
+    computed: {
+      
+    },
     props: {
       competition: {
         type: Object,
@@ -56,7 +59,22 @@
           default:
             return '';
         }
-      }
+      },
+      ToTime(time) {
+        if (!Array.isArray(time) || !time.length) {
+          console.error('Invalid time:', time);
+          return '';
+        }
+        let date = this.convertToDate(time);
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1; // getMonth() 返回的月份从 0 开始
+        let day = date.getDate();
+        return `${year}年${month}月${day}日`;
+      },
+      convertToDate(array) {
+        let date = new Date(array[0], array[1] - 1, array[2], array[3], array[4]);
+        return date;
+      },
     } 
   };
   </script>

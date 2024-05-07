@@ -1,25 +1,25 @@
 <template>
     <div class="Infomation">
         <div class="cimage">
-            <img :src="CourseInfo.cimage" @click="goDetail">
+            <img :src="CourseInfo.image" @click="goDetail">
         </div>
         <div class="cdesc">
             <div class="cname"
-            @click="ChoseCourse(CourseInfo.cname,CourseInfo.cteacher)"
+            @click="ChoseCourse(CourseInfo.title,CourseInfo.cteacher)"
             @mouseenter="handleMouseEnter()"
             @mouseleave="handleMouseLeave()"
             :style="active" >
-            <span>{{CourseInfo.cname}}</span>
+            <span>{{CourseInfo.title}}</span>
             </div>
 
-            <div class="cfrom">
+            <!-- <div class="cfrom">
                 <div class="teachername"><span>{{ CourseInfo.cteacher }}</span></div>
                 <span>|</span>
                 <div class="csch"><span>{{ CourseInfo.cschool }}</span></div>
-            </div>
+            </div> -->
 
             
-            <div>
+            <!-- <div>
                 <span v-if="CourseInfo.character != 0" class="labelCss">
                     <img :src='require("@/assets/icon/character.png")' class="icon" alt=""  style="vertical-align: -9%;" />
                     {{CourseInfo.character}}个章节
@@ -32,10 +32,10 @@
                     <img :src='require("@/assets/icon/reportFramwork.png")' class="icon" alt="" style="vertical-align: -10%;"/>
                     报告模板
                 </span>
-            </div>
+            </div> -->
 
             <div class="cintroduce">
-                <span class="cintroduce">{{ CourseInfo.cdesc }}</span>
+                <span class="cintroduce">{{ CourseInfo.introduction }}</span>
             </div>
             
         </div>

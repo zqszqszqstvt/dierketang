@@ -38,7 +38,7 @@
             <td><p>姓名：<strong>{{ information.username }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
           </tr>
           <tr>
-            <td><p>专业：<strong>{{ information.rank }}</strong></p></td><td><p>年级：<strong>{{ information.dept }}级</strong></p></td>
+            <td><p>排名：<strong>{{ information.rank }}</strong></p></td><td><p>班级：<strong>{{ information.dept }}级</strong></p></td>
           </tr>
         </table>
       </div>
@@ -56,14 +56,9 @@
       };
     },
     created() {
-      // axios.get('你的API地址')
-      //   .then(response => {
-      //     this.userInfo = response.data;
-      //   })
-      //   .catch(error => {
-      //     console.error(error);
-      //   });
-      this.network()
+
+      this.network();
+      this.load();
     },
      props: {
     },
@@ -89,14 +84,15 @@
             }
         },
         load(){
-        this.request.get("/user/disan/getgrade", {
+        this.request.get("/api/user/disan/getgrade", {
           params: {
-            id: this.$store.state.id
+            id: localStorage.getItem('id')
           }
         })
       .then(res => {
             this.information = res.data
-            this.progress = res.data.score
+            this.progress = res.data.socre
+            console.log(res.data)
         })
         .catch(error => {
           console.error(error);

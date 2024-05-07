@@ -137,6 +137,7 @@ export default {
     // 弹窗 点击出现弹窗
     addClick() {
       this.$store.dispatch('updateAddCompetitionShow');
+      console.log(this.$store.state.addCopetitionShow)
     },
   }
 };

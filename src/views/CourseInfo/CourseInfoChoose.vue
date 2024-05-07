@@ -31,6 +31,7 @@ components: {
   },
     data() {
         return {
+            title: "全部"
         }
     },
     props: {
@@ -43,8 +44,12 @@ components: {
             this.categories.forEach((category) => {
               category.active = category.title===title;  
             });
-            this.$emit('getCourseInfo',title);
+            this.title = title
+            this.$emit('getCourseInfo',this.title);
         }
+    },
+    mounted() {
+        this.$emit('getCourseInfo',this.title);
     }
 }
 </script>

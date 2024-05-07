@@ -46,6 +46,7 @@
     async created() {
       // const response = await axios.get('你的API地址');
       this.netrequest(0);
+      // this.load();
     },
     computed: {
       // 弹窗 用store的变量来决定显示弹窗否
@@ -55,9 +56,9 @@
     },
     methods: {
       load(){
-        this.request.get("/user/disan/shijian", {
+        this.request.get("/api/user/disan/shijian", {
           params: {
-            student_id: this.$store.state.id          }
+            id: localStorage.getItem('id')          }
         })
       .then(res => {
             this.grades = res.data
@@ -75,9 +76,7 @@
             score: '20',
             all:'10',
             completion:'7',
-            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf2f6686e5c9ccfba5469de97f4097763699467f12e2d5a57615081df272da487',
             img:'1.png',
-            //img: '/src/views/ThirdClass/images/1.png',
           },{
             subject: '心理素质与身体素质',
             score: '20',

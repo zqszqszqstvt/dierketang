@@ -77,9 +77,17 @@ export default {
         }
       },
       uploadImg() {
+        if(!this.file) {
+          console.error('没有选择文件!')
+        }
         let formData = new FormData();
         formData.append('file', this.file);
-        this.request.post("/api/user/common/upload", formData)
+        console.log('formData的file为：', formData.get('file'));
+        this.request.post("/api/user/common/upload", formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
           .then(res => {
               this.imgurl = res.data
               console.log("链接", this.imgurl)
@@ -96,14 +104,13 @@ export default {
       this.$store.dispatch('updateAddCompetitionShow');
     },
     ClipboardItem(event){
-      this.$nextTick(() => {
-    const fileInput = document.querySelector('input[id="file"]');
-    fileInput.click();
-    fileInput.addEventListener('change',async (e) => {
-      this.file = e.target.files[0];
-      this.uploadImg()
-    });
-  });
+      const fileInput = document.querySelector('input[id="file"]');
+      fileInput.click();
+      fileInput.onchange = async  (e) => {
+        this.file = e.target.files[0];
+        console.log('已选择的文件：', this.file);
+        await this.uploadImg();
+      }
     },
   },
   mounted() {

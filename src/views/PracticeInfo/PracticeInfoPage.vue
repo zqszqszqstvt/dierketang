@@ -84,7 +84,8 @@
     }
   },
     created() {
-      this.netrequest();
+      // this.netrequest();
+      this.load();
     },
     methods: {
       //模拟网络请求
@@ -122,7 +123,7 @@
         console.log(this.$store.state.competitionType)
       },
       load(){
-        this.request.get("/user/disan/getlist", {
+        this.request.get("/api/user/disan/getlist", {
           params: {
             category: this.$store.state.practiceCategory,
             type: this.$store.state.practiceType,
@@ -133,7 +134,7 @@
           }
         })
       .then(res => {
-            this.News = res.data.records
+            this.competitions = res.data.records
             this.newsTotal = res.data.total / this.pageSize + 1
         })
         .catch(error => {
@@ -171,7 +172,10 @@
 .demo-pagination-block .demonstration {
   margin-bottom: 16px;
 }
-
+.demo-pagination-block {
+  display: flex;
+  justify-content: center;
+}
   </style>
   
   

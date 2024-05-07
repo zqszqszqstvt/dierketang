@@ -6,7 +6,7 @@
         >
         </el-dialog>
         <div class="courseinfomations">
-            <div class="courseinfo">
+            <div class="courseinfo" style="width: 50%;">
             <CourseInfomation v-for="(item,index) in CourseInfos" :key="index" :CourseInfo="item"/>
             </div>
         </div>
@@ -57,6 +57,7 @@ export default{
     },
     async created(){
         this.netrequest();
+        this.loadData();
     },
     methods: {
         netrequest(){
@@ -71,12 +72,10 @@ export default{
             ]
         },
         loadData() {
-            this.request.get("/user/disi/list",{
+            this.request.get("/api/user/disi/list",{
           params: {
-            type: this.selectedCategory,
-            text: this.searchInfo,
-            pageid: this.currentPage,
-            pagesum: this.pageSize,
+            page: this.currentPage,
+            size: this.pageSize,
           }
         })
       .then(res => {
