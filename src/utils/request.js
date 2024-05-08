@@ -7,7 +7,19 @@ const request = axios.create({
 })
 
 request.interceptors.request.use(config => {
+    // config.headers['Content-Type'] = 'application/json;charset=utf-8';
+    // 检查是否是文件上传请求
+  if (config.data instanceof FormData) {
+    // 移除Content-Type，让Axios自动设置
+    if(config.headers['Content-Type']) {
+        delete config.headers['Content-Type'];
+    }
+  } else {
+    // 非文件上传请求，设置Content-Type为application/json
     config.headers['Content-Type'] = 'application/json;charset=utf-8';
+  }
+
+
     let token = localStorage.getItem("token");
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;  // 使用Bearer token格式
@@ -29,6 +41,9 @@ request.interceptors.response.use(
         if (res.code === '0') {  
             console.log('request.interceptors.response返回出错了！')
         }
+
+        // response.withCredentials = true;
+
         return res;
     },
     error => {

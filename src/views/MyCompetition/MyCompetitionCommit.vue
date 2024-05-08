@@ -63,7 +63,7 @@ export default {
           
           let formData = new FormData();
           formData.append('image', this.imgurl);
-          formData.append('student_id', this.$store.state.id);
+          formData.append('student_id', localStorage.getItem('id'));
           formData.append('competition_level', this.competitionLevel);
           formData.append('award_level', this.awardLevel);
           formData.append('competition_name', this.competitionName);
@@ -76,18 +76,14 @@ export default {
         });
         }
       },
-      uploadImg() {
+      uploadImg() { 
         if(!this.file) {
           console.error('没有选择文件!')
         }
         let formData = new FormData();
         formData.append('file', this.file);
         console.log('formData的file为：', formData.get('file'));
-        this.request.post("/api/user/common/upload", formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          })
+        this.request.post("/api/user/common/upload", formData)
           .then(res => {
               this.imgurl = res.data
               console.log("链接", this.imgurl)
@@ -96,14 +92,7 @@ export default {
           console.error(error);
         });
       },
-    //给按钮增加一个更改弹窗显示状态的函数
-    quit() {
-      this.$store.dispatch('updateAddCompetitionShow');
-    },
-    add() {
-      this.$store.dispatch('updateAddCompetitionShow');
-    },
-    ClipboardItem(event){
+      ClipboardItem(event){
       const fileInput = document.querySelector('input[id="file"]');
       fileInput.click();
       fileInput.onchange = async  (e) => {
@@ -112,6 +101,14 @@ export default {
         await this.uploadImg();
       }
     },
+    //给按钮增加一个更改弹窗显示状态的函数
+    quit() {
+      this.$store.dispatch('updateAddCompetitionShow');
+    },
+    add() {
+      this.$store.dispatch('updateAddCompetitionShow');
+    },
+    
   },
   mounted() {
     console.log(document.querySelector('input[id="file"]'))

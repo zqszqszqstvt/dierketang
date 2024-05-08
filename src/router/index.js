@@ -102,6 +102,7 @@ const routes = [
     components: {
       content: PracticeInfo,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/CompetitionInfo",
@@ -109,6 +110,7 @@ const routes = [
     components: {
       content: CompetitionInfo,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/KaoYanBaoYan",
@@ -116,6 +118,7 @@ const routes = [
     components: {
       content: KaoYanBaoYan,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/MyCompetition",
@@ -132,6 +135,7 @@ const routes = [
     components: {
       content: CourseInfo,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/ShiYan",
@@ -139,6 +143,7 @@ const routes = [
     components: {
       content: ShiYan,
     },
+    meta: { requiresAuth: true }
   },
   {  
     path: "/CourseDetail",
@@ -146,6 +151,7 @@ const routes = [
     components: {
       content: CourseDetail,
     }, 
+    meta: { requiresAuth: true }
   },
   {
     path: "/FourthClassChoose",
@@ -153,6 +159,7 @@ const routes = [
     components: {
       content: FourthClassChoose,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/Recruitment",
@@ -160,6 +167,7 @@ const routes = [
     components: {
       content: Recruitment,
     },
+    meta: { requiresAuth: true }
   },
   {
     path: "/ClassScore",
@@ -183,6 +191,7 @@ const routes = [
     components: {
       content: HomePage,
     },
+    meta: { requiresAuth: true }
   },
 
 
@@ -386,30 +395,33 @@ const router = createRouter({
 });
 
 // 全局前置守卫
-// router.beforeEach(async (to, from, next) => {
-//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//   const token = localStorage.getItem('Token');
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const token = localStorage.getItem('Token');
 
-//   if (requiresAuth && token) {
-//     try {
-//       const response = await request.post('/api/validate-token', { token });
-//       if (response.data.valid) {
-//         // 如果 token 有效，继续导航
-//         next();
-//       } else {
-//         next({ name: 'newLogin', query: { redirect: to.fullPath } });
-//       }
-//     } catch (error) {
-//       console.error('Token validation failed:', error);
-//       next({ name: 'newLogin', query: { redirect: to.fullPath } });
-//     }
-//   } else if (requiresAuth && !token) {
-//     next({ name: 'newLogin', query: { redirect: to.fullPath } });
-//   } else if (!requiresAuth) {
-//     next();
-//   }
-// });
-
+  if (requiresAuth && token) {
+    try {
+      const response = await request.get("/api/user/pic/getscore", {
+        params: {
+          id: localStorage.getItem('id')
+        }
+      });
+      if (response.code === 1) {
+        // 如果 token 有效，继续导航
+        next();
+      } else {
+        next({ name: 'newLogin', query: { redirect: to.fullPath } });
+      }
+    } catch (error) {
+      console.error('Token validation failed:', error);
+      next({ name: 'newLogin', query: { redirect: to.fullPath } });
+    }
+  } else if (requiresAuth && !token) {
+    next({ name: 'newLogin', query: { redirect: to.fullPath } });
+  } else if (!requiresAuth) {
+    next();
+  }
+});
 
 
 

@@ -57,30 +57,32 @@
             return;
         }
         if(this.subjectName && this.Score && this.file && this.gradeLevel) {
-          this.uploadImg()
           let formData = new FormData();
           formData.append('file', this.imgurl);
-          formData.append('id', this.$store.state.id);
+          formData.append('id', localStorage.getItem('id'));
           formData.append('activity_name', this.subjectName);
           formData.append('category', this.gradeLevel);
           formData.append('grade', this.Score);
-          this.request.post("/user/disan/upscore", formData)
+          this.request.post("/api/user/disan/upscore", formData)
           .then(res => {
-            if(res.status === 200) {
               alert("已提交！")
-            }
         })
         .catch(error => {
           console.error(error);
         });
         }
       },
-      uploadImg() {
-        this.request.post("/user/common/upload", this.file)
+      uploadImg() { 
+        if(!this.file) {
+          console.error('没有选择文件!')
+        }
+        let formData = new FormData();
+        formData.append('file', this.file);
+        console.log('formData的file为：', formData.get('file'));
+        this.request.post("/api/user/common/upload", formData)
           .then(res => {
-            if(res.status === 200) {
               this.imgurl = res.data
-            }
+              console.log("链接", this.imgurl)
         })
         .catch(error => {
           console.error(error);
@@ -89,8 +91,9 @@
       ClipboardItem(event){
       const fileInput = document.querySelector('input[id="file"]');
       fileInput.click();
-      fileInput.onchange = (e) => {
+      fileInput.onchange = async (e) => {
         this.file = e.target.files[0];
+        await this.uploadImg();
       }
     },
       quit() {
