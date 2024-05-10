@@ -3,11 +3,12 @@
       <div class="score-inall">
         <div class="progress-ring">
            <div class="imga"  >
-            <img v-if="grade.img" :src="require(`@/views/ThirdClass/images/${grade.img}`)" alt="">
+            <!-- <img v-if="grade.img" :src="require(`@/views/ThirdClass/images/${grade.img}`)" alt=""> -->
+            <img v-if="grade.img" :src="grade.img" alt="">
            </div>
            <div class="d1">
             <h3>{{grade. subject}}</h3>
-            <label style="left: 0;" >完成{{grade.completion}}/{{grade.all}}</label>
+            <label style="left: 0;" >完成 {{grade.compeletion}}</label>
            </div>
            <div class="d2">
             <span style="color: #581BB7;display: inline-block;vertical-align: middle;">{{ grade.score}}</span>

@@ -88,7 +88,7 @@
         })
       .then(res => {
             this.information = res.data
-            this.progress = res.data.sumgrade
+            this.progress = Math.round(res.data.sumgrade)
         })
         .catch(error => {
           console.log("请求未正常返回")

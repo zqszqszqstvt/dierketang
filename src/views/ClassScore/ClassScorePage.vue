@@ -86,12 +86,13 @@
     methods: {
       //网络请求
       load(){
-        this.request.get("/api/user/pic/getclass", {
-          params: {
-            id: localStorage.getItem('id'),
-            term: this.$store.state.term
-          }
-        })
+        let params = {
+          id: localStorage.getItem('id')
+        };
+        if (this.$store.state.term !== "0") {
+          params.term = this.$store.state.term
+        }
+        this.request.get("/api/user/pic/getclass", {params})
       .then(res => {
             this.grades = res.data
         })

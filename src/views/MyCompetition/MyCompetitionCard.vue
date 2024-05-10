@@ -1,11 +1,11 @@
 <template>
   <div class="card">
     <div class="left">
-      <img :src="require(`@/views/MyCompetition/images/${award.img}`)" alt="">
+      <img :src="award.img" alt="">
     </div>
     <div class="right">
       <h2>{{ award.competitionName }}</h2>
-      <p>{{ award.competitionLevel }}{{ award.awardLevel }}</p>
+      <p>{{ award.competitionLevel }}{{ award.awardsLevel }}</p>
       <p class="score">{{ award.grade }}分</p>
     </div>
   </div>

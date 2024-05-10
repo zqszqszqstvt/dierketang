@@ -91,7 +91,7 @@
         })
       .then(res => {
             this.information = res.data
-            this.progress = res.data.socre
+            this.progress = Math.round(res.data.socre)
             console.log(res.data)
         })
         .catch(error => {

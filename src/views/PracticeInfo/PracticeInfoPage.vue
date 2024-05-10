@@ -77,10 +77,10 @@
       this.load()
     },
     currentPage(newVal, oldVal) {
-      this.loadNews()
+      this.load()
     },
     pageSize(newVal, oldVal) {
-      this.loadNews()
+      this.load()
     }
   },
     created() {
@@ -135,7 +135,7 @@
         })
       .then(res => {
             this.competitions = res.data.records
-            this.newsTotal = res.data.total / this.pageSize + 1
+            this.newsTotal = res.data.total
         })
         .catch(error => {
           console.error(error);

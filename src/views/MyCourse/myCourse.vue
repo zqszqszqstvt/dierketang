@@ -252,7 +252,7 @@ export default {
             this.college = res.data.college
             this.major = res.data.dept
             this.grade = res.data.rank
-            this.score = res.data.score
+            this.score = Math.round(res.data.socre)
         })
         .catch(error => {
           console.error(error);
@@ -267,7 +267,7 @@ export default {
         })
       .then(res => {
             this.cou = res.data.records
-            this.newsTotal = res.data.total / this.pageSize + 1 
+            this.newsTotal = res.data.total
         })
         .catch(error => {
           console.error(error);

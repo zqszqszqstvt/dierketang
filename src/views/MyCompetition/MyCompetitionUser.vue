@@ -58,7 +58,7 @@ export default {
         })
       .then(res => {
             this.userInfo = res.data
-            this.progress = this.userInfo.socre
+            this.progress = Math.round(this.userInfo.socre)
         })
         .catch(error => {
           console.error(error);

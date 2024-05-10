@@ -44,9 +44,8 @@
         ThirdClassScoreItem,
     },
     async created() {
-      // const response = await axios.get('你的API地址');
-      this.netrequest(0);
-      // this.load();
+
+      this.load();
     },
     computed: {
       // 弹窗 用store的变量来决定显示弹窗否
@@ -66,54 +65,6 @@
         .catch(error => {
           console.error(error);
         });
-      },
-      //模拟网络请求
-      netrequest() {
-        //发送选择的学期，返回对应学期的课程成绩
-       
-          this.grades=[{
-            subject: '思想政治与志愿服务',
-            score: '20',
-            all:'10',
-            completion:'7',
-            img:'1.png',
-          },{
-            subject: '心理素质与身体素质',
-            score: '20',
-            all:'10',
-            completion:'7',
-            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9718c8c95adf14f065f37e1e1b1b5ab6680b97b5b595dec54c3b81c93a1a4d0a',
-            img: '2.png',
-          },{
-            subject: '艺术体验与审美修养',
-            score: '20',
-            all:'10',
-            completion:'7',
-            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5e3c80035aeb6cc78aca40171452aed8ba3fe5a630c809cdd61652972380560a',
-            img: '3.png',
-          },{
-            subject: '文化沟通与交往能力',
-            score: '20',
-            all:'10',
-            completion:'7',
-            //surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc2755149059c33f22b0b7f5500ada5d3b1a84ee1f98c7522a78a14172353cbd7',
-            img: '4.png',
-          },{
-            subject: '社会工作与领导能力',
-            score: '20',
-            all:'10',
-            completion:'7',
-           // surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng625647de8e62a03f2ab8bea320b5e008aa9f1bc6430b49541085915a4518a577',
-           img: '5.png',
-          },{
-            subject: '学术科技与创新创业',
-            score: '20',
-            all:'10',
-            completion:'7',
-           // surl:'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng31b4d96cc1d17aed767e93d96d225fb717511e92a2260822915001aecba1f3aa',
-           img: '6.png',
-          }]
-        
       },
       // 弹窗 点击出现弹窗
       addClick() {
@@ -146,7 +97,7 @@
     .classItem {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
       align-items: center;
       
     }

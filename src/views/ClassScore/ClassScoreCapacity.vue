@@ -113,48 +113,45 @@
     termToYear(term) {
       return '第' + term + '年';
     },
-    async getData() {  //异步请求数据
-      let line_score;
-      let line_term;
-      let abi_score;
-      let abi_type;
+    async getData() {
+  try {
+    const res1 = await this.request.get("/api/user/pic/mygradepic", {
+      params: {
+        id: localStorage.getItem('id')
+      }
+    });
 
-      this.request.get("/api/user/pic/mygradepic", {
-          params: {
-            id: localStorage.getItem('id')
-          }
-        })
-      .then(res => {
-            line_score = res.data.list.map(item => item.grade);
-            line_term = res.data.list.map(item => item.term);
-            line_term = line_term.map(item => this.termToYear(item.term));
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    let line_score = res1.data.list.map(item => item.grade ?? 0);
+    let line_term = res1.data.list.map(item => item.term).map(this.termToYear);
 
-        this.request.get("/api/user/pic/mypic", {
-          params: {
-            id: localStorage.getItem('id')
-          }
-        })
-      .then(res => {
-            abi_score = res.data.Object.keys(data);
-            abi_type = res.dataObject.values(data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    const res2 = await this.request.get("/api/user/pic/mypic", {
+      params: {
+        id: localStorage.getItem('id')
+      }
+    });
 
-
-        let data = {
-            "abilities": abi_type,
-            "abilityData": abi_score,
-            "years": line_term,
-            "scores": line_score
-        }
-        return data;
+    let abi_score, abi_type;
+    if (res2.data && typeof res2.data === 'object') {
+      abi_type = Object.keys(res2.data);
+      abi_score = Object.values(res2.data);
+    } else {
+      console.error('Expected res.data to be an object, but got:', res2.data);
     }
+
+    let data = {
+      "abilities": abi_type,
+      "abilityData": abi_score,
+      "years": line_term,
+      "scores": line_score
+    }
+
+    console.log("总数据", data)
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
   }
 }
   </script>

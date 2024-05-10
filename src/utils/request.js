@@ -20,9 +20,14 @@ request.interceptors.request.use(config => {
   }
 
 
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem("Token");
     if (token) {
-        config.headers['Authorization'] = `Bearer ${token}`;  // 使用Bearer token格式
+        // config.headers['Authorization'] = `Bearer ${token}`;  // 使用Bearer token格式
+        config.headers = {
+            'token': token
+        };
+    } else {
+        console.log("token为空！")
     }
     return config
 }, error => {

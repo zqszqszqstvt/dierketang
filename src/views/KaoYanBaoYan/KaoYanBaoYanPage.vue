@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     loadNews() {
-      this.request.get("/user/kaoyan/getlist",{
+      this.request.get("/api/user/kaoyan/getlist",{
           params: {
             size: this.pageSize,
             page: this.currentPage
@@ -95,14 +95,14 @@ export default {
         })
       .then(res => {
             this.News = res.data.records
-            this.newsTotal = res.data.total / this.pageSize + 1
+            this.newsTotal = res.data.total
         })
         .catch(error => {
           console.error(error);
         });
     },
     loadHot() {
-      this.request.get("/user/kaoyan/hot")
+      this.request.get("/api/user/kaoyan/hot")
       .then(res => {
             this.HotBaoYanInfos = res.data.records
             this.hotTotal = res.data.total

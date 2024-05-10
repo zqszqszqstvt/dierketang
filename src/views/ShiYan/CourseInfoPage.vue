@@ -80,7 +80,7 @@ export default{
         })
       .then(res => {
             this.CourseInfos = res.data.records
-            this.newsTotal = res.data.total / this.pageSize + 1
+            this.newsTotal = res.data.total
         })
         .catch(error => {
           console.error(error);
