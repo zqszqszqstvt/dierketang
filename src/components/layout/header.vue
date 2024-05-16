@@ -141,6 +141,12 @@ export default {
               img: require("@/assets/layout/nav0402.png"),
               route: "/MyCourse"
             },
+            {
+              label: "能力画像",
+              code: "self05",
+              img: require("@/assets/layout/nav0402.png"),
+              route: "/Nenglihuaxiang"
+            },
           ],
         },
         // {

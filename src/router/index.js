@@ -53,6 +53,7 @@ import newLogin from "@/views/NewLogin/NewLogin.vue"
 import ThirdClass from "@/views/ThirdClass/ThirdClassPage.vue"
 import NewRegister from "@/views/Register/index.vue"
 import ShiYan from "@/views/ShiYan/CourseInfoPage.vue"
+import Nenglihuaxiang from "@/views/Nenglihuaxiang/page.vue"
 import request from "@/utils/request";
 // import NewLogin from "@/views/NewLogin/NewLogin.vue"
 // import student from "@/views/NewLogin/student.vue"
@@ -182,6 +183,14 @@ const routes = [
     name: 'MyCourse',
     components: {
       content: MyCourse,
+    },
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/Nenglihuaxiang",
+    name: 'Nenglihuaxiang',
+    components: {
+      content: Nenglihuaxiang,
     },
     meta: { requiresAuth: true }
   },
