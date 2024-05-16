@@ -72,7 +72,7 @@ export default {
   created() {
     this.loadNews()
     this.loadHot()
-    this.netrequest()
+    // this.netrequest()
   },
   mounted() {
     

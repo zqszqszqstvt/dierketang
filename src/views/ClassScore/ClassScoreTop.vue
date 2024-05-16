@@ -38,7 +38,7 @@
             <td><p>姓名：<strong>{{ information.username }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
           </tr>
           <tr>
-            <td><p>专业：<strong>{{ information.speciality }}</strong></p></td><td><p>排名：<strong>{{ information.rank }}</strong></p></td>
+            <td><p>专业：<strong>{{ information.speciality }}</strong></p></td><td><p>年级：<strong>{{ information.rank }}</strong></p></td>
           </tr>
         </table>
       </div>

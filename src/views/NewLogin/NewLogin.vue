@@ -131,6 +131,10 @@ export default {
               
               const id = res.data.id;
               localStorage.setItem('id', id);
+              const isLogin = true;
+              localStorage.setItem('isLogin', isLogin);
+              const username = res.data.username;
+              localStorage.setItem('username', username);
               const token = res.data.token;
               localStorage.setItem('Token', token);
               const redirect = this.$route.query.redirect || '/home';

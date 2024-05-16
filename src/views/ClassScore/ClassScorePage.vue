@@ -74,7 +74,7 @@
         ClassScoreCapacity
     },
     created() {
-      this.netrequest()
+      // this.netrequest()
       this.load()
     },
     computed: {

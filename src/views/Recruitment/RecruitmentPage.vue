@@ -157,7 +157,8 @@ export default{
     methods:{
         netrequest(){
             this.industry_category=[
-                {title:"互联网/IT电子/通信",active:true,moveon:false},
+                {title:"全部",active:true,moveon:false},
+                {title:"互联网/IT电子/通信",active:false,moveon:false},
                 {title:"房地产/建筑",active:false,moveon:false},
                 {title:"金融业",active:false,moveon:false},
                 {title:"教育培训/科研",active:false,moveon:false},
@@ -173,7 +174,8 @@ export default{
             }
             this.show_industry_category=this.industry_category_detains
             this.nature_category=[
-                {title:"上市公司",active:true,moveon:false},
+                {title:"全部",active:true,moveon:false},
+                {title:"上市公司",active:false,moveon:false},
                 {title:"国企",active:false,moveon:false},
                 {title:"外企",active:false,moveon:false},
                 {title:"民企",active:false,moveon:false},
@@ -183,26 +185,28 @@ export default{
 
             ],
             this.from_category=[
-                {title:"社招职位",active:true,moveon:false},
+                {title:"全部",active:true,moveon:false},
+                {title:"社招职位",active:false,moveon:false},
                 {title:"校园职位",active:false,moveon:false},
 
             ],
             this.date_category=[
-                {title:"一天内",active:true,moveon:false},
+                {title:"全部",active:true,moveon:false},
+                {title:"一天内",active:false,moveon:false},
                 {title:"三天内",active:false,moveon:false},
                 {title:"一周内",active:false,moveon:false},
                 {title:"两周内",active:false,moveon:false},
             ]
-            this.Infomations=[
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
-                ]
+            // this.Infomations=[
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     {position:"2024届校招四航局六公司机电管理岗",url:"",source:"校园招聘",city:"全国",recruitingNumber:"2",postingDate:"2023.08.12",company:"中交四航局",category:"房地产开发"},
+            //     ]
 
         },
         loadData() {

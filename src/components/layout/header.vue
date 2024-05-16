@@ -32,6 +32,29 @@
           </router-link>
         </div>
       </router-link>
+
+      <div v-if="userLoggedIn">
+        <el-dropdown class="nav">
+        <span class="el-dropdown-link">
+          {{ username }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item :icon="Plus" @click="signOut">退出</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+        
+      </div>
+      <!-- 登录/注册链接 -->
+      <router-link
+        v-else
+        class="nav"
+        :to="{ name: 'newLogin' }"
+      >
+        登录/注册
+      </router-link>
+
     </div>
   </div>
 </template>
@@ -52,6 +75,8 @@ export default {
   },
   data() {
     return {
+      userLoggedIn: false, // 假设这是一个标志，表示用户是否登录
+      username: '', // 用户头像的URL
       logoImg,
       titleImg,
       isHomePage: false,
@@ -118,14 +143,32 @@ export default {
             },
           ],
         },
-        {
-          label: "登录/注册",
-          code: "NewLogin",
-          route: "/NewLogin"
-        },
+        // {
+        //   label: "登录/注册",
+        //   code: "NewLogin",
+        //   route: "/NewLogin"
+        // },
       ],
     };
   },
+  methods: {
+    checkUserStatus() {
+      const isLogin = localStorage.getItem('isLogin');
+      // 将字符串 'true' 转换为布尔值 true
+      this.userLoggedIn = isLogin === 'true';
+      console.log('this.userLoggedIn',this.userLoggedIn)
+      this.username = localStorage.getItem('username'); // 假设这是用户头像的路径
+    },
+    signOut() {
+        console.log("执行了signOut")
+        localStorage.clear();
+        this.$router.push('/');
+      }
+  },
+  mounted() {
+    // 模拟用户登录状态和头像
+    this.checkUserStatus();
+  }
 };
 </script>
 
@@ -254,6 +297,15 @@ export default {
       }
     }
   }
+}
+.el-dropdown-link:focus {
+  outline: none; /* 移除焦点时的轮廓 */
+}
+
+/* 如果需要，也可以添加以下规则来确保所有相关状态都不显示边框 */
+.el-dropdown-link:active,
+.el-dropdown-link:visited {
+  border: none;
 }
 
 </style>

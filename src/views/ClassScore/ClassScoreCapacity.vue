@@ -1,6 +1,9 @@
 <template>
     <div>
-      <div style="display: flex;">
+      <el-icon class="is-loading" v-if="loading" style="font-size: 30px;">
+        <Loading />
+      </el-icon>
+      <div style="display: flex;" v-else>
         <div class="radar">
           <canvas id="radarChart" width="370" height="370"></canvas>
         </div>
@@ -25,7 +28,8 @@
       years: [],
       scores: [],
       radarChart: null,
-      lineChart: null
+      lineChart: null,
+      loading: true
     }
   },
   watch: {
@@ -144,7 +148,7 @@
       "years": line_term,
       "scores": line_score
     }
-
+    this.loading = false
     console.log("总数据", data)
     return data;
   } catch (error) {

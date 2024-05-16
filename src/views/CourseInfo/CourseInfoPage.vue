@@ -93,13 +93,13 @@ export default{
                 {title:'网络与安全技术',active:false},
                 {title:'硬件系统原理',active:false}
             ]
-            this.CourseInfos = [
-                {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-                {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
-            ]
+            // this.CourseInfos = [
+            //     {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+            //     {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+            //     {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+            //     {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+            //     {image:'https://img2.baidu.com/it/u=1146356794,2232267389&fm=253&fmt=auto&app=138&f=JPEG?w=820&h=500',title:'如何学好JAVA',teacher:'王强',university:'武汉工程大学',introduction:'通过学习本课程，你可以基本掌握python的语法，学习教程之后，进一步学习进阶教程，你可以走得更远!'},
+            // ]
         },
         loadData() {
             this.request.get("/api/user/disi/list",{
