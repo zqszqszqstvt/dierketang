@@ -21,10 +21,10 @@
         <label for="awardLevel">得奖等级</label>
         <select id="awardLevel" v-model="awardLevel">
           <!-- 这里添加你的选项 -->
-          <option value="1">一等奖</option>
-          <option value="2">二等奖</option>
-          <option value="3">三等奖</option>
-          <option value="0">特等奖</option>
+          <option value="一等奖">一等奖</option>
+          <option value="二等奖">二等奖</option>
+          <option value="三等奖">三等奖</option>
+          <option value="特等奖">特等奖</option>
         </select>
       </div>
       <div class="form-group">
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       competitionLevel: '0',
-      awardLevel: '1',
+      awardLevel: '一等奖',
       competitionName: '',
       file: null,
       imgurl:''

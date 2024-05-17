@@ -35,10 +35,10 @@
       <h2 class="top-title">第三课堂总成绩</h2>
         <table>
           <tr>
-            <td><p>姓名：<strong>{{ information.username }}</strong></p></td> <td> <p>学院：<strong>{{ information.college }}</strong></p></td>
+            <td><p>姓名：<strong>{{ information?.username }}</strong></p></td> <td> <p>学院：<strong>{{ information?.college }}</strong></p></td>
           </tr>
           <tr>
-            <td><p>年级：<strong>{{ information.rank }}</strong></p></td><td><p>班级：<strong>{{ information.dept }}</strong></p></td>
+            <td><p>年级：<strong>{{ information?.rank }}</strong></p></td><td><p>班级：<strong>{{ information?.dept }}</strong></p></td>
           </tr>
         </table>
       </div>
