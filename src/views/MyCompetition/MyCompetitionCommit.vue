@@ -11,10 +11,10 @@
         <label for="competitionLevel">竞赛等级</label>
         <select id="competitionLevel" v-model="competitionLevel">
           <!-- 这里添加你的选项 -->
-          <option value="0">世界级</option>
-          <option value="1">国家级</option>
-          <option value="2">省级</option>
-          <option value="3">校级</option>
+          <option value="世界级">世界级</option>
+          <option value="国家级">国家级</option>
+          <option value="省级">省级</option>
+          <option value="校级">校级</option>
         </select>
       </div>
       <div class="form-group">
@@ -45,7 +45,7 @@ export default {
   name: 'MyCompetitionCommit',
   data() {
     return {
-      competitionLevel: '0',
+      competitionLevel: '世界级',
       awardLevel: '一等奖',
       competitionName: '',
       file: null,
