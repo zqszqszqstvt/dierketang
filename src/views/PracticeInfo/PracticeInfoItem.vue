@@ -1,83 +1,110 @@
 <template>
-    <div class="box">
-      <div class="left-img">
-        <img :src="competition.image" alt="">
-      </div>
-      <div class="left-info">
-        <h3 class="tit">
-          <strong class="title">
-            {{ competition.title }}
-          </strong>
-        </h3>
-        <div class="competition-info">
-          <p class="event4-1-plan">
+  <div class="box">
+    <div class="left-img">
+      <img :src="competition.image" alt="">
+    </div>
+    <div class="left-info">
+      <h3 class="tit">
+        <strong class="title">
+          {{ competition.title }}
+        </strong>
+      </h3>
+      <div class="competition-info">
+        <p class="event4-1-plan">
           <span class="item-tit">简介</span>{{ competition.introduction }}
-          </p>
-          <p class="event4-1-plan">
-            <span class="item-tit">时间</span>{{ ToTime(competition.activityStartDate) }} - {{ ToTime(competition.activityEndDate) }}
-          </p>
-          <p class="event4-1-plan">
-            <span class="item-tit">地点</span>{{ competition.address }}
-          </p>
-        </div>
-      </div>
-      <div class="right-info">
-        <div class="login-button"  :class="getStatusClass(competition.status)">
-          <a :href="competition.link" target="_blank">{{ competition.status }}</a>
-        </div>
-        <div class="item-status">
-          选课 {{ competition.remainingDays }} 
-        </div>
+        </p>
+        <p class="event4-1-plan">
+          <span class="item-tit">时间</span>{{ formattedActivityStartDate }} - {{ formattedActivityEndDate }}
+        </p>
+        <p class="event4-1-plan">
+          <span class="item-tit">地点</span>{{ competition.address }}
+        </p>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'PracticeInfoItem',
-    data() {
-      return {
-        
-      };
+    <div class="right-info">
+      <div class="login-button" :class="getStatusClass(status)">
+        <a :href="competition.link" target="_blank">{{ getStatusText(status) }}</a>
+      </div>
+      <div class="item-status">
+        {{ statusText }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'PracticeInfoItem',
+  data() {
+    return {
+      status: true,
+      remainingDays: 0,
+    };
+  },
+  computed: {
+    formattedActivityStartDate() {
+      return this.formatDate(this.competition.activityStartDate);
     },
-    computed: {
-      
+    formattedActivityEndDate() {
+      return this.formatDate(this.competition.activityEndDate);
     },
-    props: {
-      competition: {
-        type: Object,
-        required: true
+    statusText() {
+      if (this.status) {
+        return `还剩 ${this.remainingDays} 天`;
+      } else {
+        return ' ';
       }
     },
-    methods: {
-      getStatusClass(status) {
-        switch (status) {
-          case '进行中':
-            return 'status1';
-          case '已结束':
-            return 'status0';
-          default:
-            return '';
-        }
-      },
-      ToTime(time) {
-        if (!Array.isArray(time) || !time.length) {
-          console.error('Invalid time:', time);
-          return '';
-        }
-        let date = this.convertToDate(time);
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1; // getMonth() 返回的月份从 0 开始
-        let day = date.getDate();
-        return `${year}年${month}月${day}日`;
-      },
-      convertToDate(array) {
-        let date = new Date(array[0], array[1] - 1, array[2], array[3], array[4]);
-        return date;
-      },
-    } 
-  };
-  </script>
+  },
+  props: {
+    competition: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    getStatusClass(status) {
+      return status ? 'status1' : 'status0';
+    },
+    getStatusText(status) {
+      return status ? '进行中' : '已结束';
+    },
+    formatDate(dateArray) {
+      if (!Array.isArray(dateArray) || !dateArray.length) {
+        console.error('Invalid date:', dateArray);
+        return '';
+      }
+      const date = new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1; // getMonth() 返回的月份从 0 开始
+      const day = date.getDate();
+      return `${year}年${month}月${day}日`;
+    },
+    calculateRemainingDays() {
+      const today = new Date();
+      const activityStartDate = new Date(this.competition.activityStartDate[0], this.competition.activityStartDate[1] - 1, this.competition.activityStartDate[2]);
+      const activityEndDate = new Date(this.competition.activityEndDate[0], this.competition.activityEndDate[1] - 1, this.competition.activityEndDate[2]);
+
+      if (today >= activityEndDate) {
+        this.status = false;
+        this.remainingDays = 0;
+      } else if (today < activityStartDate) {
+        this.status = true;
+        const timeDiff = activityStartDate - today;
+        this.remainingDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      } else {
+        this.status = true;
+        const timeDiff = activityEndDate - today;
+        this.remainingDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      }
+    },
+  },
+  created() {
+    this.calculateRemainingDays();
+  }
+};
+</script>
+
   <style lang="less" scoped>
     .box {
       margin-top: 15px;

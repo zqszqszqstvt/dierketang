@@ -123,12 +123,29 @@
         console.log(this.$store.state.competitionType)
       },
       load(){
+        let date;
+      switch (this.$store.state.postingDate) {
+        case '全部':
+            break;
+        case '近一周内':
+          date = this.getFormattedDate(-7);
+          console.log(date)
+          break;
+        case '近两周内':
+          date = this.getFormattedDate(-14);
+          break;
+        case '近半年内':
+          date = this.getFormattedDate(-182);
+          break;
+        default:
+          date = this.getFormattedDate(-1);
+      }
         this.request.get("/api/user/disan/getlist", {
           params: {
             category: this.$store.state.practiceCategory,
             type: this.$store.state.practiceType,
             level: this.$store.state.practiceLevel,
-            activity_start_date: this.$store.state.practiceFirstDate,
+            activity_start_date: this.$store.state.practiceFirstDate === '全部' ? null : this.$store.state.practiceFirstDate,
             pagesum: this.pageSize,
             pageid: this.currentPage
           }

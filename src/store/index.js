@@ -11,10 +11,10 @@ export default createStore({
     practiceLevel: "全部",
     practiceFirstDate: "全部",
     // 招聘
-    category: '互联网/IT电子/通信',
-    companyNature: '上市公司',
-    soure: '社招职位',
-    postingDate: '一天内',
+    category: '全部',
+    companyNature: '全部',
+    soure: '全部',
+    postingDate: '全部',
     // 弹窗 
     addCopetitionShow: false,
     addGradesShow: false,

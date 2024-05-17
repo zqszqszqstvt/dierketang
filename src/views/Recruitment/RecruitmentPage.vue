@@ -212,8 +212,11 @@ export default{
         loadData() {
             let date;
       switch (this.$store.state.postingDate) {
+        case '全部':
+            break;
         case '一天内':
           date = this.getFormattedDate(-1);
+          console.log(date)
           break;
         case '三天内':
           date = this.getFormattedDate(-3);
@@ -229,10 +232,10 @@ export default{
       }
             this.request.get("/api/user/recruit/getlist",{
           params: {
-            category: this.$store.state.category,
-            companyNature: this.$store.state.companyNature,
-            soure: this.$store.state.soure,
-            postingDate: date,
+            category: this.$store.state.category === '全部' ? null : this.$store.state.category,
+            companyNature: this.$store.state.companyNature === '全部' ? null : this.$store.state.companyNature,
+            soure: this.$store.state.soure === '全部' ? null : this.$store.state.soure,
+            postingDate: date === '全部' ? null : date,
             size: this.pageSize,
             page: this.currentPage
           }
