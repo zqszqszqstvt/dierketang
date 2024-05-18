@@ -65,7 +65,7 @@ export default {
           formData.append('image', this.imgurl);
           formData.append('student_id', localStorage.getItem('id'));
           formData.append('competition_level', this.competitionLevel);
-          formData.append('award_level', this.awardLevel);
+          formData.append('awards_level', this.awardLevel);
           formData.append('competition_name', this.competitionName);
           this.request.post("/api/user/pic/upmycomp", formData)
           .then(res => {
