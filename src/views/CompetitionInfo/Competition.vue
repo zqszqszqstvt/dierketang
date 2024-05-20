@@ -20,10 +20,10 @@
           <span class="item-tit">竞赛级别</span>{{ competition.level }}
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">报名时间:{{ competition.register_start_date }} - {{ competition.register_end_date }} </span>
+          <span class="item-tit">报名时间:{{ competition.registerStartDate }} - {{ competition.registerEndDate }} </span>
         </p>
         <p class="event4-1-plan">
-          <span class="item-tit">比赛时间:{{competition.compete_start_date}} - {{competition.compete_end_date}}</span>
+          <span class="item-tit">比赛时间:{{competition.competeStartDate}} - {{competition.competeEndDate}}</span>
         </p>
       </div>
     </div>
@@ -31,11 +31,17 @@
       <div class="details">
         竞赛详情>
       </div>
-      <div class="login-button">
+      <div class="login-button" v-if="getDeadlineDate(competition.registerEndDate) >= 0">
         <a :href="competition.link" target="_blank">报名请登录</a>
       </div>
-      <div class="item-status">
-        距离报名截止还有 {{getDeadlineDate(competition.register_end_date) }} 天
+      <div class="login-button1" v-else>
+        <a :href="competition.link" target="_blank">竞赛信息</a>
+      </div>
+      <div class="item-status" v-if="getDeadlineDate(competition.registerEndDate) >= 0">
+        距离报名截止还有 {{ getDeadlineDate(competition.registerEndDate) }} 天
+      </div>
+      <div class="item-status" v-else>
+        报名已截止
       </div>
     </div>
   </div>
@@ -168,6 +174,20 @@ export default {
     line-height: 30px;
     text-align: center;
     background-color: #7341C2;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-button1{
+    font-size: 20px;
+    width: 160px;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #B3B3B3;
     color: #fff;
     border-radius: 5px;
     margin-top: 40%;

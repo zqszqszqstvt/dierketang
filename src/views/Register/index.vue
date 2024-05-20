@@ -75,7 +75,7 @@
           sno: this.sno,
           dept: this.dept
         };
-        axios.post('http://47.96.75.164:8080/user/register', formData)
+        axios.post('/user/register', formData)
           .then(response => {
             console.log(response);
             this.$router.push('/newLogin');

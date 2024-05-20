@@ -72,7 +72,7 @@ export default{
             ]
         },
         loadData() {
-            this.request.get("/api/user/disi/list",{
+            this.request.get("/user/disi/list",{
           params: {
             page: this.currentPage,
             size: this.pageSize,

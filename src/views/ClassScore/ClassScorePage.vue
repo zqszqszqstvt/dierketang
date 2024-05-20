@@ -92,7 +92,7 @@
         if (this.$store.state.term !== "0") {
           params.term = this.$store.state.term
         }
-        this.request.get("/api/user/pic/getclass", {params})
+        this.request.get("/user/pic/getclass", {params})
       .then(res => {
             this.grades = res.data
         })

@@ -84,7 +84,7 @@
             }
         },
         load(){
-        this.request.get("/api/user/disan/getgrade", {
+        this.request.get("/user/disan/getgrade", {
           params: {
             id: localStorage.getItem('id')
           }

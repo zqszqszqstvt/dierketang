@@ -119,7 +119,7 @@
     },
     async getData() {
   try {
-    const res1 = await this.request.get("/api/user/pic/mygradepic", {
+    const res1 = await this.request.get("/user/pic/mygradepic", {
       params: {
         id: localStorage.getItem('id')
       }
@@ -128,7 +128,7 @@
     let line_score = res1.data.list.map(item => item.grade ?? 0);
     let line_term = res1.data.list.map(item => item.term).map(this.termToYear);
 
-    const res2 = await this.request.get("/api/user/pic/mypic", {
+    const res2 = await this.request.get("/user/pic/mypic", {
       params: {
         id: localStorage.getItem('id')
       }

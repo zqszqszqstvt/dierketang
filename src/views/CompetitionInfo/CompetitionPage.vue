@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     load() {
-      this.request.get("/api/user/comp/getlist",{
+      this.request.get("/user/comp/getlist",{
         params: {
           category: this.$store.state.competitionType,
           level: this.$store.state.competitionLevelType,

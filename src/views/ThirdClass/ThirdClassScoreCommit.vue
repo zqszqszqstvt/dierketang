@@ -63,7 +63,7 @@
           formData.append('activity_name', this.subjectName);
           formData.append('category', this.gradeLevel);
           formData.append('grade', this.Score);
-          this.request.post("/api/user/disan/upscore", formData)
+          this.request.post("/user/disan/upscore", formData)
           .then(res => {
               alert("已提交！")
         })
@@ -79,7 +79,7 @@
         let formData = new FormData();
         formData.append('file', this.file);
         console.log('formData的file为：', formData.get('file'));
-        this.request.post("/api/user/common/upload", formData)
+        this.request.post("/user/common/upload", formData)
           .then(res => {
               this.imgurl = res.data
               console.log("链接", this.imgurl)

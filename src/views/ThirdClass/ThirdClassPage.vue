@@ -55,7 +55,7 @@
     },
     methods: {
       load(){
-        this.request.get("/api/user/disan/shijian", {
+        this.request.get("/user/disan/shijian", {
           params: {
             id: localStorage.getItem('id')          }
         })

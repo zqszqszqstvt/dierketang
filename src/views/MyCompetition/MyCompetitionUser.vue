@@ -1,7 +1,7 @@
 <template>
   <div class="profile" v-if="userInfo">
     <div class="user">
-      <img :src="userInfo.avatarUrl" alt="头像" class="avatar">
+      <img :src="avatarUrl" alt="头像" class="avatar">
       <div class="user-info">
         <h2>{{ userInfo.username }}</h2>
         <p>{{ userInfo.speciality }}</p>
@@ -43,7 +43,8 @@ export default {
     return {
       userInfo: null,
       radius: 50,
-      progress: 0
+      progress: 0,
+      avatarUrl: 'https://image.baidu.com/search/detail?ct=503316480&z=0&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F%E8%83%A1%E6%AD%8C&step_word=&lid=8054592589827221594&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=0&latest=0&copyright=0&cs=1175031557,3844253865&os=1645115060,1992769875&simid=3350756784,341162750&pn=10&rn=1&di=7355526631391232001&ln=1786&fr=&fmq=1716172925744_R&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=1e&objurl=https%3A%2F%2Fp4.itc.cn%2Fq_70%2Fimages03%2F20201117%2Faf2608d642124d1fa1664c9ab9e73f10.jpeg&rpstart=0&rpnum=0&adpicid=0&nojc=undefined&dyTabStr=MCwzLDEsMiw2LDUsNCw4LDcsOQ%3D%3D'
     };
   },
   created() {
@@ -51,7 +52,7 @@ export default {
   },
   methods: {
     load(){
-        this.request.get("/api/user/pic/top", {
+        this.request.get("/user/pic/top", {
           params: {
             id: localStorage.getItem('id')
           }

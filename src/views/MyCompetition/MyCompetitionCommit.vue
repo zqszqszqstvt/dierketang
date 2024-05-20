@@ -67,7 +67,7 @@ export default {
           formData.append('competition_level', this.competitionLevel);
           formData.append('awards_level', this.awardLevel);
           formData.append('competition_name', this.competitionName);
-          this.request.post("/api/user/pic/upmycomp", formData)
+          this.request.post("/user/pic/upmycomp", formData)
           .then(res => {
               alert("已提交！")
         })
@@ -83,7 +83,7 @@ export default {
         let formData = new FormData();
         formData.append('file', this.file);
         console.log('formData的file为：', formData.get('file'));
-        this.request.post("/api/user/common/upload", formData)
+        this.request.post("/user/common/upload", formData)
           .then(res => {
               this.imgurl = res.data
               console.log("链接", this.imgurl)

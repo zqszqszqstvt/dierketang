@@ -140,7 +140,7 @@
         default:
           date = this.getFormattedDate(-1);
       }
-        this.request.get("/api/user/disan/getlist", {
+        this.request.get("/user/disan/getlist", {
           params: {
             category: this.$store.state.practiceCategory,
             type: this.$store.state.practiceType,
