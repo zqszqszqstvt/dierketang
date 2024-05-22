@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     handleClick() {
-      this.request.put("/user/kaoyan/addhot",{
+      this.request.put("/api/user/kaoyan/addhot",{
           params: {
             id: this.id
           }

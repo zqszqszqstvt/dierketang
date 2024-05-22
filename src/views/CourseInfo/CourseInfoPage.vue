@@ -102,7 +102,7 @@ export default{
             // ]
         },
         loadData() {
-            this.request.get("/user/disi/list",{
+            this.request.get("/api/user/disi/list",{
           params: {
             type: this.selectedCategory === '全部' ? null : this.selectedCategory,
             text: this.searchInfo,
@@ -122,7 +122,7 @@ export default{
             this.selectedCategory = selectedCategory
         },
         querySearch(queryString,cb){
-            this.request.get("/user/disi/list",{
+            this.request.get("/api/user/disi/list",{
           params: {
             type: '全部',
             text: this.searchInfo,

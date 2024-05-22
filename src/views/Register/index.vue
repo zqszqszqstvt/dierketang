@@ -75,7 +75,7 @@
           sno: this.sno,
           dept: this.dept
         };
-        axios.post('/user/register', formData)
+        axios.post('/api/user/register', formData)
           .then(response => {
             console.log(response);
             this.$router.push('/newLogin');

@@ -109,7 +109,7 @@ export default {
   },
   methods:{
     loadCodeImg() {
-      this.request.get("/user/login/checkcode")
+      this.request.get("/api/user/login/checkcode")
           .then(res => {
               this.codeImg = res.data.img
               this.uuid = res.data.uuid
@@ -120,7 +120,7 @@ export default {
         });
     },
     login() {
-      this.request.post("/user/login/log",
+      this.request.post("/api/user/login/log",
         {
           username: this.userName,
           password: this.password,

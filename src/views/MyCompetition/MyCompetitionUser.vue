@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     load(){
-        this.request.get("/user/pic/top", {
+        this.request.get("/api/user/pic/top", {
           params: {
             id: localStorage.getItem('id')
           }

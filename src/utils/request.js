@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const request = axios.create({
-    baseURL: 'http://121.199.161.167:8082',  // 将这里替换为你的服务器地址//121.199.161.167:8082
+    baseURL: '/',  // 将这里替换为你的服务器地址//121.199.161.167:8082
     timeout: 10000
 })
 

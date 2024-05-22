@@ -242,7 +242,7 @@ export default {
   },
   methods: {
     loadInfo(){
-        this.request.get("/user/disi/mygrade", {
+        this.request.get("/api/user/disi/mygrade", {
           params: {
             id: localStorage.getItem('id'),
           }
@@ -259,7 +259,7 @@ export default {
         });
       },
       loadcos(){
-        this.request.get("/user/disi/getlist", {
+        this.request.get("/api/user/disi/getlist", {
           params: {
             pagesum: this.pageSize,
             pageid: this.currentPage
@@ -274,7 +274,7 @@ export default {
         });
       },
       loadsum() {
-        this.request.get("/user/disi/Data", {
+        this.request.get("/api/user/disi/Data", {
           params: {
             id: localStorage.getItem('id')
           }

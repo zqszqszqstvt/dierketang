@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     load() {
-      this.request.get("/user/pic/mycomp", {
+      this.request.get("/api/user/pic/mycomp", {
           params: {
             id: localStorage.getItem('id')
           }

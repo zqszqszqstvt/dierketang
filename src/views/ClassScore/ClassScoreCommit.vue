@@ -63,7 +63,7 @@
           formData.append('course_name', this.subjectName);
           formData.append('term', this.gradeLevel);
           formData.append('grade', this.Score);
-          await this.request.post("/user/pic/upscore", formData)
+          await this.request.post("/api/user/pic/upscore", formData)
           .then(res => {
               alert("已提交！")
         })
@@ -77,7 +77,7 @@
         formData.append('file', this.file);
         console.log('formData.get(file)：', formData.get('file'));
         try {
-          let res = await this.request.post("/user/common/upload", formData, {
+          let res = await this.request.post("/api/user/common/upload", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }

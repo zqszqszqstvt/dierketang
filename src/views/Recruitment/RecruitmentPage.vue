@@ -230,7 +230,7 @@ export default{
         default:
           date = this.getFormattedDate(-1);
       }
-            this.request.get("/user/recruit/getlist",{
+            this.request.get("/api/user/recruit/getlist",{
           params: {
             category: this.$store.state.category,
             companyNature: this.$store.state.companyNature,

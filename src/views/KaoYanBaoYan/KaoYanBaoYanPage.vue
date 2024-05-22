@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     loadNews() {
-      this.request.get("/user/kaoyan/getlist",{
+      this.request.get("/api/user/kaoyan/getlist",{
           params: {
             size: this.pageSize,
             page: this.currentPage
@@ -102,7 +102,7 @@ export default {
         });
     },
     loadHot() {
-      this.request.get("/user/kaoyan/hot")
+      this.request.get("/api/user/kaoyan/hot")
       .then(res => {
             this.HotBaoYanInfos = res.data.records
             this.hotTotal = res.data.total

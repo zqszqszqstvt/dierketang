@@ -81,7 +81,7 @@
     },
     methods: {
       load(){
-        this.request.get("/user/pic/getscore", {
+        this.request.get("/api/user/pic/getscore", {
           params: {
             id: localStorage.getItem('id')
           }
